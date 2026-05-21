@@ -8,7 +8,7 @@ A Ship is one short article. It answers three questions, in this order. If you c
 
 The change, in plain English. No marketing.
 
-- Name the thing. Not "improved performance" — "wired Gemini Managed Agents into Ruby's router as a third inference path."
+- Name the thing. Not "improved performance". Try "wired Gemini Managed Agents into Ruby's router as a third inference path."
 - One sentence is fine. Three is fine. A paragraph is too many.
 - If the change has a function name, a CLI command, or a URL, write it down.
 
@@ -17,7 +17,7 @@ The change, in plain English. No marketing.
 The reason, with a number where possible.
 
 - "Three to eight times cheaper on agentic loops." Good.
-- "It's faster." Bad — faster than what, by how much.
+- "It's faster." Bad. Faster than what, by how much.
 - The number doesn't have to be precise. "Roughly" is fine. "Vibe" is not.
 - If the answer is "it's interesting" or "the team wanted to," the change probably isn't worth a Ship.
 
@@ -46,6 +46,7 @@ The honest caveat. The thing that didn't make it. The risk you accepted.
 
 Whenever something ships. Not on a schedule. The rhythm is the work, not the calendar.
 
----
+## That's it.
 
-That's it. The rest is examples.
+The rest is examples.
+

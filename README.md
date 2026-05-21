@@ -8,10 +8,10 @@ The live log lives at [workloft.ai/ships](https://workloft.ai/ships).
 
 This repo contains:
 
-- [`RITUAL.md`](./RITUAL.md) — the rule. Every ship answers three questions, or it doesn't go in the log.
-- [`examples/`](./examples) — articles from our own log, as reference.
+- [`RITUAL.md`](./RITUAL.md) is the rule. Every ship answers three questions, or it doesn't go in the log.
+- [`examples/`](./examples) holds articles from our own log, as reference.
 
-Steal what you want. There's nothing to install.
+Steal what you want. Nothing to install.
 
 ## Why it's here
 
@@ -23,10 +23,11 @@ That's the whole pitch.
 
 ## Not the design
 
-This repo deliberately doesn't include our HTML template. The site is the smallest piece of the value — the ritual is the work. If you want a Star Trek bridge for your own log, build your own.
+This repo deliberately doesn't include our HTML template. The site is the smallest piece of the value. The ritual is the work. If you want a Star Trek bridge for your own log, build your own.
 
 ## Licence
 
-MIT. Copy, fork, ignore — your call.
+MIT. Copy, fork, ignore. Your call.
 
-— Alfred Churchill, Workloft
+Alfred Churchill, Workloft
+
