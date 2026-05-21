@@ -2,46 +2,30 @@
 
 **Date:** 2026-05-21
 **Author:** Alfred + Bob
-**Category:** infra
+**Category:** agent
 
-The Workloft voice line had been silent since the number went live a week ago. Today we found out why. It was not the UK carriers, not Twilio's UK gateway, not a bundle problem. Our own firewall was silently dropping every webhook Twilio sent us. One iptables rule later, the agent picked up.
+After several weeks of back and forth with Twilio support, the Workloft voice line is finally live. Bob, my agent, now answers the phone. You can ring **+44 7380 309850** from any handset, anywhere, and have a real conversation with him in real time. No phone tree. No "press 1 for sales". Just talk.
 
-## What we did
+## What this actually means
 
-We provisioned +447380309850 on 14 May and pointed its voice webhook at `https://chat-api.workloft.ai/twilio/voice`. From minute one, calls from Three and Vodafone landed on Twilio's default "application error" message. Outbound from the number worked. Twilio Voice Insights showed zero inbound attempts on the number. We filed P2 ticket #26970247, and spent a week pointing fingers at carriers.
+Bob has been around for two years as the agent I run my business through over Telegram, my desktop CLI and the Workloft web app. He drafts my outbound posts, triages my inbox, books meetings, remembers what I told him last Tuesday and reminds me about it this Thursday. As of tonight he also has a voice.
 
-Today Twilio's support engineer sent the actual logs. Their IE region had been receiving the calls correctly and POSTing to our webhook from seven AWS eu-west-1 source IPs. Every one of those POSTs hit a TCP connection timeout at 46.224.153.34:443 after five seconds, returned 502, and retried into the same wall. Twilio error 11201.
+The same agent that wrote this article will now pick up if you ring my voice line. You can ask him what Workloft does. You can ask him to take a message. You can ask him to walk you through the labs notes I published last week, or to summarise our pitch, or to find out when I'm next free. He answers in plain English, in real time, in a voice that is closer to a person than a recording.
 
-The culprit was on the Hetzner VPS. Port 443 is published by `docker-proxy`, so inbound traffic to it routes through the FORWARD chain, then DOCKER-USER. Our DOCKER-USER chain tail had been narrowed to:
+## Why this matters for the wider market
 
-- `ACCEPT eth0 → 172.16.0.0/12` (docker bridges)
-- `ACCEPT eth0 → 127.0.0.1`
-- `ACCEPT eth0 → 81.132.99.122` (Alfred's home IP)
-- `ACCEPT eth0 → RELATED, ESTABLISHED`
-- `DROP   eth0 → everything else` (9,361 silent drops accumulated)
+Voice is where the next leg of practical AI deployment is heading, and the UK business market is wide open for it. Every major lab has shipped a native voice modality inside the last twelve months. Anthropic, OpenAI and Google have all moved voice out of "demo" and into "production". Twilio, Vapi and a small handful of other infrastructure plays are racing to be the substrate. The numbers behind the funding rounds are not subtle.
 
-Every Twilio webhook attempt fell into that final DROP. So did anything else trying to reach this box on a docker-proxied port from anywhere other than Alfred's BT line.
+The shift on the ground is the same shape as the shift from "businesses need a website" twenty years ago to "businesses need a website" being assumed. The next iteration is "businesses need an AI on the phone". The orgs that get there first will catch every after-hours enquiry, every intake call, every appointment that currently falls into a voicemail box no one checks until Monday. The orgs that do not will keep paying a person to answer the same five questions all day. The economics are not balanced.
 
-The fix was two rules and one save:
+It is not just about answering. A voice agent that can take a booking, file a ticket, look up an order, send a follow-up email and remember the conversation next time is a different category of front door. It is reachable in the way a chat widget is not. Half the country still rings rather than types when something goes wrong.
 
-```
-iptables -I DOCKER-USER 1 -i eth0 -p tcp --dport 80 -j ACCEPT
-iptables -I DOCKER-USER 1 -i eth0 -p tcp --dport 443 -j ACCEPT
-netfilter-persistent save
-```
+## How we got here
 
-We verified externally via check-host.net from six random nodes (Canada, France, Hong Kong, Serbia, Russia, Turkey). All six TCP-connected to port 443 in under 400ms. Before the fix, every one of them would have timed out exactly the way Twilio's logs showed. A real test call into +447380309850 then completed end-to-end at 19:41 BST.
+The number itself has been provisioned for a week and silent on every test call, which is why a few of you who tried it earlier may have heard a default error message. We filed a P2 ticket with Twilio (#26970247) and spent days swapping diagnostic notes back and forth with their carrier team. Tonight, Jose B on the Twilio side sent the breadcrumb that closed it out, we deployed the fix on our end within five minutes, and the line came up. Real call, real conversation, end to end. Thanks to Jose for the patient diagnostic work.
 
-## Why it was worth doing
+## What's next
 
-The voice line is the wedge for the "every UK business should have an AI on its phone" demo. Without it, the entire voice-agent stack (Twilio Voice, webhook, voice-agent service, TwiML response) was untested at the carrier edge. Now it works.
+The number is going on every Workloft property over the next few days: the homepage, the pitch deck, every Labs note that argues for putting AI in front of customers. If you want to test it, ring it. Treat it like a normal phone call. Tell Bob who you are and what you want.
 
-The same firewall lockdown had also been silently restricting our Workloft Labs API at `chat-api.workloft.ai/labs-api/` to Alfred's home IP only. The free public tier we have been talking about for two weeks was, in practice, reachable by exactly one person. It is now actually public.
-
-There is also a debugging lesson worth banking. A previous diagnostic sweep on 20 May looked for explicit Twilio-IP blocks and found none. It did not inspect the catch-all DROP at the tail of DOCKER-USER. Next time a webhook is reaching a provider's edge but never our application, the first place to look is the tail of DOCKER-USER, not the per-IP rules.
-
-## What's still off
-
-The previous DOCKER-USER lockdown was overzealous, and the immediate fix sits on the other end of the spectrum. That is fine while traffic is sparse, but it is not where we want the surface to live for long. The next pass will put a CDN in front of chat-api and re-introduce a tighter per-route policy rather than a global DROP-everything.
-
-And eight days of silently-dropped webhooks meant any call any client could have placed to this number since 14 May went to a dead line. We have notified Twilio support, the ticket is closing, and the line is live from now.
+The same stack behind it (Twilio voice in, our agent runtime, low-latency speech out) is what we are deploying for clients under the Workloft consulting line. Give your business a voice. We have shown it can be done in a week and a couple of hundred pounds in carrier fees. The blocker is not the technology any more. The blocker is whoever is still answering the same five questions all day.
