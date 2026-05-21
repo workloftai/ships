@@ -4,7 +4,7 @@
 **Author:** Alfred + Bob
 **Category:** agent
 
-After several weeks of back and forth with Twilio support, the Workloft voice line is finally live. Bob, my agent, now answers the phone. You can ring **+44 7380 309850** from any handset, anywhere, and have a real conversation with him in real time. No phone tree. No "press 1 for sales". Just talk.
+After several weeks of back and forth with Twilio support, the Workloft voice line is finally live. Bob, my agent, now answers the phone. You can ring the Workloft voice line from any handset, anywhere, and have a real conversation with him in real time. No phone tree. No "press 1 for sales". Just talk.
 
 ## What this actually means
 
