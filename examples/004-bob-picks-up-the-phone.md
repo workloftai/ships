@@ -42,8 +42,6 @@ There is also a debugging lesson worth banking. A previous diagnostic sweep on 2
 
 ## What's still off
 
-Port 80 and 443 are now open from any source. App-level auth and TLS are the only gates. There is no Twilio-CIDR allowlist at L4 and no rate limiting in front of the docker stack. We rely on Traefik and the application to handle abuse. The previous lockdown was overzealous. The new posture sits on the open end.
-
-Before the labs-api free tier sees real public traffic, we will want to put Cloudflare in front of chat-api and tighten the surface again with a per-route policy rather than a global DROP-everything.
+The previous DOCKER-USER lockdown was overzealous, and the immediate fix sits on the other end of the spectrum. That is fine while traffic is sparse, but it is not where we want the surface to live for long. The next pass will put a CDN in front of chat-api and re-introduce a tighter per-route policy rather than a global DROP-everything.
 
 And eight days of silently-dropped webhooks meant any call any client could have placed to this number since 14 May went to a dead line. We have notified Twilio support, the ticket is closing, and the line is live from now.
