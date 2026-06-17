@@ -20,7 +20,7 @@ It is one flag: `vera.poll.evaluate(synthesize=True)`, or `--map` on the CLI. Th
 
 ## Why it was worth doing
 
-We ran it on a real architecture call: should Conexus isolate each Local Authority's data with Postgres row-level security in a shared table, or keep schema-per-tenant. The panel killed it unanimously, three votes, 0.94 confidence. A normal gate stops there. The map carried on and earned its keep: it found the three jurors had killed it for different reasons (one on technical blast radius, one on compliance certification, one on cost-benefit), then surfaced three blind spots none of them raised, including the hybrid option (schema-per-tenant with RLS as a defence-in-depth layer) and the UK GDPR Article 28 angle.
+We ran it on a real architecture call: should ReferRoute isolate each Local Authority's data with Postgres row-level security in a shared table, or keep schema-per-tenant. The panel killed it unanimously, three votes, 0.94 confidence. A normal gate stops there. The map carried on and earned its keep: it found the three jurors had killed it for different reasons (one on technical blast radius, one on compliance certification, one on cost-benefit), then surfaced three blind spots none of them raised, including the hybrid option (schema-per-tenant with RLS as a defence-in-depth layer) and the UK GDPR Article 28 angle.
 
 Most agent failures are not the model failing to write words. They are a model being confidently wrong about one thing the others flagged, or the whole panel sharing a blind spot. A single confident answer hides both. A disagreement map shows you exactly where to look before you commit.
 
