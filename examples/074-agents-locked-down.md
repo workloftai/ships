@@ -30,6 +30,6 @@ This is one brick in a wall, not the wall. Still needed: short-lived, rotating k
 
 ## What's now in the stack
 
-- `code/074-agents-locked-down/instruction_scan.py` — the scanner: rule set, sanitiser, structured output, built-in self-test (`--demo`).
-- `code/074-agents-locked-down/README.md` — how and when to run it.
+- `code/074-agents-locked-down/instruction_scan.py`: the scanner: rule set, sanitiser, structured output, built-in self-test (`--demo`).
+- `code/074-agents-locked-down/README.md`: how and when to run it.
 - A proven, documented append-only change for the audit log.
