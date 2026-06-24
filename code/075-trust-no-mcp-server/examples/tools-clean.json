@@ -1,0 +1,18 @@
+{
+  "search": [
+    {
+      "name": "web_search",
+      "description": "Search the web and return a list of result titles, URLs and snippets for the given query."
+    },
+    {
+      "name": "fetch_url",
+      "description": "Fetch the contents of a single URL and return the readable text."
+    }
+  ],
+  "notes": [
+    {
+      "name": "save_note",
+      "description": "Save a short text note to the user's notebook under the given title."
+    }
+  ]
+}
