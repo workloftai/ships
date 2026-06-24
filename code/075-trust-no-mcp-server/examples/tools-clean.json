@@ -2,17 +2,40 @@
   "search": [
     {
       "name": "web_search",
-      "description": "Search the web and return a list of result titles, URLs and snippets for the given query."
+      "description": "Search the web and return a list of result titles, URLs and snippets for the given query.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {"type": "string", "description": "The text to search for."},
+          "limit": {"type": "integer", "description": "Maximum number of results to return."}
+        },
+        "required": ["query"]
+      }
     },
     {
       "name": "fetch_url",
-      "description": "Fetch the contents of a single URL and return the readable text."
+      "description": "Fetch the contents of a single URL and return the readable text.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "url": {"type": "string", "description": "The URL to fetch."}
+        },
+        "required": ["url"]
+      }
     }
   ],
   "notes": [
     {
       "name": "save_note",
-      "description": "Save a short text note to the user's notebook under the given title."
+      "description": "Save a short text note to the user's notebook under the given title.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "title": {"type": "string", "description": "The note title."},
+          "body": {"type": "string", "description": "The note contents."}
+        },
+        "required": ["title", "body"]
+      }
     }
   ]
 }
