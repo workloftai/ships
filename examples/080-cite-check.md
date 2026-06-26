@@ -56,16 +56,30 @@ checked" into a definite yes in about two seconds. Then we fed it a control, an 
 we made up, and it failed it cleanly: no such paper. Real links pass, dead links
 fail, invented papers fail. That is the whole contract, and it holds.
 
-## What it does not do yet
+## The hard half, shipped the same day
 
-This is the easy half, and we are not going to pretend otherwise. cite-check
-confirms a source is real. It does not yet confirm the source actually backs the
-claim sitting next to it. A real paper cited for something it never says would
-still sail through today. That harder half, checking that the source supports the
-claim, is the next build: a small fact-checking model running on our own box,
-returning not a yes or no but a shade (supported, partly supported, not supported,
-or could-not-tell), with only a clean "supported" getting a free pass. The honest
-limit of today's ship is that it catches fabrication, not misattribution.
+Resolving a citation is the easy half. The harder half is misattribution: a real
+paper cited for something it never says. That sails past a resolve check because
+the link is fine. So we built the second half too (`cite-check-claims`): decompose
+a draft into atomic claims, fetch the actual source text, and check whether the
+source backs the claim. Four-shade verdict (supported / partly / unsupported /
+unverifiable); only "supported" auto-passes.
+
+We proved it on one real paper cited two ways: the accurate claim passed, and "the
+same paper shows this is a text-to-image model" was flagged unsupported (entailment
+0.00) on a source that resolves perfectly. The resolve check waved both through;
+the support check caught the lie.
+
+Engine note: the 7B fact-checker the research pointed at was accurate but took
+~200s per call on our CPU-only box. Unusable. We swapped in an NLI cross-encoder
+that does the same job in ~150ms, a thousandfold faster, same verdicts on our
+tests. The right tool is the one your hardware can run on the publish path.
+
+## What it still does not do
+
+NLI is chunk-local, so a claim that only holds across two distant parts of a source
+lands in "partly" for a human, rather than passing. A fully paywalled source comes
+back "unverifiable", not a pass. Both deliberate: when unsure, it asks a person.
 
 ## The lesson worth keeping
 
