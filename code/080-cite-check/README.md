@@ -7,9 +7,12 @@ URL and arXiv ID, and fetches each one to confirm it actually exists. A draft
 that cites a dead link or a fabricated arXiv ID fails the gate, so it never
 reaches publish.
 
-This is **bite 1**: the *resolve* check. It answers "is this source real?"
-It does not yet answer "does this source support the claim next to it?" — that
-is the harder, separate problem (phase 2, a local faithfulness model).
+There are two halves:
+
+- **Phase 1 (`cite-check`)** — the *resolve* check. Is this source real?
+- **Phase 2 (`cite-check-claims`)** — the *support* check. Does this source
+  actually back the claim next to it? Catches misattribution: a real paper
+  cited for something it never says.
 
 ## Why
 
@@ -44,11 +47,31 @@ cite-check "$DRAFT" || { echo "unverified citation, refusing to publish"; exit 1
   fetch, because `arxiv.org/abs/<id>` can return 200 for a non-existent paper.
   A fabricated ID returns a feed with no matching entry, which fails.
 
+## Phase 2: claim-support check
+
+```
+cite-check-claims draft.md          # does each source back its claim?
+cite-check-claims draft.md --json
+```
+
+Pipeline per cited claim: decompose the draft into atomic (claim, citation)
+pairs, fetch the real source text (arXiv via ar5iv full text or abstract; HTML
+via BeautifulSoup; PDF via pymupdf), then score claim-vs-source with a local NLI
+cross-encoder. Output is four-shade: **SUPPORTED** (auto-pass), **PARTLY**
+(weak entailment, human review), **UNSUPPORTED**, **UNVERIFIABLE** (source could
+not be read). Exit code 1 if anything is not SUPPORTED.
+
+Engine note: a 7B grounded fact-checker (Bespoke-MiniCheck) is more accurate but
+runs at ~200s per call on a CPU-only box, which is unusable. An NLI cross-encoder
+(`cross-encoder/nli-deberta-v3-base`) does the same job at ~150ms per call after
+load, so it is the default. Swap it with `CITE_CHECK_NLI_MODEL`.
+
 ## What it does not do (yet)
 
-- Check that the source *supports* the claim (phase 2: local faithfulness model).
 - Distinguish a real-but-paywalled page from a real-and-readable one beyond a
   coarse status check.
+- Multi-hop claims that need synthesis across distant parts of a source (NLI is
+  chunk-local; those land in PARTLY for a human to read).
 
 ## Tests
 
