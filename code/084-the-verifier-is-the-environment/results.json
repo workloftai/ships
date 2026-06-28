@@ -1,0 +1,56 @@
+[
+  {
+    "paradigm": "symbolic",
+    "n": 30,
+    "validity": 1.0,
+    "solvable": 30,
+    "usable": 23,
+    "usable_rate": 0.767,
+    "diversity": 1.0,
+    "distinct_multisets": 30,
+    "difficulty_match_rate": 0.333,
+    "easier_than_claimed": 20,
+    "trivial_min_ops_le_1": 7,
+    "true_min_ops_distribution": {
+      "0": 2,
+      "1": 5,
+      "2": 13,
+      "3": 10
+    }
+  },
+  {
+    "paradigm": "neural",
+    "n": 30,
+    "validity": 0.933,
+    "solvable": 28,
+    "usable": 24,
+    "usable_rate": 0.8,
+    "diversity": 0.933,
+    "distinct_multisets": 28,
+    "difficulty_match_rate": 0.071,
+    "easier_than_claimed": 26,
+    "trivial_min_ops_le_1": 4,
+    "true_min_ops_distribution": {
+      "1": 4,
+      "2": 22,
+      "3": 2
+    }
+  },
+  {
+    "paradigm": "verified_symbolic",
+    "n": 30,
+    "validity": 1.0,
+    "solvable": 30,
+    "usable": 30,
+    "usable_rate": 1.0,
+    "diversity": 0.9,
+    "distinct_multisets": 27,
+    "difficulty_match_rate": 1.0,
+    "easier_than_claimed": 0,
+    "trivial_min_ops_le_1": 0,
+    "true_min_ops_distribution": {
+      "3": 30
+    },
+    "candidates_drawn": 165
+  }
+]
