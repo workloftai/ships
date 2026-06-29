@@ -1,0 +1,17 @@
+
+TASK                                  graph     file   saving
+-------------------------------------------------------------
+Orient in the codebase                 3575      677     0.2x
+Find the status-update surface          696     4076     5.9x
+Impact analysis before a change         101     1967    19.5x
+List every server action                 21     6241   297.2x
+Locate the Supabase client             3434     1260     0.4x
+-------------------------------------------------------------
+TOTAL (5 realistic tasks)              7827    14221     1.8x
+
+Realistic file-by-file baseline :    14221 tokens
+Graph-query total               :     7827 tokens
+Token reduction (realistic)     :      45%  (1.8x)
+
+Whole-repo read (marketing base):    50743 tokens
+Reduction vs whole-repo read    :      85%  (6.5x)
