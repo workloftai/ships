@@ -30,11 +30,4 @@ Multimodal matters because the owners are not sitting at a keyboard. The natural
 
 The hardening is the unglamorous half nobody puts on a landing page. The moment you give someone an always-on agent wired to their tools, the box it runs on is a target. The credential-stealing malware doing the rounds right now goes specifically after AI tokens and agent config files, so the box has to be boring and locked.
 
-## What's still off
-
-- One box still holds a long-lived auth token. Rotating it is a separate job that needs the owner to re-authenticate.
-- Transcription uses base.en (English, on CPU). Fine for clear speech, weaker on heavy accents or noisy rooms. small.en is the upgrade.
-- Voice and image are input only. The agent replies in text, no spoken replies yet.
-- The owner-lock is single-owner by design. Team access is a different build.
-
 Code: [`code/089-agent-per-person-own-box/`](../code/089-agent-per-person-own-box/) — the bridge, the local transcription, and the VPS hardening script. Steal what you like.
