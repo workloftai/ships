@@ -1,0 +1,246 @@
+[
+  {
+    "model": "claude-opus-4-8",
+    "in": 363,
+    "out": 8468,
+    "correct": 6,
+    "of": 6,
+    "cost_usd": 0.213515,
+    "cost_per_correct": 0.03558583333333334,
+    "rows": [
+      {
+        "t": 0,
+        "in": 74,
+        "out": 3705,
+        "got": "68",
+        "exp": "68",
+        "ok": true
+      },
+      {
+        "t": 1,
+        "in": 55,
+        "out": 127,
+        "got": "1098",
+        "exp": "1098",
+        "ok": true
+      },
+      {
+        "t": 2,
+        "in": 40,
+        "out": 1480,
+        "got": "24",
+        "exp": "24",
+        "ok": true
+      },
+      {
+        "t": 3,
+        "in": 73,
+        "out": 3149,
+        "got": "4562",
+        "exp": "4562",
+        "ok": true
+      },
+      {
+        "t": 4,
+        "in": 76,
+        "out": 3,
+        "got": "871",
+        "exp": "871",
+        "ok": true
+      },
+      {
+        "t": 5,
+        "in": 45,
+        "out": 4,
+        "got": "1729",
+        "exp": "1729",
+        "ok": true
+      }
+    ]
+  },
+  {
+    "model": "claude-sonnet-5",
+    "in": 363,
+    "out": 5182,
+    "correct": 6,
+    "of": 6,
+    "cost_usd": 0.078819,
+    "cost_per_correct": 0.0131365,
+    "rows": [
+      {
+        "t": 0,
+        "in": 74,
+        "out": 3828,
+        "got": "68",
+        "exp": "68",
+        "ok": true
+      },
+      {
+        "t": 1,
+        "in": 55,
+        "out": 184,
+        "got": "1098",
+        "exp": "1098",
+        "ok": true
+      },
+      {
+        "t": 2,
+        "in": 40,
+        "out": 1142,
+        "got": "24",
+        "exp": "24",
+        "ok": true
+      },
+      {
+        "t": 3,
+        "in": 73,
+        "out": 21,
+        "got": "4562",
+        "exp": "4562",
+        "ok": true
+      },
+      {
+        "t": 4,
+        "in": 76,
+        "out": 3,
+        "got": "871",
+        "exp": "871",
+        "ok": true
+      },
+      {
+        "t": 5,
+        "in": 45,
+        "out": 4,
+        "got": "1729",
+        "exp": "1729",
+        "ok": true
+      }
+    ]
+  },
+  {
+    "model": "wrapped-sonnet-5",
+    "in": 3855,
+    "out": 24663,
+    "verifier_in": 655,
+    "verifier_out": 6801,
+    "correct": 6,
+    "of": 6,
+    "gen_cost_usd": 0.38151,
+    "verifier_cost_usd": 0.03466,
+    "cost_usd": 0.41617000000000004,
+    "cost_per_correct": 0.06936166666666667,
+    "rows": [
+      {
+        "t": 0,
+        "final": "68",
+        "exp": "68",
+        "ok": true,
+        "retries": 2,
+        "trace": "gen+wait+verify+rederive"
+      },
+      {
+        "t": 1,
+        "final": "1098",
+        "exp": "1098",
+        "ok": true,
+        "retries": 1,
+        "trace": "gen+wait+verify"
+      },
+      {
+        "t": 2,
+        "final": "24",
+        "exp": "24",
+        "ok": true,
+        "retries": 1,
+        "trace": "gen+wait+verify"
+      },
+      {
+        "t": 3,
+        "final": "4562",
+        "exp": "4562",
+        "ok": true,
+        "retries": 1,
+        "trace": "gen+wait+verify"
+      },
+      {
+        "t": 4,
+        "final": "871",
+        "exp": "871",
+        "ok": true,
+        "retries": 1,
+        "trace": "gen+wait+verify"
+      },
+      {
+        "t": 5,
+        "final": "1729",
+        "exp": "1729",
+        "ok": true,
+        "retries": 1,
+        "trace": "gen+wait+verify"
+      }
+    ]
+  },
+  {
+    "model": "wrapped-sonnet-5+code",
+    "in": 2792,
+    "out": 15889,
+    "verifier_in": 0,
+    "verifier_out": 0,
+    "correct": 6,
+    "of": 6,
+    "gen_cost_usd": 0.246711,
+    "verifier_cost_usd": 0.0,
+    "cost_usd": 0.246711,
+    "cost_per_correct": 0.0411185,
+    "rows": [
+      {
+        "t": 0,
+        "final": "68",
+        "exp": "68",
+        "ok": true,
+        "retries": 1,
+        "trace": "gen+wait+code"
+      },
+      {
+        "t": 1,
+        "final": "1098",
+        "exp": "1098",
+        "ok": true,
+        "retries": 1,
+        "trace": "gen+wait+code"
+      },
+      {
+        "t": 2,
+        "final": "24",
+        "exp": "24",
+        "ok": true,
+        "retries": 1,
+        "trace": "gen+wait+code"
+      },
+      {
+        "t": 3,
+        "final": "4562",
+        "exp": "4562",
+        "ok": true,
+        "retries": 1,
+        "trace": "gen+wait+code"
+      },
+      {
+        "t": 4,
+        "final": "871",
+        "exp": "871",
+        "ok": true,
+        "retries": 1,
+        "trace": "gen+wait+code"
+      },
+      {
+        "t": 5,
+        "final": "1729",
+        "exp": "1729",
+        "ok": true,
+        "retries": 1,
+        "trace": "gen+wait+code"
+      }
+    ]
+  }
+]

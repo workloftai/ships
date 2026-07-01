@@ -1,0 +1,25 @@
+bench_wrapped_sonnet_vs_opus.py — run of 2026-07-01
+reference answers: 68, 1098, 24, 4562, 871, 1729
+
+=== bare claude-opus-4-8 ===        6/6
+=== bare claude-sonnet-5 ===        6/6
+=== wrapped sonnet-5 (Wait + Haiku verifier) ===   6/6
+=== wrapped sonnet-5 + code gate ===               6/6
+
+================ SUMMARY ================
+variant                      | correct | cost/correct | total cost
+claude-opus-4-8              | 6/6     |    $0.03559 | $0.21352
+claude-sonnet-5              | 6/6     |    $0.01314 | $0.07882
+wrapped-sonnet-5             | 6/6     |    $0.06936 | $0.41617
+wrapped-sonnet-5+code        | 6/6     |    $0.04112 | $0.24671
+
+Read: accuracy is tied at 6/6, so cost is the only axis. Wrapping the cheap
+model (Sonnet 5) made it the most expensive option on the board — ~5x bare
+Sonnet and ~2x a single bare Opus call — for the identical score. The verifier
+had no errors to catch, so it added cost and nothing else. On task 0 the Haiku
+verifier disagreed with an already-correct answer and forced a re-derive
+(trace: gen+wait+verify+rederive) that returned the same answer: a false alarm.
+
+Honest limit: the tasks are too easy (all four score 100%), so this proves the
+verification tax is real but cannot prove the wrapper never earns it back. That
+needs a harder task set where the base model actually drops points.
