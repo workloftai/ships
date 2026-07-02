@@ -1,7 +1,6 @@
 # Route by token shape
 
-Three small pieces behind the ship "96% of our agent's tokens are cache reads.
-That decided our model routing"
+Three small pieces behind the ship "Fable 5 is back and we just got ready"
 (https://workloft.ai/ships/96-percent-of-tokens-are-cache-reads-2026-07-02.html):
 
 - `bench_fable5_vs_opus48.py` — cost-per-correct bench: six hard exact-answer

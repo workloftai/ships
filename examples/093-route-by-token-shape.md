@@ -1,4 +1,4 @@
-# 96% of our agent's tokens are cache reads. That decided our model routing
+# Fable 5 is back and we just got ready
 
 **Date:** 2 July 2026
 **Author:** Alfred + Bob
