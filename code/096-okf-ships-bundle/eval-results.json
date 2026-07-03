@@ -1,0 +1,56 @@
+[
+  {
+    "question": "According to this knowledge base, what share of Workloft's LLM tokens turned out to be cache reads, and which build measured it?",
+    "expect": "96%",
+    "condition": "raw",
+    "seconds": 25.2,
+    "files_read": "1",
+    "answer": "96% of Workloft's June 2026 LLM tokens (2.76 of 2.86 billion) were prompt-cache reads, measured by the ccusage instrumentation in the \"Fable 5 is back and we just got ready\" ship (96-percent-of-tokens-are-cache-reads-2026-07-02, the route-by-token-shape build).",
+    "raw_tail": "prompt-cache reads, which is why cache-read pricing, not the headline rate card, drives the always-on agent's bill.\n\nFILES_READ: 1\nANSWER: 96% of Workloft's June 2026 LLM tokens (2.76 of 2.86 billion) were prompt-cache reads, measured by the ccusage instrumentation in the \"Fable 5 is back and we just got ready\" ship (96-percent-of-tokens-are-cache-reads-2026-07-02, the route-by-token-shape build)."
+  },
+  {
+    "question": "According to this knowledge base, what share of Workloft's LLM tokens turned out to be cache reads, and which build measured it?",
+    "expect": "96%",
+    "condition": "okf",
+    "seconds": 22.2,
+    "files_read": "1",
+    "answer": "96% of Workloft's June 2026 tokens (2.76B of 2.86B) were prompt-cache reads, as measured by the \"route by token shape\" ship (\"Fable 5 is back and we just got ready\", ships/2026-07/96-percent-of-tokens-are-cache-reads.md) using ccusage over June session logs.",
+    "raw_tail": "rement came from the route-by-token-shape build (ship 093), which used it to set the Sonnet/Opus/Fable routing policy.\n\nFILES_READ: 1\nANSWER: 96% of Workloft's June 2026 tokens (2.76B of 2.86B) were prompt-cache reads, as measured by the \"route by token shape\" ship (\"Fable 5 is back and we just got ready\", ships/2026-07/96-percent-of-tokens-are-cache-reads.md) using ccusage over June session logs."
+  },
+  {
+    "question": "What is Murmur, and roughly what does it cost to run per month?",
+    "expect": "\u00a31-\u00a32/month hold-to-talk dictation",
+    "condition": "raw",
+    "seconds": 21.5,
+    "files_read": "1",
+    "answer": "Murmur is Workloft's home-built macOS hold-to-talk dictation tool (native Swift, Voxtral speech-to-text plus Claude Haiku cleanup, pasting cleaned text at the cursor), costing about \u00a31\u2013\u00a32 a month to run versus ~\u00a312 for the equivalent Wispr Flow subscription.",
+    "raw_tail": "an hour of real speech a day it costs \u00a31\u2013\u00a32 a month to run, versus about \u00a312 for the subscription product it replaces.\n\nFILES_READ: 1\nANSWER: Murmur is Workloft's home-built macOS hold-to-talk dictation tool (native Swift, Voxtral speech-to-text plus Claude Haiku cleanup, pasting cleaned text at the cursor), costing about \u00a31\u2013\u00a32 a month to run versus ~\u00a312 for the equivalent Wispr Flow subscription."
+  },
+  {
+    "question": "What is Murmur, and roughly what does it cost to run per month?",
+    "expect": "\u00a31-\u00a32/month hold-to-talk dictation",
+    "condition": "okf",
+    "seconds": 25.3,
+    "files_read": "1",
+    "answer": "Murmur is Workloft's self-built macOS hold-to-talk dictation tool (a Wispr Flow alternative in ~330 lines of native Swift, using Voxtral speech-to-text plus Claude Haiku cleanup) that costs about \u00a31\u2013\u00a32 per month to run.",
+    "raw_tail": "ound an hour of real speech a day, the whole pipeline runs at **\u00a31\u2013\u00a32 per month**, roughly a tenth of the ~\u00a312 subscription product (Wispr Flow) it replaces.\n\nFILES_READ: 1\nANSWER: Murmur is Workloft's self-built macOS hold-to-talk dictation tool (a Wispr Flow alternative in ~330 lines of native Swift, using Voxtral speech-to-text plus Claude Haiku cleanup) that costs about \u00a31\u2013\u00a32 per month to run."
+  },
+  {
+    "question": "Which ships in this knowledge base are about the Vera agent, and what does Vera do? List the ship titles you found.",
+    "expect": "multiple vera-* ships; Vera = quality judge/scorer",
+    "condition": "raw",
+    "seconds": 61.9,
+    "files_read": "9",
+    "answer": "Eight ships cover Vera \u2014 the PoLL selection gate, auto-rubrics, Vera-escalate in Ruby, Reward Mode, A/B Mode, Disagreement Map, Vera Standing, and the 29%-wrong judge audit \u2014 and Vera is Workloft's three-juror LLM panel that votes PASS/KILL on agent outputs and build ideas against rubrics.",
+    "raw_tail": " build slot) and as the standing quality evaluator for the agent fleet's shipped work.\n\nFILES_READ: 9\nANSWER: Eight ships cover Vera \u2014 the PoLL selection gate, auto-rubrics, Vera-escalate in Ruby, Reward Mode, A/B Mode, Disagreement Map, Vera Standing, and the 29%-wrong judge audit \u2014 and Vera is Workloft's three-juror LLM panel that votes PASS/KILL on agent outputs and build ideas against rubrics."
+  },
+  {
+    "question": "Which ships in this knowledge base are about the Vera agent, and what does Vera do? List the ship titles you found.",
+    "expect": "multiple vera-* ships; Vera = quality judge/scorer",
+    "condition": "okf",
+    "seconds": 55.5,
+    "files_read": "9",
+    "answer": "Seven ships concern Vera \u2014 \"Vera-escalate auto-tier in Ruby\", \"Vera A/B Mode\", \"Vera Reward Mode\", \"Vera Disagreement Map\", \"Vera Standing: a nightly eval for every agent\", plus the related \"Bob's actions now write Vera's tests\" and \"Our AI Judge Was Wrong 29% of the Time\" \u2014 and Vera is Workloft's three-juror LLM judge/selection gate that votes PASS or KILL on agent outputs against rubrics and powers the fleet's nightly evals.",
+    "raw_tail": "ra-escalate auto-tier in Ruby\", \"Vera A/B Mode\", \"Vera Reward Mode\", \"Vera Disagreement Map\", \"Vera Standing: a nightly eval for every agent\", plus the related \"Bob's actions now write Vera's tests\" and \"Our AI Judge Was Wrong 29% of the Time\" \u2014 and Vera is Workloft's three-juror LLM judge/selection gate that votes PASS or KILL on agent outputs against rubrics and powers the fleet's nightly evals."
+  }
+]
