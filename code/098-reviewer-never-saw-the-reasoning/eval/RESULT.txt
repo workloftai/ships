@@ -1,0 +1,10 @@
+Cross-lineage reviewer vs seeded bugs
+
+  orders.py      caught 1/2      (1 HIGH+, 28.8s) float money
+  auth.py        caught 1/1      (0 HIGH+, 15.4s) fail-open expiry
+  clean.py       caught control  (0 HIGH+, 9.3s)
+
+  catch rate: 2/3   false positives on clean: 0
+
+  Baseline to beat: a free second pass of the model that wrote the
+  code. Fill that column in before you pay for the cross-lineage run.
