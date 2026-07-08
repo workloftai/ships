@@ -1,0 +1,22 @@
+Live run, 2026-07-07 (verbatim shape). Two lineages reviewed the same seeded
+change: Claude (author's lineage) via the Anthropic API, Codex (GPT-family)
+blind. Both outputs schema-validated before comparison.
+
+  AGREED (2): trust these, both lineages raised them
+    [HIGH]   SQL injection via f-string interpolation into a raw query
+    [MEDIUM] Integer overflow / silent truncation computing total_price
+
+  DISAGREEMENT is the signal below - one lineage saw it, the other did not:
+
+  CLAUDE ONLY (3) - Codex missed it, or Claude over-flagged:
+    [HIGH]   (0.80) Database connection never closed on the exception path
+    [MEDIUM] (0.75) Race condition between stock check and stock decrement
+    [MEDIUM] (0.72) Sensitive order data logged at INFO level
+
+  CODEX ONLY (0) - Claude's blind spot, or Codex over-flagged:
+
+Read it as intended: the 2 AGREED need no argument (two bloodlines, same bug).
+The 3 CLAUDE-ONLY are the actual work of the review. CODEX-ONLY being empty on
+this pass does not make the second lineage dead weight - on other diffs it is the
+one that speaks up when Claude is silent. Non-deterministic: a finding can move
+between buckets run to run. A single pass is a floor, never a ceiling.

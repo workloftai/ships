@@ -93,6 +93,30 @@ box, Codex's sandbox needs user namespaces enabled
 (`kernel.apparmor_restrict_unprivileged_userns=0` on Ubuntu 24.04) or it cannot
 build the read-only sandbox and every command fails before it runs.
 
+## Companion tools
+
+Three things build on the same blind, cross-lineage core:
+
+- **`disagree.py`** runs both lineages on the same diff (Claude via the Anthropic
+  API, Codex blind) and surfaces **only where they disagree**. Findings both
+  raise are trusted without argument; a finding only one raises is the single
+  thing worth a human's eyes, because it is either a real blind spot or noise.
+  ```bash
+  git diff | python3 disagree.py --stdin
+  ```
+
+- **`code_verify.py`** is a cross-lineage juror for a *claim* about a change.
+  Give it a claim ("this fixes the N+1") and the diff; a different-lineage model
+  reads the actual code and rules confirmed / refuted / uncertain, told to
+  refute rather than agree. Verification is the thing agents are worst at.
+  ```bash
+  git diff | python3 code_verify.py --claim "adds expiry check, no regression" --stdin
+  ```
+
+- A **tamper-evident review trail** (used in a private repo, pattern here): each
+  review is appended to a hash-chained log so "every change had an independent
+  review" is something you can evidence, not assert.
+
 ## Wiring it into an agent
 
 The building agent runs its own review in parallel, then merges: dedupe by
