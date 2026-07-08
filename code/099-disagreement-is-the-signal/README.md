@@ -26,6 +26,17 @@ The agreement is the part you can stop thinking about. The disagreement is the
 only thing that needs a human's eyes: either a real bug the other lineage was
 blind to, or a false alarm you dismiss in seconds.
 
+## The number behind it
+
+On [SusVibes](https://arxiv.org/abs/2512.03262), a benchmark that has a coding
+agent solve real-world tasks and then checks the result for vulnerabilities, an
+agent driving Claude Sonnet produced code that was functionally correct 61% of
+the time and secure only 10.5% of the time. The authors tried the obvious fix,
+telling the agent to write secure code and even handing it the vulnerability
+class to avoid, and it barely moved security while dropping correctness by about
+six points. You cannot prompt the blind spot away. The only lever left is an
+independent check by something that did not write the code.
+
 ## The one idea
 
 A normal panel exists to collapse opinions into a verdict, usually by vote. Do
