@@ -1,0 +1,17 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "workloft-sample",
+  "version": "1.0.0",
+  "description": "Two portable skills plus one MCP server, packaged once.",
+  "author": {
+    "name": "Workloft"
+  },
+  "homepage": "https://workloft.ai",
+  "repository": "https://github.com/workloftai/ships",
+  "license": "MIT",
+  "keywords": [
+    "agent-skills",
+    "mcp",
+    "portable"
+  ]
+}
