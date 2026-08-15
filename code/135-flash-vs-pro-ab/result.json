@@ -1,0 +1,228 @@
+{
+  "gemini-3.7-flash": {
+    "api_id": "gemini-3.7-flash",
+    "price_in_per_m": 0.75,
+    "price_out_per_m": 3.75,
+    "accuracy": 1.0,
+    "hits": 12,
+    "n": 12,
+    "null_answers": 0,
+    "total_in_tokens": 370,
+    "total_out_tokens": 1506,
+    "total_thinking_tokens": 2769,
+    "total_cost_usd": 0.016309,
+    "cost_per_1k_tasks_usd": 1.3591,
+    "avg_latency_s": 2.03,
+    "rows": [
+      {
+        "expected": "6765",
+        "ok": true,
+        "in": 40,
+        "out": 472,
+        "think": 495,
+        "cost": 0.00365625
+      },
+      {
+        "expected": "80",
+        "ok": true,
+        "in": 32,
+        "out": 129,
+        "think": 165,
+        "cost": 0.0011265
+      },
+      {
+        "expected": "6",
+        "ok": true,
+        "in": 23,
+        "out": 68,
+        "think": 312,
+        "cost": 0.00144225
+      },
+      {
+        "expected": "2550",
+        "ok": true,
+        "in": 24,
+        "out": 97,
+        "think": 199,
+        "cost": 0.001128
+      },
+      {
+        "expected": "yes",
+        "ok": true,
+        "in": 41,
+        "out": 56,
+        "think": 103,
+        "cost": 0.000627
+      },
+      {
+        "expected": "391",
+        "ok": true,
+        "in": 20,
+        "out": 71,
+        "think": 116,
+        "cost": 0.00071625
+      },
+      {
+        "expected": "24",
+        "ok": true,
+        "in": 32,
+        "out": 5,
+        "think": 69,
+        "cost": 0.0003015
+      },
+      {
+        "expected": "11",
+        "ok": true,
+        "in": 20,
+        "out": 80,
+        "think": 98,
+        "cost": 0.0006825
+      },
+      {
+        "expected": "42",
+        "ok": true,
+        "in": 37,
+        "out": 205,
+        "think": 269,
+        "cost": 0.00180525
+      },
+      {
+        "expected": "59",
+        "ok": true,
+        "in": 34,
+        "out": 45,
+        "think": 74,
+        "cost": 0.00047175
+      },
+      {
+        "expected": "30",
+        "ok": true,
+        "in": 39,
+        "out": 104,
+        "think": 275,
+        "cost": 0.0014505
+      },
+      {
+        "expected": "7",
+        "ok": true,
+        "in": 28,
+        "out": 174,
+        "think": 594,
+        "cost": 0.002901
+      }
+    ]
+  },
+  "gemini-2-5-pro": {
+    "api_id": "gemini-2.5-pro",
+    "price_in_per_m": 1.25,
+    "price_out_per_m": 10.0,
+    "accuracy": 0.8333333333333334,
+    "hits": 10,
+    "n": 12,
+    "null_answers": 1,
+    "total_in_tokens": 370,
+    "total_out_tokens": 1199,
+    "total_thinking_tokens": 11333,
+    "total_cost_usd": 0.125782,
+    "cost_per_1k_tasks_usd": 10.4819,
+    "avg_latency_s": 7.3,
+    "rows": [
+      {
+        "expected": "6765",
+        "ok": false,
+        "in": 40,
+        "out": 0,
+        "think": 2045,
+        "cost": 0.0205
+      },
+      {
+        "expected": "80",
+        "ok": true,
+        "in": 32,
+        "out": 98,
+        "think": 879,
+        "cost": 0.00981
+      },
+      {
+        "expected": "6",
+        "ok": true,
+        "in": 23,
+        "out": 41,
+        "think": 486,
+        "cost": 0.00529875
+      },
+      {
+        "expected": "2550",
+        "ok": true,
+        "in": 24,
+        "out": 156,
+        "think": 1512,
+        "cost": 0.01671
+      },
+      {
+        "expected": "yes",
+        "ok": true,
+        "in": 41,
+        "out": 71,
+        "think": 773,
+        "cost": 0.00849125
+      },
+      {
+        "expected": "391",
+        "ok": true,
+        "in": 20,
+        "out": 6,
+        "think": 637,
+        "cost": 0.006455
+      },
+      {
+        "expected": "24",
+        "ok": true,
+        "in": 32,
+        "out": 71,
+        "think": 433,
+        "cost": 0.00508
+      },
+      {
+        "expected": "11",
+        "ok": true,
+        "in": 20,
+        "out": 235,
+        "think": 824,
+        "cost": 0.010615
+      },
+      {
+        "expected": "42",
+        "ok": true,
+        "in": 37,
+        "out": 170,
+        "think": 794,
+        "cost": 0.00968625
+      },
+      {
+        "expected": "59",
+        "ok": true,
+        "in": 34,
+        "out": 45,
+        "think": 579,
+        "cost": 0.0062825
+      },
+      {
+        "expected": "30",
+        "ok": true,
+        "in": 39,
+        "out": 81,
+        "think": 552,
+        "cost": 0.00637875
+      },
+      {
+        "expected": "7",
+        "ok": false,
+        "in": 28,
+        "out": 225,
+        "think": 1819,
+        "cost": 0.020475
+      }
+    ]
+  }
+}
