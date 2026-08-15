@@ -1,0 +1,107 @@
+{
+  "report": {
+    "summary": "Two of three ships are clean; one needs a light framing fix. Action item: on the \"a-skill-not-a-bigger-model\" ship, tighten the headline/framing \u2014 claim-accuracy flagged (minor) that \"a skill, not a bigger model\" and \"a free local model\" understate that the method DID use frontier models at authoring time (Actor = Gemini-2.5-Pro wrote the skill, ceiling = Gemini-2.5-Flash), so the \"cost goes to zero\" claim holds for runtime inference only, not skill production; a secondary caveat is the generalisation resting on just 8 held-out records. Notably, that same ship's dedicated caveat section was rated exemplary by the honest-caveats reviewer, so the fix is confined to the headline claim, not the disclosures. All three ships fully reconcile on numbers, carry honest and unsoftened caveats, and have every link/asset/hero image resolving 200.",
+    "per_target": [
+      {
+        "target": "https://workloft.ai/ships/logging-costs-isnt-watching-them-2026-08-15.html",
+        "verdict": "clean",
+        "issues": []
+      },
+      {
+        "target": "https://workloft.ai/ships/flash-beat-the-pro-model-2026-08-15.html",
+        "verdict": "clean",
+        "issues": []
+      },
+      {
+        "target": "https://workloft.ai/ships/a-skill-not-a-bigger-model-2026-08-15.html",
+        "verdict": "issues",
+        "issues": [
+          {
+            "dimension": "claim-accuracy",
+            "severity": "minor",
+            "issue": "Framing/claim tension (numbers themselves reconcile exactly). The headline 'a skill, not a bigger model' and 'a free local model' understate that the method DID require a bigger model at authoring time: result.json shows the skill Actor is frontier Gemini-2.5-Pro and the 1.000 ceiling is Gemini-2.5-Flash, with Qwen2.5:7B as the local Executor (0.938 -> 1.000). The 'cost goes to zero' claim therefore holds only for runtime inference, not for skill production, which the headline elides. Secondary caveat: the 'perfect 1.000 on records it had never seen' generalisation rests on only 8 held-out records. Note: the honest-caveats reviewer rated this ship's dedicated 'What's still off' section exemplary (small gap front-loaded into opening and subtitle), so the fix is limited to the headline claim, not the disclosures."
+          }
+        ]
+      }
+    ]
+  },
+  "raw_reviews": [
+    {
+      "dimension": "link-asset-integrity",
+      "findings": [
+        {
+          "target": "https://workloft.ai/ships/logging-costs-isnt-watching-them-2026-08-15.html",
+          "severity": "none",
+          "issue": "All referenced links and assets resolve. Page 200. GitHub mirror https://github.com/workloftai/ships/tree/main/code/134-spend-guard is 200. Hero og:image https://workloft.ai/ships/assets/logging-costs-isnt-watching-them-2026-08-15-hero.png is 200 (valid image/png, ~1.85 MB). Shared assets logo-workloft.png, favicon-w.png, ships.css and internal nav (/, /ships/, /labs.html) all 200.",
+          "evidence": "curl -L status checks: page=200, GitHub=200, hero=200 image/png 1850819 bytes, logo=200, favicon=200 image/png, ships.css=200 text/css, /ships/=200, /labs.html=200, /=200"
+        },
+        {
+          "target": "https://workloft.ai/ships/flash-beat-the-pro-model-2026-08-15.html",
+          "severity": "none",
+          "issue": "All referenced links and assets resolve. Page 200. GitHub mirror https://github.com/workloftai/ships/tree/main/code/135-flash-vs-pro-ab is 200. Hero og:image https://workloft.ai/ships/assets/flash-beat-the-pro-model-2026-08-15-hero.png is 200 (valid image/png, ~1.90 MB). Shared assets and internal nav all 200.",
+          "evidence": "curl -L status checks: page=200, GitHub=200, hero=200 image/png 1897106 bytes, logo/favicon/ships.css/nav all 200"
+        },
+        {
+          "target": "https://workloft.ai/ships/a-skill-not-a-bigger-model-2026-08-15.html",
+          "severity": "none",
+          "issue": "All referenced links and assets resolve. Page 200. GitHub mirror https://github.com/workloftai/ships/tree/main/code/136-skiller-spike is 200. Hero og:image https://workloft.ai/ships/assets/a-skill-not-a-bigger-model-2026-08-15-hero.png is 200 (valid image/png, ~1.94 MB). Shared assets and internal nav all 200.",
+          "evidence": "curl -L status checks: page=200, GitHub=200, hero=200 image/png 1944970 bytes, logo/favicon/ships.css/nav all 200"
+        }
+      ]
+    },
+    {
+      "dimension": "honest-caveats",
+      "findings": [
+        {
+          "target": "https://workloft.ai/ships/logging-costs-isnt-watching-them-2026-08-15.html",
+          "severity": "none",
+          "issue": "Caveat present, specific, and unsoftened. The real limitation is stated plainly in a marked 'What's still off' section and is not dressed up.",
+          "evidence": "'It alerts, it does not enforce, and that separation is deliberate: cutting off a call mid-flight can break real work'; 'It can only see what gets logged, so an agent that calls a model without recording the cost is invisible to it'; and an unusually candid self-bug disclosure \u2014 the original 'silently capped at a thousand rows... and would have quietly hidden the exact spike it exists to catch.' Caveats appear in the closing section rather than front-loaded, but they are prominent, labelled, and not diluted into marketing."
+        },
+        {
+          "target": "https://workloft.ai/ships/flash-beat-the-pro-model-2026-08-15.html",
+          "severity": "none",
+          "issue": "Caveat present, specific, and honest. The ship concedes its winner shares the loser's core weakness and bounds the claim explicitly.",
+          "evidence": "'What's still off' section: Flash 'is also a thinking model, so on a tight token budget it will also spend the lot on thinking and return nothing' (documented empirically at 50 vs 300 tokens); scope bounded to 'twelve tasks... enough to justify preferring one model over another on a route, not enough to rebuild a tier'; discloses intro pricing 'expires at the end of the year' and frames it as 'a preference-order change backed by a measurement, not a coronation.' No softening."
+        },
+        {
+          "target": "https://workloft.ai/ships/a-skill-not-a-bigger-model-2026-08-15.html",
+          "severity": "none",
+          "issue": "Exemplary honest-caveat handling. The limitation is front-loaded into the opening and the subtitle, then restated plainly in the dedicated section.",
+          "evidence": "Opening: 'The honest part: the gap it closed was small.' Subtitle/description carries it too: 'The gap was small, so this proves the loop works cheaply rather than that it closes large gaps.' 'What's still off' section: 'The gap was small, and I will not dress that up... converged in one iteration... the reward was deterministic only because the task had checkable answers... This is a spike: one task, one run, eight held-out records,' and it names what it has 'not yet earned.' Caveat is present, specific, and the opposite of buried."
+        }
+      ]
+    },
+    {
+      "dimension": "claim-accuracy",
+      "findings": [
+        {
+          "target": "https://workloft.ai/ships/logging-costs-isnt-watching-them-2026-08-15.html",
+          "severity": "none",
+          "issue": "All stated numbers reconcile with the code mirror. The structural figures (1,000-row query cap bug, four alert rules, 24-hour trailing window, plain trailing median baseline) match spend_guard.py/README exactly. The '8-day window / 7-day baseline' pair is internally consistent (7 prior days + current day). The illustrative figures (a few cents a day, three agents up 40%, failovers doubled) are explicitly framed as hypothetical examples, not measured results, so they are not overclaims.",
+          "evidence": "README/spend_guard.py: '1000-row response cap', four rules (fleet spike, agent spike, premium-tier, failover storm), 'last 24h', 'median of the prior N days', spike_mult=3.0. No unreconciled figure.",
+          "target_note": "spend-guard"
+        },
+        {
+          "target": "https://workloft.ai/ships/flash-beat-the-pro-model-2026-08-15.html",
+          "severity": "none",
+          "issue": "Every headline number derives correctly from result.json. 12/12 vs 10/12 matches. '87% less per task' = 1 - 1.36/10.48 = 0.870. '3.6x faster' = 7.30/2.03 = 3.60. 'two seconds' (2.03s) and 'seven seconds' (7.30s) match latencies. 'Roughly a quarter of the thinking tokens' = 2769/11333 = 0.244. 'An eighth of the cost' = 1.36/10.48 = 0.130 (approx 1/8). $1.36 and $10.48 per thousand match. The intro-pricing caveat ('expires at the end of the year') is disclosed rather than hidden, so the cost delta is not overstated.",
+          "evidence": "result.json: Flash 12/12, $1.36/1k, 2.03s, 2769 thinking tokens; Pro 10/12, $10.48/1k, 7.30s, 11333 thinking tokens. All ship figures round-trip.",
+          "target_note": "flash-vs-pro"
+        },
+        {
+          "target": "https://workloft.ai/ships/a-skill-not-a-bigger-model-2026-08-15.html",
+          "severity": "minor",
+          "issue": "The runtime numbers reconcile exactly (local Qwen2.5:7B 0.938 -> 1.000, six-point gap = 1.000-0.938 = 0.062, one iteration, 8 train / 8 held-out, kill gate 60%). The claim-accuracy tension is with the framing, not the figures: the headline 'a skill, not a bigger model' and 'a free local model' understate that the method DID require a bigger model at authoring time - result.json shows the skill Actor is the frontier Gemini-2.5-Pro and the 1.000 ceiling is Gemini-2.5-Flash. So the 'cost goes to zero' claim holds only for runtime inference, not for skill production, which the headline elides. Secondary caveat: the 'perfect 1.000 on records it had never seen' rests on just 8 held-out records, a thin base for a generalisation claim.",
+          "evidence": "result.json: Actor=Gemini-2.5-Pro (skill writer), Ceiling=Gemini-2.5-Flash (1.000), Executor=Qwen2.5:7B (0.938 -> 1.000). Held-out n=8. Numbers match the page; the 'not a bigger model' claim is in tension with its own stated method.",
+          "target_note": "skiller-spike"
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "agents": 4,
+    "reviewers": 3,
+    "note": "One real run over three live ship pages. It flagged a genuine framing overclaim in one ship, which was then fixed."
+  }
+}
