@@ -1,0 +1,26 @@
+{
+  "cloud_model": "gemini-2-5-flash",
+  "local_model": "qwen-2-5-7b-local",
+  "cloud_test": 1.0,
+  "local_base_test": 0.9375,
+  "gap": 0.0625,
+  "best_test": 1.0,
+  "best_iter": 1,
+  "gap_closed": 1.0,
+  "kill_gate": 0.6,
+  "verdict": "PASS",
+  "best_skill": "Extract fields from each record and output ONLY valid JSON:\n{\"vendor\":\"...\",\"date\":\"YYYY-MM-DD\",\"amount\":123.45,\"ref\":\"...\"}\n\nRules:\n- Vendor = seller/sender. In patterns like \u201cFrom X to Y\u201d, vendor is X, not Y. Remove trailing punctuation.\n- Date = invoice/issued/billed date. Prefer labels \u201cInvoiced\u201d, \u201cInvoice date\u201d, \u201cIssued\u201d; do NOT use ordered/due/delivery dates unless no invoice date exists. Normalize to YYYY-MM-DD.\n- Amount = final payable total. Prefer \u201ctotal\u201d, \u201cgrand total\u201d, \u201camount due\u201d, \u201cbalance due\u201d. Ignore subtotal, tax/VAT, unit prices. Strip currency symbols and thousands commas/spaces, but keep decimal points: \u201c\u00a312,000.00\u201d -> 12000.00, \u201c\u00a363.20\u201d -> 63.20. Do not turn decimals into cents.\n- Ref = explicit reference ID if present: labels \u201cref\u201d, \u201creference\u201d, \u201cpayment ref\u201d, \u201cPO\u201d, etc. Prefer these over plain invoice numbers. If no reference exists, use invoice number.\n- Preserve alphanumeric refs with hyphens/slashes exactly, trimming surrounding punctuation.\n- If a field is missing, use null. No explanations, markdown, or extra text.",
+  "history": [
+    {
+      "iter": 0,
+      "train": null,
+      "test": 0.9375
+    },
+    {
+      "iter": 1,
+      "train_pre": 0.90625,
+      "test": 1.0,
+      "gap_closed": 1.0
+    }
+  ]
+}
