@@ -1,0 +1,3 @@
+mul|"mul": lambda a, b: a * b,
+div|"div": lambda a, b: a // b,
+pow|"pow": lambda a, b: a ** b,
