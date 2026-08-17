@@ -1,0 +1,73 @@
+{
+  "claude_version": "2.1.228",
+  "changelog_path": "/home/workloft/.claude/cache/changelog.md",
+  "changelog_found": true,
+  "primitives": [
+    {
+      "id": "cross_session_sendmessage",
+      "title": "Cross-session SendMessage + ListAgents",
+      "signature": "message each other",
+      "bucket": "AGENT<->AGENT",
+      "retires": "Hand-rolled agent-to-agent message bus (HTTP inbox between sessions, shell scripts that shell out to another agent).",
+      "verdict": "MIGRATE",
+      "note": "Sessions discover each other with ListAgents and message by name, on any of your machines. This is the real replacement for bespoke session-to-session wiring.",
+      "present": true
+    },
+    {
+      "id": "permission_classified_messages",
+      "title": "Permission-classified inbound messages",
+      "signature": "evaluated by the permission classifier before dispatch",
+      "bucket": "AGENT<->AGENT",
+      "retires": "Custom allow-listing / auth on your own message endpoint to stop one agent driving another unsafely.",
+      "verdict": "MIGRATE",
+      "note": "Messages to another session are classified before delivery, and messages to a bypass-permissions session are held for approval (crossSessionInbound / dialogExpiry settings).",
+      "present": true
+    },
+    {
+      "id": "fork_skills_background",
+      "title": "context:fork skills run in background",
+      "signature": "context: fork",
+      "bucket": "FAN-OUT",
+      "retires": "Manually detaching a skill/subtask so it does not block the main conversation.",
+      "verdict": "KEEP+TUNE",
+      "note": "Forked skills background by default (opt out with background:false). Your orchestration keeps working; just drop the manual detach.",
+      "present": true
+    },
+    {
+      "id": "nested_subagents",
+      "title": "Nested subagents (depth > 1)",
+      "signature": "spawn nested subagents",
+      "bucket": "FAN-OUT",
+      "retires": "Flattening a naturally-nested fan-out into one layer because sub-agents could not themselves spawn.",
+      "verdict": "KEEP+TUNE",
+      "note": "Depth is capped and configurable (CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH). Check the default on your version before relying on deep nesting.",
+      "present": true
+    },
+    {
+      "id": "concurrency_cap",
+      "title": "Concurrent-subagent cap",
+      "signature": "concurrently-running subagents",
+      "bucket": "FAN-OUT",
+      "retires": "Your own semaphore to stop one message fanning out unbounded agents.",
+      "verdict": "KEEP+TUNE",
+      "note": "Default cap exists (CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS). If your workflow assumed unlimited parallelism, it is now bounded.",
+      "present": true
+    },
+    {
+      "id": "spawn_cap_removed",
+      "title": "200-subagent lifetime cap removed",
+      "signature": "removed the 200-subagent",
+      "bucket": "FAN-OUT",
+      "retires": "Restarting a long session to dodge the old lifetime spawn ceiling.",
+      "verdict": "KEEP+TUNE",
+      "note": "Long-running sessions no longer refuse new agents; concurrency and depth limits still apply.",
+      "present": true
+    }
+  ],
+  "ingress": {
+    "bucket": "INGRESS",
+    "retires": "Nothing. An external event source (phone share-sheet, webhook, cron, email watcher) still needs your own endpoint to land it in an agent.",
+    "verdict": "KEEP",
+    "note": "Cross-session messaging is agent-to-agent only. If a device or third-party service outside Claude Code has to reach an agent, that intake stays bespoke. Do not retire it because messaging shipped."
+  }
+}
