@@ -1,0 +1,142 @@
+{
+  "model": "gemini-2.5-flash",
+  "n_traces": 14,
+  "flawed": 7,
+  "sound": 7,
+  "holistic": {
+    "caught": 7,
+    "missed": 0,
+    "false_alarms": 0,
+    "correct_sound": 7,
+    "recall_on_flawed": 1.0,
+    "accuracy": 1.0,
+    "tokens_in": 1861,
+    "tokens_out": 4666,
+    "tokens_total": 6527
+  },
+  "clr": {
+    "caught": 3,
+    "missed": 4,
+    "false_alarms": 2,
+    "correct_sound": 5,
+    "recall_on_flawed": 0.429,
+    "accuracy": 0.571,
+    "tokens_in": 4202,
+    "tokens_out": 9387,
+    "tokens_total": 13589
+  },
+  "rows": [
+    {
+      "id": "pens",
+      "truth": "flawed",
+      "holistic": "flawed",
+      "clr": "sound",
+      "clr_claims": 1,
+      "clr_refuted": ""
+    },
+    {
+      "id": "aquatic",
+      "truth": "flawed",
+      "holistic": "flawed",
+      "clr": "sound",
+      "clr_claims": 2,
+      "clr_refuted": ""
+    },
+    {
+      "id": "carspeed",
+      "truth": "flawed",
+      "holistic": "flawed",
+      "clr": "sound",
+      "clr_claims": 2,
+      "clr_refuted": ""
+    },
+    {
+      "id": "seq",
+      "truth": "flawed",
+      "holistic": "flawed",
+      "clr": "sound",
+      "clr_claims": 1,
+      "clr_refuted": ""
+    },
+    {
+      "id": "choose",
+      "truth": "flawed",
+      "holistic": "flawed",
+      "clr": "flawed",
+      "clr_claims": 2,
+      "clr_refuted": "The formula used is 5"
+    },
+    {
+      "id": "percent",
+      "truth": "flawed",
+      "holistic": "flawed",
+      "clr": "flawed",
+      "clr_claims": 2,
+      "clr_refuted": "Percentage is the part over the whole."
+    },
+    {
+      "id": "primes",
+      "truth": "flawed",
+      "holistic": "flawed",
+      "clr": "flawed",
+      "clr_claims": 2,
+      "clr_refuted": "is not divisible"
+    },
+    {
+      "id": "discount2",
+      "truth": "sound",
+      "holistic": "sound",
+      "clr": "flawed",
+      "clr_claims": 2,
+      "clr_refuted": "% of 80 is 20."
+    },
+    {
+      "id": "syllogism2",
+      "truth": "sound",
+      "holistic": "sound",
+      "clr": "sound",
+      "clr_claims": 2,
+      "clr_refuted": ""
+    },
+    {
+      "id": "speed2",
+      "truth": "sound",
+      "holistic": "sound",
+      "clr": "sound",
+      "clr_claims": 3,
+      "clr_refuted": ""
+    },
+    {
+      "id": "sum2",
+      "truth": "sound",
+      "holistic": "sound",
+      "clr": "sound",
+      "clr_claims": 2,
+      "clr_refuted": ""
+    },
+    {
+      "id": "binary2",
+      "truth": "sound",
+      "holistic": "sound",
+      "clr": "sound",
+      "clr_claims": 1,
+      "clr_refuted": ""
+    },
+    {
+      "id": "choose2",
+      "truth": "sound",
+      "holistic": "sound",
+      "clr": "flawed",
+      "clr_claims": 1,
+      "clr_refuted": "The combination formula is n! / (k! * (n-k"
+    },
+    {
+      "id": "prime2",
+      "truth": "sound",
+      "holistic": "sound",
+      "clr": "sound",
+      "clr_claims": 1,
+      "clr_refuted": ""
+    }
+  ]
+}
