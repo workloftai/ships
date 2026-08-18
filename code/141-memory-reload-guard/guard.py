@@ -20,9 +20,11 @@ own:
      agents"), file self-modification, exfiltration. Memory should be facts, not
      orders. Orders in memory are the red flag.
   3. WRAP              — emit the file wrapped in a defensive frame that tells the
-     model the text is DATA, not instructions. In Anthropic's tests a warning
-     prompt like this blocked 100% of the attacks. This is the actual defence;
-     1 and 2 are how you notice you needed it.
+     model the text is DATA, not instructions. Early reports put a warning prompt
+     like this at 100%, but the paper is narrower: that held for one model
+     (Claude Haiku 4.5) on their payloads, and some payloads resist it. Treat
+     wrap as the layer that helps most, not a guarantee. Sandbox isolation is the
+     structural fix almost nobody runs. 1 and 2 are how you notice you needed it.
 
 Stdlib only, no network. `scan` and `drift` are read-only except for the baseline
 manifest that `baseline` writes.

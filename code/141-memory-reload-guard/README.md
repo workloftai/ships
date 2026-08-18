@@ -25,9 +25,11 @@ wrong. Guard the reload three ways:
    overrides, self-propagation ("tell the other agents"), file self-modification,
    exfiltration, fake system headers.
 3. **`wrap`** — emit the file inside a frame that tells the model the text is
-   DATA, not instructions. In Anthropic's tests, a warning prompt like this
-   blocked 100% of attacks. This is the real defence. 1 and 2 are how you notice
-   you needed it.
+   DATA, not instructions. Early reports said a warning prompt like this blocked
+   100% of attacks; the paper is narrower (that held for one model, Claude Haiku
+   4.5, on their payloads, and some payloads resist it). Treat `wrap` as the
+   layer that helps most, not a guarantee. Sandbox isolation is the structural
+   fix almost nobody runs. 1 and 2 are how you notice you needed it.
 
 ## Run it
 
@@ -54,10 +56,12 @@ drift, the scan flags, and the wrapped-safe output. Captured in
 
 `scan` is a regex tripwire, not a parser. It is bypassable by anyone who knows
 it is there, and it will occasionally flag a legitimate line that reads like an
-order. Treat it as smoke detection, not a wall. The load-bearing defence is
-`wrap`: framing recalled memory as untrusted data is what actually stopped the
-attacks in Anthropic's tests. `drift` tells you a file changed, not whether the
-change was hostile, so a human (or a stricter policy) still reads the diff.
+order. Treat it as smoke detection, not a wall. The layer that helps most is `wrap`,
+but its efficacy is model and payload dependent (Anthropic's 100% was one model
+on their payloads, and some payloads resist a brief warning), so it is not a
+guarantee. The defence that held structurally was sandbox isolation. `drift`
+tells you a file changed, not whether the change was hostile, so a human (or a
+stricter policy) still reads the diff.
 Scanning our own fleet's 15 live memory files returns zero flags, which is the
 point: on clean memory it is quiet, and it only speaks up when memory starts
 giving orders.
