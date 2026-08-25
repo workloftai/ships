@@ -1,0 +1,83 @@
+{
+  "method": "tiktoken/cl100k_base",
+  "total_tokens": 7609,
+  "sources": [
+    {
+      "label": "MEMORY.md (memory index)",
+      "kind": "file",
+      "category": "memory",
+      "tokens": 1654,
+      "detail": "loaded every session"
+    },
+    {
+      "label": "hook: loop_board_session_start.sh",
+      "kind": "hook",
+      "category": "backlog",
+      "tokens": 1608,
+      "detail": "SessionStart injection"
+    },
+    {
+      "label": "~/CLAUDE.md",
+      "kind": "file",
+      "category": "rules",
+      "tokens": 1359,
+      "detail": "always-on file"
+    },
+    {
+      "label": "hook: fleet-registry-hook.sh",
+      "kind": "hook",
+      "category": "routing",
+      "tokens": 1239,
+      "detail": "SessionStart injection"
+    },
+    {
+      "label": "hook: recent_telegram_session_start.py",
+      "kind": "hook",
+      "category": "other",
+      "tokens": 1039,
+      "detail": "SessionStart injection"
+    },
+    {
+      "label": "hook: sop_index_session_start.py",
+      "kind": "hook",
+      "category": "other",
+      "tokens": 631,
+      "detail": "SessionStart injection"
+    },
+    {
+      "label": "~/conexus/AGENTS.md",
+      "kind": "file",
+      "category": "rules",
+      "tokens": 74,
+      "detail": "always-on file"
+    },
+    {
+      "label": "~/conexus/CLAUDE.md",
+      "kind": "file",
+      "category": "rules",
+      "tokens": 5,
+      "detail": "always-on file"
+    },
+    {
+      "label": "hook: emit_span.py",
+      "kind": "hook",
+      "category": "other",
+      "tokens": 0,
+      "detail": "SessionStart injection"
+    },
+    {
+      "label": "hook: memory_index_guard.py",
+      "kind": "hook",
+      "category": "memory",
+      "tokens": 0,
+      "detail": "SessionStart injection"
+    },
+    {
+      "label": "hook: current_task_session_start.py",
+      "kind": "hook",
+      "category": "other",
+      "tokens": 0,
+      "detail": "SessionStart injection"
+    }
+  ]
+}
