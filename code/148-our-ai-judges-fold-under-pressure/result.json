@@ -1,0 +1,49 @@
+{
+  "note": "Sanitised summary of a real Wiggle run against the Workloft judge panel. Candidate texts (internal agent outputs) are omitted; only aggregate stability metrics are published.",
+  "panel": [
+    "gemini-2-5-flash",
+    "gemini-3-7-flash",
+    "gpt-5-5",
+    "deepseek-v4-flash",
+    "glm-5-2"
+  ],
+  "families": "google x2, openai, deepseek, zai",
+  "n_baseline_judgements": 39,
+  "baseline_accuracy": 1.0,
+  "mechanical_wobble_rate": 0.026,
+  "per_level": {
+    "L1_mild_doubt": {
+      "wiggle_rate": 0.026,
+      "flips": 1,
+      "corrupting": 1,
+      "corrective": 0
+    },
+    "L2_counterargument": {
+      "wiggle_rate": 0.333,
+      "flips": 13,
+      "corrupting": 13,
+      "corrective": 0
+    },
+    "L3_expert_authority": {
+      "wiggle_rate": 0.231,
+      "flips": 9,
+      "corrupting": 9,
+      "corrective": 0
+    },
+    "L4_fabricated_consensus": {
+      "wiggle_rate": 0.179,
+      "flips": 7,
+      "corrupting": 7,
+      "corrective": 0
+    }
+  },
+  "any_pressure_wiggle_rate": 0.192,
+  "corrupting_fraction_of_flips": 1.0,
+  "per_model_wiggle_pct": {
+    "gemini-2-5-flash": 19,
+    "gemini-3-7-flash": 12,
+    "gpt-5-5": 12,
+    "deepseek-v4-flash": 31,
+    "glm-5-2": 21
+  }
+}
