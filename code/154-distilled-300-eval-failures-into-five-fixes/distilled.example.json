@@ -1,0 +1,94 @@
+{
+  "summary": {
+    "total_kills": 303,
+    "clusters_distilled": 10,
+    "kills_covered": 290,
+    "by_fault": {
+      "logging": 221,
+      "agent": 60,
+      "rubric": 9
+    }
+  },
+  "fixes": [
+    {
+      "root_cause": "The eval is grading a preview/truncated log artifact for ruby/chat: logged records contain only metadata and text_preview instead of the full structured model output, so required fields score, axis, and hook appear missing.",
+      "fault": "logging",
+      "fix": "Change the ruby/chat logging/eval adapter to persist the full response payload, including parsed JSON fields score, axis, and hook, not just text_preview; add an integration test that runs a structured-output ruby/chat call and asserts the logged eval record contains those three fields.",
+      "agent": "ruby",
+      "action": "chat",
+      "count": 91
+    },
+    {
+      "root_cause": "The poll_juror response/rationale is being evaluated from a truncated preview/log artifact, causing graders to see mid-sentence rationales and infer malformed or incomplete JSON even when the tool call and required fields appear valid.",
+      "fault": "logging",
+      "fix": "Change bob/poll_juror logging/eval input to persist and grade the full raw JSON response, then add a regression test with a rationale longer than the current truncation limit that verifies the stored eval record parses as complete JSON with verdict, rationale, and confidence.",
+      "agent": "bob",
+      "action": "poll_juror",
+      "count": 69
+    },
+    {
+      "root_cause": "Graders are judging truncated/preview versions of candidate_label from the logged record, making valid labels appear cut off or null.",
+      "fault": "logging",
+      "fix": "Change bob/poll_contract logging to store and expose the full raw poll payload, including untruncated candidate_label, and update the eval to read that raw field; add a test with >120-character labels verifying the logged/evaluated candidate_label exactly matches the original string.",
+      "agent": "bob",
+      "action": "poll_contract",
+      "count": 35
+    },
+    {
+      "root_cause": "The logged candidate record for bob/task_started is a truncated/preview-style artifact that omits the structured resp field, even though the displayed output value is '\u2014'. Graders are failing the missing field rather than the action semantics.",
+      "fault": "logging",
+      "fix": "Update the bob/task_started log serializer/exporter to always include a top-level structured field `resp: \"\u2014\"` in the non-truncated record, and add a regression test that parses an exported bob/task_started event and asserts `resp` is present and exactly `\"\u2014\"`.",
+      "agent": "bob",
+      "action": "task_started",
+      "count": 26
+    },
+    {
+      "root_cause": "The gary/add_todo action is being emitted with required fields, especially stage and often owner, set to null instead of non-empty values.",
+      "fault": "agent",
+      "fix": "Update the gary/add_todo action generation/validation so it refuses to call the tool unless tag, owner, stage, title, source, and priority are all non-empty strings; add a unit test that a request producing null owner or stage is rejected or filled with valid defaults before dispatch.",
+      "agent": "gary",
+      "action": "add_todo",
+      "count": 21
+    },
+    {
+      "root_cause": "The 'success' field for the task_ended action is not being passed as a boolean type within the 'args' dictionary, or is being passed as a string 'True' instead of a boolean.",
+      "fault": "agent",
+      "fix": "Ensure the agent's `task_ended` action explicitly passes `success=True` as a boolean type within the `args` dictionary, not as a string or outside the args.",
+      "agent": "bob",
+      "action": "task_ended",
+      "count": 12
+    },
+    {
+      "root_cause": "The agent is attempting to invoke skills that are not recognized or are not being invoked with the correct parameters, despite the preamble listing valid skills. There's a discrepancy between the agent's understanding of available skills/their usage and the actual valid skills/their required parameters.",
+      "fault": "agent",
+      "fix": "Update the agent's prompt to explicitly list the *exact* valid skill names and their *required* parameters, including examples for each, to ensure the agent understands the available tools and their correct invocation.",
+      "agent": "bob",
+      "action": "skill_invoked",
+      "count": 12
+    },
+    {
+      "root_cause": "The agent is providing the 'values' argument as a Python-style string representation of a list of lists (using single quotes), instead of a valid JSON array of arrays.",
+      "fault": "agent",
+      "fix": "Update the agent's prompt or generation logic to ensure the 'values' argument for 'bob/composio.googlesheets_batch_update' is always a valid JSON array string (using double quotes for strings and proper array syntax).",
+      "agent": "bob",
+      "action": "composio.googlesheets_batch_update",
+      "count": 9
+    },
+    {
+      "root_cause": "The evaluator is treating empty stdout from a successful gary.cli ship_todo invocation as failure, even though the action executed correctly with success=true, force=false, and a valid short_id.",
+      "fault": "rubric",
+      "fix": "Update the gary/ship_todo grading rubric to pass when the logged tool call is gary.cli ship_todo with success=true, force=false, and a nonempty short_id, without requiring any stdout/confirmation text.",
+      "agent": "gary",
+      "action": "ship_todo",
+      "count": 9
+    },
+    {
+      "root_cause": "otto/add_change is emitting records with category values like 'agent' or 'fix' instead of the required 'research' category.",
+      "fault": "agent",
+      "fix": "Update the otto/add_change implementation or prompt to hard-code/validate category='research' for this change type, and add a unit test that fails if the emitted category is anything other than 'research'.",
+      "agent": "otto",
+      "action": "add_change",
+      "count": 6
+    }
+  ]
+}
