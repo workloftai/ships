@@ -1,0 +1,11 @@
+{
+  "tiers":               { "haiku": 1, "fable": 2, "sonnet": 2, "opus": 3 },
+  "prices_per_mtok_out": { "haiku": 5, "sonnet": 15, "fable": 15, "opus": 75 },
+  "premium_tier": 3,
+  "daily_budget": 5.00,
+  "currency": "$",
+  "ledger_path": "~/.claude/cost_ledger.jsonl",
+  "decision_log": "~/.claude/cost_guardrail_decisions.jsonl",
+  "allowlist_sessions": [],
+  "allow_downgrades": true
+}
