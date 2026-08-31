@@ -1,0 +1,25 @@
+Rules: 22  Rounds: 6  Model: meta-llama/Llama-3.3-70B-Instruct-Turbo
+
+BASELINE (policy compacted with the transcript):
+  round 1: 0/22 rules survive verbatim
+  round 2: 0/22 rules survive verbatim
+  round 3: 0/22 rules survive verbatim
+  round 4: 0/22 rules survive verbatim
+  round 5: 0/22 rules survive verbatim
+  round 6: 0/22 rules survive verbatim
+  behaviour probes respected: 5/7
+
+TRIAGE (policy pinned, never compacted):
+  round 1: 22/22 rules survive verbatim
+  round 2: 22/22 rules survive verbatim
+  round 3: 22/22 rules survive verbatim
+  round 4: 22/22 rules survive verbatim
+  round 5: 22/22 rules survive verbatim
+  round 6: 22/22 rules survive verbatim
+  behaviour probes respected: 7/7
+
+SUMMARY
+  baseline verbatim curve: [22, 0, 0, 0, 0, 0, 0]
+  triage   verbatim curve: [22, 22, 22, 22, 22, 22, 22]
+  baseline probes: 5/7   triage probes: 7/7
+  wrote result.json
