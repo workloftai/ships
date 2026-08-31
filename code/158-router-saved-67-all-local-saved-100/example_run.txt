@@ -1,0 +1,34 @@
+local (free)   = qwen2.5:7b-instruct-q4_K_M
+premium (paid) = meta-llama/Llama-3.3-70B-Instruct-Turbo
+
+  [easy] route=EASY local_q=1 api_q=1 :: Classify the sentiment as one word (positive/n
+  [easy] route=EASY local_q=1 api_q=1 :: Extract only the email address from: contact m
+  [easy] route=EASY local_q=1 api_q=1 :: What is 47 + 68? Reply with the number only.
+  [easy] route=EASY local_q=1 api_q=1 :: What is the capital of France? One word.
+  [easy] route=EASY local_q=1 api_q=1 :: Convert to uppercase, reply with the word only
+  [easy] route=EASY local_q=1 api_q=1 :: Which is larger, 0.9 or 0.85? Reply with the n
+  [easy] route=EASY local_q=1 api_q=0 :: Category for 'I was charged twice' as one word
+  [easy] route=EASY local_q=1 api_q=1 :: Extract the date (YYYY-MM-DD) from: meeting on
+  [easy] route=EASY local_q=0 api_q=1 :: How many words in: the quick brown fox. Reply 
+  [easy] route=EASY local_q=1 api_q=1 :: What language is 'bonjour le monde'? One word.
+  [easy] route=EASY local_q=1 api_q=1 :: Is 17 prime? Reply yes or no.
+  [easy] route=EASY local_q=1 api_q=1 :: First word of: Apple releases new chip. One wo
+  [hard] route=EASY local_q=1 api_q=1 :: Explain in 2-3 sentences why setting temperatu
+  [hard] route=EASY local_q=1 api_q=1 :: Write a Python function fib(n) that returns th
+  [hard] route=EASY local_q=1 api_q=1 :: A farmer has 17 sheep. All but 9 die. How many
+  [hard] route=HARD local_q=1 api_q=1 :: Give three bullet points on the trade-offs bet
+  [hard] route=HARD local_q=1 api_q=1 :: Why might this loop never terminate: for i in 
+  [hard] route=EASY local_q=1 api_q=1 :: Draft a two-sentence apology to a customer who
+  [hard] route=EASY local_q=1 api_q=1 :: A room costs 30, guests get 5 back, the porter
+  [hard] route=HARD local_q=1 api_q=1 :: Given a table orders(id, user_id, total), writ
+  [hard] route=HARD local_q=1 api_q=1 :: A cost guard is meant to never block the fleet
+  [hard] route=EASY local_q=1 api_q=1 :: Explain the time complexity of binary search a
+  [hard] route=EASY local_q=1 api_q=1 :: Rewrite in plain English: 'we must utilise syn
+  [hard] route=EASY local_q=1 api_q=1 :: Two trains are 300 miles apart closing at 60 a
+
+SUMMARY  (quality = correct/useful out of 24)
+  all_premium  $0.00316  quality 23/24
+  all_cheap    $0.00000  quality 23/24  saved 100.0%
+  routed       $0.00103  quality 23/24  saved 67.4%
+  routed sent 20 local / 4 premium
+  wrote result.json

@@ -1,0 +1,410 @@
+{
+  "summary": {
+    "n": 24,
+    "local_model": "qwen2.5:7b-instruct-q4_K_M",
+    "premium_model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "premium_price_usd_per_mtok": 1.04,
+    "all_premium": {
+      "cost": 0.00316,
+      "quality": 23
+    },
+    "all_cheap": {
+      "cost": 0.0,
+      "quality": 23,
+      "pct_saved": 100.0
+    },
+    "routed": {
+      "cost": 0.001031,
+      "quality": 23,
+      "pct_saved": 67.4,
+      "sent_local": 20,
+      "sent_premium": 4
+    }
+  },
+  "items": [
+    {
+      "prompt": "Classify the sentiment as one word (positive/negative): 'I love this'.",
+      "kind": "easy",
+      "expected": "positive",
+      "cheap": {
+        "ans": "Positive",
+        "cost": 0.0,
+        "q": 1
+      },
+      "premium": {
+        "ans": "Positive.",
+        "cost": 5.72e-05,
+        "q": 1
+      },
+      "route": "EASY"
+    },
+    {
+      "prompt": "Extract only the email address from: contact me at bob@acme.io please.",
+      "kind": "easy",
+      "expected": "bob@acme.io",
+      "cheap": {
+        "ans": "bob@acme.io",
+        "cost": 0.0,
+        "q": 1
+      },
+      "premium": {
+        "ans": "bob@acme.io",
+        "cost": 6.0320000000000005e-05,
+        "q": 1
+      },
+      "route": "EASY"
+    },
+    {
+      "prompt": "What is 47 + 68? Reply with the number only.",
+      "kind": "easy",
+      "expected": "115",
+      "cheap": {
+        "ans": "115",
+        "cost": 0.0,
+        "q": 1
+      },
+      "premium": {
+        "ans": "115",
+        "cost": 5.304e-05,
+        "q": 1
+      },
+      "route": "EASY"
+    },
+    {
+      "prompt": "What is the capital of France? One word.",
+      "kind": "easy",
+      "expected": "paris",
+      "cheap": {
+        "ans": "Paris",
+        "cost": 0.0,
+        "q": 1
+      },
+      "premium": {
+        "ans": "Paris.",
+        "cost": 4.992e-05,
+        "q": 1
+      },
+      "route": "EASY"
+    },
+    {
+      "prompt": "Convert to uppercase, reply with the word only: hello",
+      "kind": "easy",
+      "expected": "HELLO",
+      "cheap": {
+        "ans": "HELLO",
+        "cost": 0.0,
+        "q": 1
+      },
+      "premium": {
+        "ans": "HELLO",
+        "cost": 5.096e-05,
+        "q": 1
+      },
+      "route": "EASY"
+    },
+    {
+      "prompt": "Which is larger, 0.9 or 0.85? Reply with the number.",
+      "kind": "easy",
+      "expected": "0.9",
+      "cheap": {
+        "ans": "0.9",
+        "cost": 0.0,
+        "q": 1
+      },
+      "premium": {
+        "ans": "0.9",
+        "cost": 6.0320000000000005e-05,
+        "q": 1
+      },
+      "route": "EASY"
+    },
+    {
+      "prompt": "Category for 'I was charged twice' as one word (billing/support/sales).",
+      "kind": "easy",
+      "expected": "billing",
+      "cheap": {
+        "ans": "billing",
+        "cost": 0.0,
+        "q": 1
+      },
+      "premium": {
+        "ans": "Support.",
+        "cost": 5.72e-05,
+        "q": 0
+      },
+      "route": "EASY"
+    },
+    {
+      "prompt": "Extract the date (YYYY-MM-DD) from: meeting on 2026-09-11 at noon.",
+      "kind": "easy",
+      "expected": "2026-09-11",
+      "cheap": {
+        "ans": "The date extracted from \"meeting on 2026-09-11 at noon\" is 2026-09-11.",
+        "cost": 0.0,
+        "q": 1
+      },
+      "premium": {
+        "ans": "The date extracted is: 2026-09-11",
+        "cost": 7.28e-05,
+        "q": 1
+      },
+      "route": "EASY"
+    },
+    {
+      "prompt": "How many words in: the quick brown fox. Reply with the number.",
+      "kind": "easy",
+      "expected": "4",
+      "cheap": {
+        "ans": "5",
+        "cost": 0.0,
+        "q": 0
+      },
+      "premium": {
+        "ans": "4",
+        "cost": 5.408e-05,
+        "q": 1
+      },
+      "route": "EASY"
+    },
+    {
+      "prompt": "What language is 'bonjour le monde'? One word.",
+      "kind": "easy",
+      "expected": "french",
+      "cheap": {
+        "ans": "French.",
+        "cost": 0.0,
+        "q": 1
+      },
+      "premium": {
+        "ans": "French.",
+        "cost": 5.2000000000000004e-05,
+        "q": 1
+      },
+      "route": "EASY"
+    },
+    {
+      "prompt": "Is 17 prime? Reply yes or no.",
+      "kind": "easy",
+      "expected": "yes",
+      "cheap": {
+        "ans": "Yes.",
+        "cost": 0.0,
+        "q": 1
+      },
+      "premium": {
+        "ans": "Yes.",
+        "cost": 4.992e-05,
+        "q": 1
+      },
+      "route": "EASY"
+    },
+    {
+      "prompt": "First word of: Apple releases new chip. One word.",
+      "kind": "easy",
+      "expected": "apple",
+      "cheap": {
+        "ans": "Apple",
+        "cost": 0.0,
+        "q": 1
+      },
+      "premium": {
+        "ans": "Apple",
+        "cost": 5.096e-05,
+        "q": 1
+      },
+      "route": "EASY"
+    },
+    {
+      "prompt": "Explain in 2-3 sentences why setting temperature to 0 does not make an LLM fully deterministic.",
+      "kind": "hard",
+      "expected": null,
+      "cheap": {
+        "ans": "Setting the temperature to 0 in a language model like an LLM (Large Language Model) does not make it fully deterministic because there can still be inherent randomness in how the model processes and generates text, even at this setting. The temperature parameter primarily controls the sampling process; setting it to 0 typically means selecting the most probable token, but other factors such as internal noise or implementation specifics can introduce variability.",
+        "cost": 0.0,
+        "q": 1
+      },
+      "premium": {
+        "ans": "Setting the temperature to 0 in a Large Language Model (LLM) does not make it fully deterministic because the model still relies on other sources of randomness, such as tokenization and embedding layers. Additionally, the model's weights and biases, which are learned during training, can also introduce non-determinism. This means that even with a temperature of 0, the model's outputs may still vary slightly between runs.",
+        "cost": 0.00014976,
+        "q": 1
+      },
+      "route": "EASY"
+    },
+    {
+      "prompt": "Write a Python function fib(n) that returns the nth Fibonacci number iteratively (0-indexed, fib(0)=0).",
+      "kind": "hard",
+      "expected": null,
+      "cheap": {
+        "ans": "Certainly! Below is an iterative implementation of the `fib` function in Python:\n\n```python\ndef fib(n):\n    # Handle the base cases\n    if n == 0:\n        return 0\n    elif n == 1:\n        return 1\n    \n    # Initialize the first two Fibonacci numbers\n    a, b = 0, 1\n    \n    # Compute the nth Fibonacci number iteratively\n    for _ in range(2, n + 1):\n        a, b = b, a + b\n    \n    return b\n\n# Example usage:\nprint(fib(0))  # Output: 0\nprint(fib(1))  # Output: 1\nprint(fib(5))  # Output: 5\nprint(fib(10)) # Output: 55\n```\n\n### Explanation:\n- The function `fib(n)` computes the nth Fibonacci number iteratively.\n- We handle the base cases where `n` is 0 or 1 directly.\n- For other values of `n`, we initialize two variables `a` and `b` to represent the first two Fibonacci numbers (0 and 1).\n- We then use a loop to compute the subsequent Fibonacci numbers up to `n`. In each iteration, we update `a` and `b` such that `a` becomes the previous value of `b`, and `b` becomes the sum of the previous values of `a` and `b`.\n\nThis approach ensures that the function is efficient with a time complexity of O(n) and uses constant",
+        "cost": 0.0,
+        "q": 1
+      },
+      "premium": {
+        "ans": "### Fibonacci Function\n#### Overview\nThe Fibonacci sequence is a series of numbers where a number is the addition of the last two numbers, starting with 0 and 1. This function calculates the nth Fibonacci number iteratively.\n\n#### Code\n```python\ndef fib(n: int) -> int:\n    \"\"\"\n    Returns the nth Fibonacci number (0-indexed).\n\n    Args:\n    n (int): The index of the Fibonacci number to return.\n\n    Returns:\n    int: The nth Fibonacci number.\n    \"\"\"\n    if n <= 1:\n        # Base cases: fib(0) = 0, fib(1) = 1\n        return n\n    \n    # Initialize variables to store the last two Fibonacci numbers\n    a, b = 0, 1\n    \n    # Iterate from 2 to n (inclusive)\n    for _ in range(2, n + 1):\n        # Update a and b to the next two Fibonacci numbers\n        a, b = b, a + b\n    \n    # Return the nth Fibonacci number\n    return b\n\n# Example usage:\nif __name__ == \"__main__\":\n    print(fib(0))  # Output: 0\n    print(fib(1))  # Output: 1\n    print(fib(2))  # Output: 1\n    print(fib(3))  # Output: 2\n    print(fib(4))  # Output: 3\n    print(fib(5))  # Output: 5\n```\n\n#### Explanation\n*   The function `fib(n)` takes an integer `n` as input and returns the nth Fibonacci number.\n*   It first checks for the base cases where `n` is 0 or 1, in which case it returns `n` directly.\n*   For `n` greater than 1, it initializes two variables `a` and `b` to store the last two Fibonacci",
+        "cost": 0.00047944,
+        "q": 1
+      },
+      "route": "EASY"
+    },
+    {
+      "prompt": "A farmer has 17 sheep. All but 9 die. How many sheep are left? Give the number and one line of reasoning.",
+      "kind": "hard",
+      "expected": null,
+      "cheap": {
+        "ans": "9 sheep are left. Reasoning: \"All but 9 die\" means that 8 sheep died, so 17 - 8 = 9 sheep are left.",
+        "cost": 0.0,
+        "q": 1
+      },
+      "premium": {
+        "ans": "9 sheep are left. \nThe phrase \"all but 9 die\" means that 9 sheep are the exception to the ones that died, so they are the ones that survived.",
+        "cost": 0.00010504000000000001,
+        "q": 1
+      },
+      "route": "EASY"
+    },
+    {
+      "prompt": "Give three bullet points on the trade-offs between deterministic and probabilistic steps in an automated workflow.",
+      "kind": "hard",
+      "expected": null,
+      "cheap": {
+        "ans": "- **Determinism vs Flexibility**: Deterministic steps ensure that every time a process is run under the same conditions, it produces the exact same output, which can simplify debugging and error handling but may limit flexibility to adapt to unexpected changes or new data.\n- **Resource Utilization**: Probabilistic approaches might require more computational resources due to their iterative nature, potentially leading to longer processing times. However, they can be more efficient in scenarios where deterministic methods would fail due to insufficient data or unpredictable inputs.\n- **Predictability vs Adaptability**: While deterministic workflows offer high predictability and control over the process outcomes, probabilistic approaches allow for better adaptability to real-world variability and uncertainty, potentially leading to more robust solutions that perform well under a wider range of conditions.",
+        "cost": 0.0,
+        "q": 1
+      },
+      "premium": {
+        "ans": "Here are three bullet points on the trade-offs between deterministic and probabilistic steps in an automated workflow:\n\n* **Predictability vs. Flexibility**: Deterministic steps provide predictable outcomes, making it easier to debug and maintain the workflow. However, they can be inflexible and may not adapt well to changing conditions or unexpected inputs. Probabilistic steps, on the other hand, can handle uncertainty and adapt to new situations, but their outcomes may be less predictable and more difficult to debug.\n* **Accuracy vs. Efficiency**: Deterministic steps can provide high accuracy, but may require more computational resources and time to complete. Probabilistic steps can be more efficient and faster, but may sacrifice some accuracy in the process. The choice between deterministic and probabilistic steps depends on the specific requirements of the workflow and the trade-offs between accuracy and efficiency.\n* **Robustness vs. Optimality**: Deterministic steps can provide optimal solutions, but may be brittle and prone to failure if the input data is noisy or uncertain. Probabilistic steps can provide more robust solutions, but may not always find the optimal solution. The choice between deterministic and probabilistic steps depends on the level of uncertainty in the input data and the need for robustness versus optimality in the workflow.",
+        "cost": 0.00032032,
+        "q": 1
+      },
+      "route": "HARD"
+    },
+    {
+      "prompt": "Why might this loop never terminate: for i in range(len(x)): x.append(i) ? Explain in 2 sentences.",
+      "kind": "hard",
+      "expected": null,
+      "cheap": {
+        "ans": "This loop may never terminate because appending an element to the list `x` inside the loop increases the length of `x`, causing the `range(len(x))` to keep generating more iterations indefinitely.",
+        "cost": 0.0,
+        "q": 1
+      },
+      "premium": {
+        "ans": "This loop may never terminate because the length of `x` is constantly increasing as new elements are appended to it, causing the loop to run indefinitely. As a result, the loop condition `i in range(len(x))` will always be true, since `len(x)` will keep growing and `i` will never reach the end of the range.",
+        "cost": 0.00013728000000000001,
+        "q": 1
+      },
+      "route": "HARD"
+    },
+    {
+      "prompt": "Draft a two-sentence apology to a customer who was charged twice, professional British English.",
+      "kind": "hard",
+      "expected": null,
+      "cheap": {
+        "ans": "We sincerely apologise for the mistake in your billing and assure you that we will rectify this error at our earliest convenience. Rest assured, we value your business and are committed to resolving this issue promptly and professionally.",
+        "cost": 0.0,
+        "q": 1
+      },
+      "premium": {
+        "ans": "We are writing to offer our sincerest apologies for the error that resulted in you being charged twice for your recent purchase, and we appreciate your patience and understanding as we work to rectify this situation. A full refund for the duplicate charge will be processed promptly, and you will receive a confirmation email once this has been completed, ensuring that your account is restored to its correct balance.",
+        "cost": 0.00013519999999999998,
+        "q": 1
+      },
+      "route": "EASY"
+    },
+    {
+      "prompt": "A room costs 30, guests get 5 back, the porter keeps 2, each guest gets 1 back. Explain in 2-3 sentences why 'where is the missing pound' is a trick question.",
+      "kind": "hard",
+      "expected": null,
+      "cheap": {
+        "ans": "The apparent \"missing pound\" is a play on expectations and misdirection. Initially, three guests pay \u00a39 each for a room that costs \u00a327 total. After getting \u00a31 back each, they effectively paid \u00a327 - \u00a33 = \u00a324 in total, which includes the \u00a325 for the room and the \u00a32 kept by the porter. There's no missing pound; the confusion arises from incorrectly adding the \u00a32 (kept by the porter) to the \u00a327 already accounted for as the original cost of the room minus the refund given to the guests.",
+        "cost": 0.0,
+        "q": 1
+      },
+      "premium": {
+        "ans": "The question \"where is the missing pound\" is a trick because it assumes a pound has gone missing, but the math actually balances out. The room costs 30 pounds, and after the guests get 5 pounds back and the porter keeps 2 pounds, the remaining amount is distributed among the guests, with each getting 1 pound back, accounting for all the money. There is no actual missing pound, making the question a clever play on perception.",
+        "cost": 0.00017888000000000002,
+        "q": 1
+      },
+      "route": "EASY"
+    },
+    {
+      "prompt": "Given a table orders(id, user_id, total), write a SQL query returning the top 3 users by total spend.",
+      "kind": "hard",
+      "expected": null,
+      "cheap": {
+        "ans": "To retrieve the top 3 users by their total spending from the `orders` table, you can use the following SQL query:\n\n```sql\nSELECT user_id, SUM(total) AS total_spend\nFROM orders\nGROUP BY user_id\nORDER BY total_spend DESC\nLIMIT 3;\n```\n\n### Explanation:\n- **SUM(total)**: This calculates the total amount spent by each `user_id`.\n- **GROUP BY user_id**: This groups the results by each unique `user_id` to aggregate their spending.\n- **ORDER BY total_spend DESC**: This orders the result set in descending order based on the total spend, so that users with higher spending come first.\n- **LIMIT 3**: This limits the output to the top 3 users.\n\nThis query will return a list of the top 3 users by their total spend along with the corresponding total amount spent.",
+        "cost": 0.0,
+        "q": 1
+      },
+      "premium": {
+        "ans": "**SQL Query: Top 3 Users by Total Spend**\n```sql\nSELECT \n    user_id, \n    SUM(total) AS total_spend\nFROM \n    orders\nGROUP BY \n    user_id\nORDER BY \n    total_spend DESC\nLIMIT 3;\n```\n**Explanation:**\n\n1. `GROUP BY user_id`: Groups the orders by user ID to calculate the total spend for each user.\n2. `SUM(total) AS total_spend`: Calculates the total spend for each user by summing up the `total` column.\n3. `ORDER BY total_spend DESC`: Sorts the results in descending order by total spend.\n4. `LIMIT 3`: Returns only the top 3 users with the highest total spend.\n\n**Example Use Case:**\n\nSuppose we have the following data in the `orders` table:\n\n| id | user_id | total |\n| --- | --- | --- |\n| 1  | 1      | 100  |\n| 2  | 1      | 200  |\n| 3  | 2      | 50   |\n| 4  | 3      | 300  |\n| 5  | 1      | 150  |\n| 6  | 2      | 100  |\n| 7  | 3      | 200  |\n\nRunning the above SQL query would return:\n\n| user_id | total_spend |\n| --- | --- |\n| 3      | 500        |\n| 1      | 450        |\n| 2      | 150        |\n\nThis shows that user 3 has spent the most, followed by user 1, and then user 2.",
+        "cost": 0.00042848,
+        "q": 1
+      },
+      "route": "HARD"
+    },
+    {
+      "prompt": "A cost guard is meant to never block the fleet. Explain in 2 sentences why 'fail closed on error' is the wrong default for it.",
+      "kind": "hard",
+      "expected": null,
+      "cheap": {
+        "ans": "In the context of a cost guard, which aims to prevent unauthorized or excessive spending, always remaining \"open\" (not blocking) ensures that critical operations can proceed without unnecessary interruptions. Setting a fail-closed mechanism would instead block all fleet activities upon any error, potentially leading to significant operational disruptions and financial loss, making it unsuitable for the role of a cost guard.",
+        "cost": 0.0,
+        "q": 1
+      },
+      "premium": {
+        "ans": "A cost guard that fails closed on error would block the fleet, preventing it from functioning, which is the opposite of its intended purpose of allowing the fleet to operate while monitoring costs. By failing open on error instead, the cost guard ensures that the fleet remains operational even if the cost guard itself encounters an issue, thereby prioritizing the fleet's availability over cost monitoring.",
+        "cost": 0.00014455999999999998,
+        "q": 1
+      },
+      "route": "HARD"
+    },
+    {
+      "prompt": "Explain the time complexity of binary search and why, in 2 sentences.",
+      "kind": "hard",
+      "expected": null,
+      "cheap": {
+        "ans": "The time complexity of binary search is O(log n) because it divides the search interval in half with each step, efficiently narrowing down the possible search space. This logarithmic growth means that the number of operations increases much more slowly than the size of the input array.",
+        "cost": 0.0,
+        "q": 1
+      },
+      "premium": {
+        "ans": "The time complexity of binary search is O(log n), where n is the number of elements in the search space, because with each comparison, the algorithm effectively halves the search space, leading to a logarithmic reduction in the number of steps required to find the target. This logarithmic time complexity arises from the fact that binary search divides the search space in half at each step, resulting in a significant reduction in the number of comparisons needed to locate the target element, especially for large datasets.",
+        "cost": 0.00015496,
+        "q": 1
+      },
+      "route": "EASY"
+    },
+    {
+      "prompt": "Rewrite in plain English: 'we must utilise synergistic paradigms to action deliverables'.",
+      "kind": "hard",
+      "expected": null,
+      "cheap": {
+        "ans": "We need to use cooperative approaches to achieve our goals.",
+        "cost": 0.0,
+        "q": 1
+      },
+      "premium": {
+        "ans": "Let's break it down:\n\n* \"Synergistic paradigms\" means working together and combining different ideas or approaches to achieve something better than we could alone.\n* \"Action deliverables\" means getting things done and producing results.\n\nSo, the rewritten sentence in plain English would be:\n\n\"We need to work together and combine our strengths to get things done and achieve our goals.\"\n\nOr, even simpler:\n\n\"Let's work together to get the job done.\"",
+        "cost": 0.00015392,
+        "q": 1
+      },
+      "route": "EASY"
+    },
+    {
+      "prompt": "Two trains are 300 miles apart closing at 60 and 40 mph. How long until they meet? Give the number with units and one line of working.",
+      "kind": "hard",
+      "expected": null,
+      "cheap": {
+        "ans": "To find out how long it will take for the two trains to meet, we first need to determine their combined speed. The first train is traveling at 60 mph, and the second train is traveling at 40 mph. Therefore, their combined speed is:\n\n\\[ 60 + 40 = 100 \\text{ mph} \\]\n\nNext, we know that they are initially 300 miles apart. The time it takes for them to meet can be calculated by dividing the distance between them by their combined speed:\n\n\\[ \\text{Time} = \\frac{\\text{Distance}}{\\text{Combined Speed}} = \\frac{300 \\text{ miles}}{100 \\text{ mph}} = 3 \\text{ hours} \\]\n\nSo, it will take 3 hours until the two trains meet.",
+        "cost": 0.0,
+        "q": 1
+      },
+      "premium": {
+        "ans": "Time until they meet: 300 miles / (60 mph + 40 mph) = 300 miles / 100 mph = 3 hours.",
+        "cost": 0.00010296,
+        "q": 1
+      },
+      "route": "EASY"
+    }
+  ]
+}
