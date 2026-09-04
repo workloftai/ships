@@ -41,12 +41,14 @@ PRICES = {
     "flash": (0.75, 3.75),   # Gemini 3.8 Flash, per the 2026-09 launch reporting
     "paid":  (0.88, 0.88),   # Llama 3.3 70B Turbo on Together (single blended rate)
     "local": (0.0, 0.0),     # qwen2.5:7b on Ollama, self-hosted, zero marginal API cost
+    "opus":  (5.0, 25.0),    # Claude Opus 4.8 list price
 }
 
 TIERS = {
     "flash": {"label": "Gemini 3.8 Flash", "provider": "google",   "model": "gemini-3.8-flash"},
     "paid":  {"label": "Llama 3.3 70B",    "provider": "together",  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo"},
     "local": {"label": "qwen2.5:7b (local)","provider": "ollama",   "model": "qwen2.5:7b-instruct-q4_K_M"},
+    "opus":  {"label": "Claude Opus 4.8",  "provider": "anthropic", "model": "claude-opus-4-8"},
 }
 
 
@@ -102,6 +104,21 @@ def call_together(model, prompt):
     return text, u.get("prompt_tokens", 0), u.get("completion_tokens", 0)
 
 
+def call_anthropic(model, prompt):
+    key = ENV["ANTHROPIC_API_KEY"]
+    body = json.dumps({
+        "model": model, "max_tokens": 2048,
+        "messages": [{"role": "user", "content": prompt}],
+    }).encode()
+    req = urllib.request.Request("https://api.anthropic.com/v1/messages", data=body,
+                                 headers={"x-api-key": key, "anthropic-version": "2023-06-01",
+                                          "content-type": "application/json"})
+    d = json.load(urllib.request.urlopen(req, timeout=180))
+    text = "".join(b.get("text", "") for b in d["content"] if b.get("type") == "text")
+    u = d.get("usage", {})
+    return text, u.get("input_tokens", 0), u.get("output_tokens", 0)
+
+
 def call_ollama(model, prompt):
     body = json.dumps({
         "model": model, "prompt": prompt, "stream": False,
@@ -113,7 +130,8 @@ def call_ollama(model, prompt):
     return d.get("response", ""), d.get("prompt_eval_count", 0), d.get("eval_count", 0)
 
 
-CALLERS = {"google": call_google, "together": call_together, "ollama": call_ollama}
+CALLERS = {"google": call_google, "together": call_together, "ollama": call_ollama,
+           "anthropic": call_anthropic}
 
 # --------------------------------------------------------------------------- #
 # Tasks: (name, prompt, test_code). test_code asserts against the produced code.

@@ -134,5 +134,73 @@
         "s": 0.9
       }
     ]
+  },
+  "opus": {
+    "label": "Claude Opus 4.8",
+    "model": "claude-opus-4-8",
+    "passed": 8,
+    "total": 8,
+    "in_tokens": 841,
+    "out_tokens": 1108,
+    "cost_usd": 0.031905,
+    "seconds": 17.5,
+    "per_task": [
+      {
+        "task": "duration_to_seconds",
+        "pass": true,
+        "in": 126,
+        "out": 196,
+        "s": 2.8
+      },
+      {
+        "task": "rle",
+        "pass": true,
+        "in": 102,
+        "out": 135,
+        "s": 2.2
+      },
+      {
+        "task": "is_balanced",
+        "pass": true,
+        "in": 96,
+        "out": 132,
+        "s": 2.1
+      },
+      {
+        "task": "merge_intervals",
+        "pass": true,
+        "in": 93,
+        "out": 162,
+        "s": 2.4
+      },
+      {
+        "task": "col_to_num",
+        "pass": true,
+        "in": 94,
+        "out": 68,
+        "s": 1.4
+      },
+      {
+        "task": "roman_to_int",
+        "pass": true,
+        "in": 105,
+        "out": 142,
+        "s": 2.3
+      },
+      {
+        "task": "flatten_keys",
+        "pass": true,
+        "in": 125,
+        "out": 118,
+        "s": 2.0
+      },
+      {
+        "task": "top_k_frequent",
+        "pass": true,
+        "in": 100,
+        "out": 155,
+        "s": 2.4
+      }
+    ]
   }
 }
