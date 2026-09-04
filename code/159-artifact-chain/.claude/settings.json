@@ -1,0 +1,20 @@
+{
+  "//": "Sample Claude Code settings wiring chain_check.py as a deterministic gate.",
+  "//1": "Hooks are deterministic; skills are advisory. Back a critical policy with a hook.",
+  "//2": "This PreToolUse hook runs before any git commit/push. If the artifact chain",
+  "//3": "is broken (an approved intent/spec/plan was edited after sign-off), the",
+  "//4": "command is blocked. Point --dir at wherever your artifacts live.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if echo \"$CLAUDE_TOOL_INPUT\" | grep -qE 'git (commit|push)'; then python3 code/159-artifact-chain/chain_check.py --dir ./intent || { echo 'Artifact chain broken: reseal after review before committing.' >&2; exit 2; }; fi"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+$ python3 test_chain_check.py
+pass  test_hash_ignores_front_matter_and_trailing_newline
+pass  test_missing_parent_fails
+pass  test_reseal_after_legit_change
+pass  test_sealed_is_intact
+pass  test_tampered_upstream_snaps
+pass  test_unsealed_is_broken
+
+10 assertions passed
+
+$ # build a chain, sign it off, verify, then tamper with the approved intent
+$ python3 chain_check.py --dir /tmp/acd --seal
+sealed  spec.md -> parent hash stamped
+sealed  plan.md -> parent hash stamped
+$ python3 chain_check.py --dir /tmp/acd
+[ok  ] intent.md
+[ok  ] spec.md  (parent: intent.md)
+[ok  ] plan.md  (parent: spec.md)
+
+chain intact
+exit=0
+
+$ # someone edits the signed-off intent.md, then tries to commit
+$ python3 chain_check.py --dir /tmp/acd
+[ok  ] intent.md
+[SNAP] spec.md  (parent: intent.md)  <- parent 'intent.md' changed since sign-off (sealed 2bc5c651846d, now 046b1df37fe1)
+[ok  ] plan.md  (parent: spec.md)
+
+CHAIN BROKEN: an approved artifact changed after sign-off
+exit=1
