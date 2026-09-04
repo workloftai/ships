@@ -202,5 +202,73 @@
         "s": 2.4
       }
     ]
+  },
+  "local": {
+    "label": "qwen2.5:7b (local)",
+    "model": "qwen2.5:7b-instruct-q4_K_M",
+    "passed": 1,
+    "total": 8,
+    "in_tokens": 91,
+    "out_tokens": 61,
+    "cost_usd": 0.0,
+    "seconds": 6549.6,
+    "per_task": [
+      {
+        "task": "duration_to_seconds",
+        "pass": false,
+        "in": 0,
+        "out": 0,
+        "s": 904.3
+      },
+      {
+        "task": "rle",
+        "pass": false,
+        "in": 0,
+        "out": 0,
+        "s": 904.2
+      },
+      {
+        "task": "is_balanced",
+        "pass": false,
+        "in": 0,
+        "out": 0,
+        "s": 904.2
+      },
+      {
+        "task": "merge_intervals",
+        "pass": false,
+        "in": 0,
+        "out": 0,
+        "s": 904.3
+      },
+      {
+        "task": "col_to_num",
+        "pass": false,
+        "in": 0,
+        "out": 0,
+        "s": 904.2
+      },
+      {
+        "task": "roman_to_int",
+        "pass": false,
+        "in": 0,
+        "out": 0,
+        "s": 904.2
+      },
+      {
+        "task": "flatten_keys",
+        "pass": false,
+        "in": 0,
+        "out": 0,
+        "s": 904.3
+      },
+      {
+        "task": "top_k_frequent",
+        "pass": true,
+        "in": 91,
+        "out": 61,
+        "s": 219.9
+      }
+    ]
   }
 }

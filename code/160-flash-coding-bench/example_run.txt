@@ -24,5 +24,5 @@ Gemini 3.8 Flash      8/8        0.003276        1324     39s
 Claude Opus 4.8       8/8        0.031905        1949     18s
 ====================================================================
 
-# All four tiers pass; 23x cost spread (70B -> Opus) at identical quality.
-# qwen2.5:7b (local) also passes, free, but ~2 min/task on a CPU box.
+# Three cloud tiers pass; 23x cost spread (70B -> Opus) at identical quality.
+# qwen2.5:7b (local): NOT viable on CPU — timed out on 7/8 tasks (5-min/call limit), 1/8 passed.

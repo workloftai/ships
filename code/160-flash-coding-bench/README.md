@@ -7,22 +7,23 @@ hand a cheap subagent tier.
 
 ## The finding
 
-On easy-to-medium coding tasks, all three tiers passed the same 8 of 8. Quality
-did not separate them. Cost and latency did, and the "cheap frontier" model came
-last on both:
+On easy-to-medium coding tasks, all three cloud tiers passed the same 8 of 8. Quality
+did not separate them. Cost did, and the "cheap frontier" model came last:
 
 ```
 tier                 pass    cost $     total tokens   time
 Llama 3.3 70B        8/8     0.001365   1551           13s
 Gemini 3.8 Flash     8/8     0.003276   1324           39s
 Claude Opus 4.8      8/8     0.031905   1949           18s
-qwen2.5:7b (local)   pass    0.000000   free, ~2 min/task on a CPU box
+qwen2.5:7b (local)   1/8     0.000000   free, but timed out on 7/8 on CPU
 ```
 
-All four passed the same tasks, across a **23x cost spread**. Gemini 3.8 Flash cost
+The three cloud tiers passed 8 of 8 across a **23x cost spread**. Gemini 3.8 Flash cost
 **2.4x more** than the paid open 70B (Llama 3.3 70B on Together) and ran **3x
 slower**; Claude Opus 4.8 cost **23x the 70B** and ~10x Flash and got the same eight
-answers right. On this workload the entire price ladder bought nothing measurable.
+answers right. On this workload the entire cloud price ladder bought nothing measurable.
+The free local model (qwen2.5:7b) was not viable on a CPU box: it timed out on 7 of 8
+tasks (a 5-minute per-call limit, three retries each), completing only one.
 Flash losing to the 70B is the price sheet, not the model: it is cheap on input
 (reported $0.75 / 1M) but expensive on output ($3.75 / 1M), and short coding answers
 are output-weighted, so the output price dominates the bill. Frontier models earn
@@ -41,25 +42,27 @@ with no model in the loop.
 ## Run it
 
 ```bash
-python3 flash_bench.py                    # all three tiers
-python3 flash_bench.py --tiers flash,paid # skip the slow local tier
+python3 flash_bench.py --tiers flash,paid,opus  # the cloud comparison
+python3 flash_bench.py --tiers local            # local only (slow on CPU)
 ```
 
-Keys: `GOOGLE_API_KEY` (Gemini), `TOGETHER_API_KEY` (Llama), Ollama on
-`localhost:11434` (local). Edit the `PRICES` table at the top with your own
-contract rates; the harness computes cost from real token counts.
+Keys: `GOOGLE_API_KEY` (Gemini), `TOGETHER_API_KEY` (Llama), `ANTHROPIC_API_KEY`
+(Opus), Ollama on `localhost:11434` (local). Edit the `PRICES` table at the top with
+your own contract rates; the harness computes cost from real token counts.
 
 ## What's still off
 
 - **Task difficulty is the load-bearing caveat.** These 8 tasks are easy-to-medium
-  and everything passed, so this measures cost and latency on routine work, not hard
-  reasoning. Genuinely hard problems are where a frontier model would open a quality
-  gap and earn its output price. Do not read this as "Flash is worse", read it as
-  "on routine coding, Flash's price advantage disappears".
+  and every cloud tier passed, so this measures cost and latency on routine work, not
+  hard reasoning. Genuinely hard problems are where a frontier model would open a
+  quality gap and earn its output price. Do not read this as "Flash is worse", read it
+  as "on routine coding, Flash's price advantage disappears".
 - **Prices are as-reported**, not contracts we have billed against. The harness
   prints real token counts so you can plug your own rate.
 - **N is 8, single-pass.**
-- The local tier passes on quality but runs at roughly two minutes per task on a
-  CPU box; it is free, but not a real-time coding tier without a GPU.
+- **The local tier is CPU-bound and not viable here.** qwen2.5:7b timed out on 7 of 8
+  tasks under a 5-minute per-call limit; only one finished (and passed). It is free,
+  but you need a GPU for it to be a real tier. (An earlier partial run passed 3/3 and
+  misled us into "it passes" briefly; the full run corrected that.)
 
 MIT. Steal what you want.
