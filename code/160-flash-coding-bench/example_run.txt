@@ -1,0 +1,31 @@
+$ python3 flash_bench.py --tiers flash,paid
+
+=== Gemini 3.8 Flash (gemini-3.8-flash) ===
+  [PASS] duration_to_seconds     97+113  tok
+  [PASS] rle                     72+112  tok
+  [PASS] is_balanced             59+95   tok
+  [PASS] merge_intervals         58+129  tok
+  [PASS] col_to_num              68+62   tok
+  [PASS] roman_to_int            64+143  tok
+  [PASS] flatten_keys            79+111  tok
+  [PASS] top_k_frequent          66+74   tok
+
+=== Llama 3.3 70B (meta-llama/Llama-3.3-70B-Instruct-Turbo) ===
+  [PASS] duration_to_seconds    124+105  tok
+  [PASS] rle                    103+99   tok
+  [PASS] is_balanced             91+86   tok
+  [PASS] merge_intervals         88+108  tok
+  [PASS] col_to_num              95+59   tok
+  [PASS] roman_to_int            94+139  tok
+  [PASS] flatten_keys           107+97   tok
+  [PASS] top_k_frequent          97+59   tok
+
+====================================================================
+tier                     pass      cost $      tokens    time
+--------------------------------------------------------------------
+Gemini 3.8 Flash      8/8        0.003276        1324     39s
+Llama 3.3 70B         8/8        0.001365        1551     13s
+====================================================================
+
+# Local tier (qwen2.5:7b on Ollama) passes on quality but runs ~2 min/task
+# on a CPU box; free in dollars, unusable in latency for interactive work.

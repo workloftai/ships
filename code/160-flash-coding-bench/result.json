@@ -1,0 +1,138 @@
+{
+  "flash": {
+    "label": "Gemini 3.8 Flash",
+    "model": "gemini-3.8-flash",
+    "passed": 8,
+    "total": 8,
+    "in_tokens": 563,
+    "out_tokens": 761,
+    "cost_usd": 0.003276,
+    "seconds": 38.8,
+    "per_task": [
+      {
+        "task": "duration_to_seconds",
+        "pass": true,
+        "in": 97,
+        "out": 89,
+        "s": 4.5
+      },
+      {
+        "task": "rle",
+        "pass": true,
+        "in": 72,
+        "out": 49,
+        "s": 11.4
+      },
+      {
+        "task": "is_balanced",
+        "pass": true,
+        "in": 59,
+        "out": 104,
+        "s": 2.2
+      },
+      {
+        "task": "merge_intervals",
+        "pass": true,
+        "in": 58,
+        "out": 129,
+        "s": 2.8
+      },
+      {
+        "task": "col_to_num",
+        "pass": true,
+        "in": 68,
+        "out": 62,
+        "s": 4.5
+      },
+      {
+        "task": "roman_to_int",
+        "pass": true,
+        "in": 64,
+        "out": 143,
+        "s": 2.8
+      },
+      {
+        "task": "flatten_keys",
+        "pass": true,
+        "in": 79,
+        "out": 111,
+        "s": 4.1
+      },
+      {
+        "task": "top_k_frequent",
+        "pass": true,
+        "in": 66,
+        "out": 74,
+        "s": 6.5
+      }
+    ]
+  },
+  "paid": {
+    "label": "Llama 3.3 70B",
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "passed": 8,
+    "total": 8,
+    "in_tokens": 799,
+    "out_tokens": 752,
+    "cost_usd": 0.001365,
+    "seconds": 13.1,
+    "per_task": [
+      {
+        "task": "duration_to_seconds",
+        "pass": true,
+        "in": 124,
+        "out": 105,
+        "s": 3.1
+      },
+      {
+        "task": "rle",
+        "pass": true,
+        "in": 103,
+        "out": 99,
+        "s": 1.4
+      },
+      {
+        "task": "is_balanced",
+        "pass": true,
+        "in": 91,
+        "out": 86,
+        "s": 1.0
+      },
+      {
+        "task": "merge_intervals",
+        "pass": true,
+        "in": 88,
+        "out": 108,
+        "s": 2.3
+      },
+      {
+        "task": "col_to_num",
+        "pass": true,
+        "in": 95,
+        "out": 59,
+        "s": 1.2
+      },
+      {
+        "task": "roman_to_int",
+        "pass": true,
+        "in": 94,
+        "out": 139,
+        "s": 1.5
+      },
+      {
+        "task": "flatten_keys",
+        "pass": true,
+        "in": 107,
+        "out": 97,
+        "s": 1.8
+      },
+      {
+        "task": "top_k_frequent",
+        "pass": true,
+        "in": 97,
+        "out": 59,
+        "s": 0.9
+      }
+    ]
+  }
+}
