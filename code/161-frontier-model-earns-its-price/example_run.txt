@@ -1,0 +1,33 @@
+### escalation.py self-test
+[OK ] esc=False reason=None                             <- What are your opening hours?
+[OK ] esc=True  reason=spike_band:browser_computer_use  <- Please browse the site and fill in the form f
+[OK ] esc=True  reason=spike_band:cyber_vuln            <- Reverse engineer this binary and find the vul
+[OK ] esc=True  reason=spike_band:frontier_maths        <- Prove that there are infinitely many primes o
+[OK ] esc=True  reason=repeated_tool_failure:2          <- Summarise this
+[OK ] esc=False reason=None                             <- Summarise this
+[OK ] esc=True  reason=low_confidence:0.30              <- Summarise this
+[OK ] esc=False reason=None                             <- Summarise this
+[OK ] esc=False reason=escalation_cap_reached           <- Exploit the CVE
+
+Confirmation gate:
+[OK ] tier=4 tags={'shell'} -> needs=True hit={'shell'}
+[OK ] tier=4 tags={'read_file'} -> needs=False hit=set()
+[OK ] tier=4 tags={'deploy', 'read_file'} -> needs=True hit={'deploy'}
+[OK ] tier=2 tags={'shell'} -> needs=False hit=set()
+
+13/13 passed
+
+### cache.py self-test
+[OK ] empty cache -> miss
+[OK ] normalised exact hit -> {'response': 'We open 9-5, Mon-Fri.', 'match': 'exact', 'similarity': 1.0}
+[OK ] near-dup cosine hit -> {'response': "Click 'Forgot password' on the login page.", 'match': 'semantic', 'similarity': 0.935}
+[OK ] unrelated -> miss (None)
+[OK ] expired entry -> miss (None)
+
+5/5 passed
+
+### eval results (result.json)
+astra       pass 10/10  cost/solved $0.003374  out_tok 511  2.4s
+opus48      pass 10/10  cost/solved $0.002584  out_tok 810  1.89s
+astra_v2    pass 12/12  cost/solved $0.019508  out_tok 2472  5.05s
+opus48_v2   pass 11/12  cost/solved $0.018401  out_tok 5634  6.17s

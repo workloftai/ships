@@ -1,0 +1,62 @@
+[
+  {
+    "id": "code-01",
+    "category": "coding",
+    "prompt": "Write a Python function `is_balanced(s)` that returns True if the brackets (), [], {} in string s are correctly balanced and nested, else False. Ignore all non-bracket characters. Return ONLY a fenced python code block, no prose.",
+    "grader": {"type": "code", "entry": "is_balanced", "cases": [[["(a[b]{c})"], true], [["([)]"], false], [[""], true], [["{[()]}("], false], [["a(b)c[d]e"], true]]}
+  },
+  {
+    "id": "code-02",
+    "category": "coding",
+    "prompt": "Write a Python function `run_length(s)` that returns the run-length encoding of string s as a list of (char, count) tuples in order. Example: 'aaabbc' -> [('a',3),('b',2),('c',1)]. Empty string -> []. Return ONLY a fenced python code block.",
+    "grader": {"type": "code", "entry": "run_length", "cases": [[["aaabbc"], [["a",3],["b",2],["c",1]]], [[""], []], [["x"], [["x",1]]], [["zzZZ"], [["z",2],["Z",2]]]]}
+  },
+  {
+    "id": "code-03",
+    "category": "coding",
+    "prompt": "Write a Python function `two_sum(nums, target)` returning a list of the two 0-based indices i<j such that nums[i]+nums[j]==target. Exactly one solution exists. Return ONLY a fenced python code block.",
+    "grader": {"type": "code", "entry": "two_sum", "cases": [[[[2,7,11,15],9], [0,1]], [[[3,2,4],6], [1,2]], [[[3,3],6], [0,1]]]}
+  },
+  {
+    "id": "math-01",
+    "category": "math",
+    "prompt": "A shop sells pens at 3 for 1.20 pounds and notebooks at 2.50 pounds each. A customer buys 12 pens and 4 notebooks, then gets 15 percent off the whole order. What is the final price in pounds? Give the final number only, on its own line, at the end, formatted like: ANSWER: X.XX",
+    "grader": {"type": "numeric", "expected": 12.58, "tol": 0.01}
+  },
+  {
+    "id": "math-02",
+    "category": "math",
+    "prompt": "The sequence is defined by a(1)=2, a(n)=3*a(n-1)-1. Compute a(6). End your reply with a line formatted exactly: ANSWER: N",
+    "grader": {"type": "numeric", "expected": 365, "tol": 0.5}
+  },
+  {
+    "id": "math-03",
+    "category": "math",
+    "prompt": "How many integers between 1 and 200 inclusive are divisible by 3 or by 5 but NOT by both? End your reply with a line formatted exactly: ANSWER: N",
+    "grader": {"type": "numeric", "expected": 80, "tol": 0.5}
+  },
+  {
+    "id": "extract-01",
+    "category": "extraction",
+    "prompt": "From this text extract the total invoice amount and the due date. Text: 'Invoice #4471 dated 3 March 2026. Subtotal 480.00, VAT 96.00, total due 576.00 GBP. Payment terms: net 30, due 2 April 2026.' Reply with exactly one line of JSON: {\"total\": <number>, \"due_date\": \"YYYY-MM-DD\"}",
+    "grader": {"type": "json_fields", "fields": {"total": 576.0, "due_date": "2026-04-02"}}
+  },
+  {
+    "id": "extract-02",
+    "category": "extraction",
+    "prompt": "Parse this log line and return the HTTP status code and the response time in ms. Line: '2026-09-05T08:00:12Z GET /api/route 200 in 143ms user=42'. Reply with exactly one line of JSON: {\"status\": <int>, \"ms\": <int>}",
+    "grader": {"type": "json_fields", "fields": {"status": 200, "ms": 143}}
+  },
+  {
+    "id": "longctx-01",
+    "category": "long_context",
+    "prompt": "Below is a list of 40 key-value records. Return only the value for key K37, on a line formatted exactly: ANSWER: <value>\n\nK01=alpha\nK02=bravo\nK03=charlie\nK04=delta\nK05=echo\nK06=foxtrot\nK07=golf\nK08=hotel\nK09=india\nK10=juliett\nK11=kilo\nK12=lima\nK13=mike\nK14=november\nK15=oscar\nK16=papa\nK17=quebec\nK18=romeo\nK19=sierra\nK20=tango\nK21=uniform\nK22=victor\nK23=whiskey\nK24=xray\nK25=yankee\nK26=zulu\nK27=amber\nK28=basil\nK29=cobalt\nK30=denim\nK31=ember\nK32=flint\nK33=granite\nK34=harbor\nK35=indigo\nK36=jasper\nK37=kelvin\nK38=lunar\nK39=marble\nK40=nectar",
+    "grader": {"type": "exact", "expected": "kelvin"}
+  },
+  {
+    "id": "instruct-01",
+    "category": "instruction_following",
+    "prompt": "Output exactly three words, all lowercase, comma-separated with no spaces, that are colours of the rainbow in wavelength order starting from red. Only three. Format: word,word,word",
+    "grader": {"type": "exact", "expected": "red,orange,yellow"}
+  }
+]

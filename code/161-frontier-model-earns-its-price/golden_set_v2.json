@@ -1,0 +1,265 @@
+[
+  {
+    "id": "v2-math-01",
+    "category": "math_hard",
+    "prompt": "What is the largest prime factor of 600851475143? Reason it through, then end with a line formatted exactly: ANSWER: N",
+    "grader": {
+      "type": "numeric",
+      "expected": 6857,
+      "tol": 0.5
+    }
+  },
+  {
+    "id": "v2-math-02",
+    "category": "math_hard",
+    "prompt": "How many trailing zeros are there in 2026! (the factorial of 2026)? End with a line formatted exactly: ANSWER: N",
+    "grader": {
+      "type": "numeric",
+      "expected": 505,
+      "tol": 0.5
+    }
+  },
+  {
+    "id": "v2-math-03",
+    "category": "math_hard",
+    "prompt": "How many integers from 1 to 1000000 inclusive are divisible by NONE of 6, 10, or 15? End with a line formatted exactly: ANSWER: N",
+    "grader": {
+      "type": "numeric",
+      "expected": 733334,
+      "tol": 0.5
+    }
+  },
+  {
+    "id": "v2-math-04",
+    "category": "math_hard",
+    "prompt": "What is the sum of the decimal digits of 2^1000 (2 raised to the power 1000)? End with a line formatted exactly: ANSWER: N",
+    "grader": {
+      "type": "numeric",
+      "expected": 1366,
+      "tol": 0.5
+    }
+  },
+  {
+    "id": "v2-math-05",
+    "category": "math_hard",
+    "prompt": "Compute 7^644 mod 645. End with a line formatted exactly: ANSWER: N",
+    "grader": {
+      "type": "numeric",
+      "expected": 436,
+      "tol": 0.5
+    }
+  },
+  {
+    "id": "v2-code-01",
+    "category": "code_hard",
+    "prompt": "Write a Python function `edit_distance(a, b)` returning the Levenshtein edit distance (min single-character insertions, deletions, substitutions to turn a into b). Return ONLY a fenced python code block.",
+    "grader": {
+      "type": "code",
+      "entry": "edit_distance",
+      "cases": [
+        [
+          [
+            "kitten",
+            "sitting"
+          ],
+          3
+        ],
+        [
+          [
+            "",
+            "abc"
+          ],
+          3
+        ],
+        [
+          [
+            "flaw",
+            "lawn"
+          ],
+          2
+        ],
+        [
+          [
+            "intention",
+            "execution"
+          ],
+          5
+        ]
+      ]
+    }
+  },
+  {
+    "id": "v2-code-02",
+    "category": "code_hard",
+    "prompt": "Write a Python function `min_coins(coins, amount)` returning the fewest coins (unlimited supply of each denomination in the list) that sum to amount, or -1 if impossible. Return ONLY a fenced python code block.",
+    "grader": {
+      "type": "code",
+      "entry": "min_coins",
+      "cases": [
+        [
+          [
+            [
+              1,
+              2,
+              5
+            ],
+            11
+          ],
+          3
+        ],
+        [
+          [
+            [
+              2
+            ],
+            3
+          ],
+          -1
+        ],
+        [
+          [
+            [
+              1,
+              7,
+              10
+            ],
+            14
+          ],
+          2
+        ],
+        [
+          [
+            [
+              186,
+              419,
+              83,
+              408
+            ],
+            6249
+          ],
+          20
+        ]
+      ]
+    }
+  },
+  {
+    "id": "v2-code-03",
+    "category": "code_hard",
+    "prompt": "Write a Python function `lis_length(nums)` returning the length of the longest strictly increasing subsequence of the list nums. Return ONLY a fenced python code block.",
+    "grader": {
+      "type": "code",
+      "entry": "lis_length",
+      "cases": [
+        [
+          [
+            [
+              10,
+              9,
+              2,
+              5,
+              3,
+              7,
+              101,
+              18
+            ]
+          ],
+          4
+        ],
+        [
+          [
+            [
+              0,
+              1,
+              0,
+              3,
+              2,
+              3
+            ]
+          ],
+          4
+        ],
+        [
+          [
+            [
+              7,
+              7,
+              7,
+              7
+            ]
+          ],
+          1
+        ],
+        [
+          [
+            []
+          ],
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "id": "v2-code-04",
+    "category": "code_hard",
+    "prompt": "Write a Python function `longest_palindrome_len(s)` returning the length of the longest palindromic substring of s. Return ONLY a fenced python code block.",
+    "grader": {
+      "type": "code",
+      "entry": "longest_palindrome_len",
+      "cases": [
+        [
+          [
+            "babad"
+          ],
+          3
+        ],
+        [
+          [
+            "cbbd"
+          ],
+          2
+        ],
+        [
+          [
+            "a"
+          ],
+          1
+        ],
+        [
+          [
+            "forgeeksskeegfor"
+          ],
+          10
+        ]
+      ]
+    }
+  },
+  {
+    "id": "v2-lc-01",
+    "category": "long_context_multihop",
+    "prompt": "Below is an employee table (one per line). Among employees in the Data department, find the one with the highest salary, then report the city that person is in.\n\nDan_000 | dept=Sales | city=Glasgow | salary=61000 | start=2017\nEve_001 | dept=Sales | city=Derby | salary=41000 | start=2023\nBen_002 | dept=Sales | city=Leeds | salary=57500 | start=2017\nQuin_003 | dept=Legal | city=London | salary=55000 | start=2023\nHugo_004 | dept=Design | city=Ely | salary=65500 | start=2010\nFinn_005 | dept=Design | city=Bath | salary=65500 | start=2014\nGia_006 | dept=Data | city=Leeds | salary=41500 | start=2022\nDan_007 | dept=Data | city=Bath | salary=63500 | start=2011\nOla_008 | dept=Legal | city=Leeds | salary=78000 | start=2012\nRavi_009 | dept=Data | city=Ely | salary=76000 | start=2016\nCara_010 | dept=Sales | city=Cardiff | salary=67000 | start=2012\nHugo_011 | dept=Sales | city=York | salary=65500 | start=2024\nLeo_012 | dept=Ops | city=Bath | salary=75000 | start=2016\nIvy_013 | dept=Sales | city=Ely | salary=51500 | start=2017\nFinn_014 | dept=Design | city=York | salary=64500 | start=2017\nKira_015 | dept=Sales | city=Cardiff | salary=34000 | start=2020\nMia_016 | dept=Data | city=Leeds | salary=57000 | start=2020\nGia_017 | dept=Design | city=York | salary=88500 | start=2014\nIvy_018 | dept=Ops | city=Cardiff | salary=63500 | start=2023\nSara_019 | dept=Design | city=Bath | salary=58000 | start=2014\nQuin_020 | dept=Design | city=Leeds | salary=36000 | start=2013\nEve_021 | dept=Ops | city=York | salary=38000 | start=2022\nMia_022 | dept=Legal | city=Hull | salary=62000 | start=2010\nDan_023 | dept=Legal | city=Glasgow | salary=73500 | start=2013\nJon_024 | dept=Design | city=Bristol | salary=88000 | start=2010\nIvy_025 | dept=Legal | city=Bristol | salary=94500 | start=2013\nJon_026 | dept=Legal | city=Ely | salary=55000 | start=2014\nLeo_027 | dept=Ops | city=Derby | salary=30000 | start=2020\nPia_028 | dept=Sales | city=Leeds | salary=76000 | start=2019\nHugo_029 | dept=Sales | city=Cardiff | salary=40000 | start=2012\nPia_030 | dept=Sales | city=Derby | salary=46000 | start=2014\nPia_031 | dept=Legal | city=Bristol | salary=63500 | start=2023\nGia_032 | dept=Legal | city=Cardiff | salary=69500 | start=2022\nLeo_033 | dept=Design | city=Derby | salary=87500 | start=2013\nHugo_034 | dept=Ops | city=Leeds | salary=73000 | start=2010\nSara_035 | dept=Legal | city=Cardiff | salary=58000 | start=2010\nCara_036 | dept=Sales | city=Cardiff | salary=38500 | start=2011\nKira_037 | dept=Sales | city=Derby | salary=60000 | start=2018\nPia_038 | dept=Ops | city=Derby | salary=46500 | start=2025\nHugo_039 | dept=Design | city=York | salary=54000 | start=2013\nDan_040 | dept=Design | city=Bath | salary=84000 | start=2023\nOla_041 | dept=Sales | city=Leeds | salary=37500 | start=2022\nKira_042 | dept=Sales | city=Cardiff | salary=54500 | start=2016\nRavi_043 | dept=Design | city=Bristol | salary=84000 | start=2015\nIvy_044 | dept=Design | city=Cardiff | salary=39500 | start=2024\nRavi_045 | dept=Sales | city=London | salary=31500 | start=2012\nHugo_046 | dept=Ops | city=York | salary=92000 | start=2025\nGia_047 | dept=Design | city=London | salary=51000 | start=2022\nAva_048 | dept=Design | city=Glasgow | salary=88000 | start=2019\nNoah_049 | dept=Legal | city=Hull | salary=49500 | start=2016\nJon_050 | dept=Ops | city=London | salary=37500 | start=2020\nBen_051 | dept=Sales | city=Ely | salary=91000 | start=2015\nBen_052 | dept=Legal | city=Leeds | salary=53500 | start=2012\nTom_053 | dept=Sales | city=Cardiff | salary=81500 | start=2013\nSara_054 | dept=Ops | city=Ely | salary=35000 | start=2012\nNoah_055 | dept=Legal | city=Ely | salary=70000 | start=2018\nGia_056 | dept=Data | city=Cardiff | salary=63500 | start=2022\nEve_057 | dept=Data | city=Hull | salary=70000 | start=2012\nAva_058 | dept=Design | city=Ely | salary=42500 | start=2012\nRavi_059 | dept=Ops | city=Derby | salary=63500 | start=2014\nLeo_060 | dept=Sales | city=Cardiff | salary=77000 | start=2019\nFinn_061 | dept=Design | city=Derby | salary=68500 | start=2010\nRavi_062 | dept=Data | city=Leeds | salary=47000 | start=2018\nDan_063 | dept=Sales | city=Derby | salary=49500 | start=2018\nJon_064 | dept=Legal | city=Cardiff | salary=73500 | start=2016\nIvy_065 | dept=Legal | city=Hull | salary=62000 | start=2011\nCara_066 | dept=Design | city=Glasgow | salary=35500 | start=2010\nKira_067 | dept=Ops | city=Glasgow | salary=50500 | start=2024\nRavi_068 | dept=Design | city=Derby | salary=31000 | start=2013\nCara_069 | dept=Ops | city=Derby | salary=34500 | start=2021\nSara_070 | dept=Legal | city=Bristol | salary=85000 | start=2014\nBen_071 | dept=Data | city=Bath | salary=35000 | start=2021\nGia_072 | dept=Ops | city=Leeds | salary=75000 | start=2023\nTom_073 | dept=Ops | city=Cardiff | salary=50500 | start=2015\nNoah_074 | dept=Sales | city=Bristol | salary=72500 | start=2023\nHugo_075 | dept=Data | city=Bristol | salary=43500 | start=2022\nBen_076 | dept=Design | city=Cardiff | salary=55500 | start=2024\nLeo_077 | dept=Data | city=Cardiff | salary=58500 | start=2010\nGia_078 | dept=Design | city=Bath | salary=65500 | start=2012\nIvy_079 | dept=Data | city=Derby | salary=81000 | start=2020\nAva_080 | dept=Sales | city=Glasgow | salary=52500 | start=2018\nBen_081 | dept=Sales | city=Ely | salary=85500 | start=2021\nKira_082 | dept=Design | city=Ely | salary=44500 | start=2022\nSara_083 | dept=Ops | city=Glasgow | salary=35500 | start=2023\nAva_084 | dept=Legal | city=Derby | salary=55000 | start=2021\nNoah_085 | dept=Sales | city=Bath | salary=70000 | start=2013\nJon_086 | dept=Legal | city=Glasgow | salary=82000 | start=2020\nMia_087 | dept=Data | city=Derby | salary=46000 | start=2016\nNoah_088 | dept=Design | city=Bristol | salary=68500 | start=2022\nRavi_089 | dept=Sales | city=Glasgow | salary=66500 | start=2016\nNoah_090 | dept=Legal | city=Ely | salary=71000 | start=2024\nOla_091 | dept=Design | city=Cardiff | salary=90500 | start=2015\nCara_092 | dept=Data | city=Derby | salary=72500 | start=2012\nHugo_093 | dept=Data | city=Cardiff | salary=55000 | start=2014\nAva_094 | dept=Sales | city=Cardiff | salary=90500 | start=2012\nOla_095 | dept=Design | city=Ely | salary=54500 | start=2022\nPia_096 | dept=Design | city=Cardiff | salary=48500 | start=2010\nDan_097 | dept=Design | city=Cardiff | salary=52500 | start=2024\nBen_098 | dept=Legal | city=Cardiff | salary=45500 | start=2024\nEve_099 | dept=Design | city=Derby | salary=70500 | start=2024\nTom_100 | dept=Legal | city=York | salary=87000 | start=2015\nPia_101 | dept=Design | city=Glasgow | salary=61500 | start=2018\nQuin_102 | dept=Design | city=Cardiff | salary=65000 | start=2024\nCara_103 | dept=Data | city=Cardiff | salary=64500 | start=2020\nKira_104 | dept=Legal | city=Leeds | salary=47500 | start=2014\nHugo_105 | dept=Design | city=Bristol | salary=57000 | start=2012\nNoah_106 | dept=Design | city=Bath | salary=89500 | start=2023\nBen_107 | dept=Ops | city=York | salary=79500 | start=2010\nSara_108 | dept=Design | city=Hull | salary=30500 | start=2021\nJon_109 | dept=Design | city=York | salary=58000 | start=2025\nHugo_110 | dept=Data | city=York | salary=92000 | start=2010\nMia_111 | dept=Data | city=York | salary=51000 | start=2024\nEve_112 | dept=Legal | city=Derby | salary=33000 | start=2022\nSara_113 | dept=Legal | city=London | salary=40500 | start=2023\nEve_114 | dept=Design | city=Bristol | salary=36000 | start=2018\nMia_115 | dept=Data | city=Cardiff | salary=88000 | start=2020\nKira_116 | dept=Design | city=Glasgow | salary=83500 | start=2018\nCara_117 | dept=Design | city=London | salary=36500 | start=2021\nHugo_118 | dept=Sales | city=London | salary=33500 | start=2017\nGia_119 | dept=Sales | city=Ely | salary=49500 | start=2017\n\nReply with a line formatted exactly: ANSWER: <city>",
+    "grader": {
+      "type": "exact",
+      "expected": "York"
+    }
+  },
+  {
+    "id": "v2-lc-02",
+    "category": "long_context_multihop",
+    "prompt": "Using the same table below, how many employees are in the Sales department AND earn more than 55000? Count carefully.\n\nDan_000 | dept=Sales | city=Glasgow | salary=61000 | start=2017\nEve_001 | dept=Sales | city=Derby | salary=41000 | start=2023\nBen_002 | dept=Sales | city=Leeds | salary=57500 | start=2017\nQuin_003 | dept=Legal | city=London | salary=55000 | start=2023\nHugo_004 | dept=Design | city=Ely | salary=65500 | start=2010\nFinn_005 | dept=Design | city=Bath | salary=65500 | start=2014\nGia_006 | dept=Data | city=Leeds | salary=41500 | start=2022\nDan_007 | dept=Data | city=Bath | salary=63500 | start=2011\nOla_008 | dept=Legal | city=Leeds | salary=78000 | start=2012\nRavi_009 | dept=Data | city=Ely | salary=76000 | start=2016\nCara_010 | dept=Sales | city=Cardiff | salary=67000 | start=2012\nHugo_011 | dept=Sales | city=York | salary=65500 | start=2024\nLeo_012 | dept=Ops | city=Bath | salary=75000 | start=2016\nIvy_013 | dept=Sales | city=Ely | salary=51500 | start=2017\nFinn_014 | dept=Design | city=York | salary=64500 | start=2017\nKira_015 | dept=Sales | city=Cardiff | salary=34000 | start=2020\nMia_016 | dept=Data | city=Leeds | salary=57000 | start=2020\nGia_017 | dept=Design | city=York | salary=88500 | start=2014\nIvy_018 | dept=Ops | city=Cardiff | salary=63500 | start=2023\nSara_019 | dept=Design | city=Bath | salary=58000 | start=2014\nQuin_020 | dept=Design | city=Leeds | salary=36000 | start=2013\nEve_021 | dept=Ops | city=York | salary=38000 | start=2022\nMia_022 | dept=Legal | city=Hull | salary=62000 | start=2010\nDan_023 | dept=Legal | city=Glasgow | salary=73500 | start=2013\nJon_024 | dept=Design | city=Bristol | salary=88000 | start=2010\nIvy_025 | dept=Legal | city=Bristol | salary=94500 | start=2013\nJon_026 | dept=Legal | city=Ely | salary=55000 | start=2014\nLeo_027 | dept=Ops | city=Derby | salary=30000 | start=2020\nPia_028 | dept=Sales | city=Leeds | salary=76000 | start=2019\nHugo_029 | dept=Sales | city=Cardiff | salary=40000 | start=2012\nPia_030 | dept=Sales | city=Derby | salary=46000 | start=2014\nPia_031 | dept=Legal | city=Bristol | salary=63500 | start=2023\nGia_032 | dept=Legal | city=Cardiff | salary=69500 | start=2022\nLeo_033 | dept=Design | city=Derby | salary=87500 | start=2013\nHugo_034 | dept=Ops | city=Leeds | salary=73000 | start=2010\nSara_035 | dept=Legal | city=Cardiff | salary=58000 | start=2010\nCara_036 | dept=Sales | city=Cardiff | salary=38500 | start=2011\nKira_037 | dept=Sales | city=Derby | salary=60000 | start=2018\nPia_038 | dept=Ops | city=Derby | salary=46500 | start=2025\nHugo_039 | dept=Design | city=York | salary=54000 | start=2013\nDan_040 | dept=Design | city=Bath | salary=84000 | start=2023\nOla_041 | dept=Sales | city=Leeds | salary=37500 | start=2022\nKira_042 | dept=Sales | city=Cardiff | salary=54500 | start=2016\nRavi_043 | dept=Design | city=Bristol | salary=84000 | start=2015\nIvy_044 | dept=Design | city=Cardiff | salary=39500 | start=2024\nRavi_045 | dept=Sales | city=London | salary=31500 | start=2012\nHugo_046 | dept=Ops | city=York | salary=92000 | start=2025\nGia_047 | dept=Design | city=London | salary=51000 | start=2022\nAva_048 | dept=Design | city=Glasgow | salary=88000 | start=2019\nNoah_049 | dept=Legal | city=Hull | salary=49500 | start=2016\nJon_050 | dept=Ops | city=London | salary=37500 | start=2020\nBen_051 | dept=Sales | city=Ely | salary=91000 | start=2015\nBen_052 | dept=Legal | city=Leeds | salary=53500 | start=2012\nTom_053 | dept=Sales | city=Cardiff | salary=81500 | start=2013\nSara_054 | dept=Ops | city=Ely | salary=35000 | start=2012\nNoah_055 | dept=Legal | city=Ely | salary=70000 | start=2018\nGia_056 | dept=Data | city=Cardiff | salary=63500 | start=2022\nEve_057 | dept=Data | city=Hull | salary=70000 | start=2012\nAva_058 | dept=Design | city=Ely | salary=42500 | start=2012\nRavi_059 | dept=Ops | city=Derby | salary=63500 | start=2014\nLeo_060 | dept=Sales | city=Cardiff | salary=77000 | start=2019\nFinn_061 | dept=Design | city=Derby | salary=68500 | start=2010\nRavi_062 | dept=Data | city=Leeds | salary=47000 | start=2018\nDan_063 | dept=Sales | city=Derby | salary=49500 | start=2018\nJon_064 | dept=Legal | city=Cardiff | salary=73500 | start=2016\nIvy_065 | dept=Legal | city=Hull | salary=62000 | start=2011\nCara_066 | dept=Design | city=Glasgow | salary=35500 | start=2010\nKira_067 | dept=Ops | city=Glasgow | salary=50500 | start=2024\nRavi_068 | dept=Design | city=Derby | salary=31000 | start=2013\nCara_069 | dept=Ops | city=Derby | salary=34500 | start=2021\nSara_070 | dept=Legal | city=Bristol | salary=85000 | start=2014\nBen_071 | dept=Data | city=Bath | salary=35000 | start=2021\nGia_072 | dept=Ops | city=Leeds | salary=75000 | start=2023\nTom_073 | dept=Ops | city=Cardiff | salary=50500 | start=2015\nNoah_074 | dept=Sales | city=Bristol | salary=72500 | start=2023\nHugo_075 | dept=Data | city=Bristol | salary=43500 | start=2022\nBen_076 | dept=Design | city=Cardiff | salary=55500 | start=2024\nLeo_077 | dept=Data | city=Cardiff | salary=58500 | start=2010\nGia_078 | dept=Design | city=Bath | salary=65500 | start=2012\nIvy_079 | dept=Data | city=Derby | salary=81000 | start=2020\nAva_080 | dept=Sales | city=Glasgow | salary=52500 | start=2018\nBen_081 | dept=Sales | city=Ely | salary=85500 | start=2021\nKira_082 | dept=Design | city=Ely | salary=44500 | start=2022\nSara_083 | dept=Ops | city=Glasgow | salary=35500 | start=2023\nAva_084 | dept=Legal | city=Derby | salary=55000 | start=2021\nNoah_085 | dept=Sales | city=Bath | salary=70000 | start=2013\nJon_086 | dept=Legal | city=Glasgow | salary=82000 | start=2020\nMia_087 | dept=Data | city=Derby | salary=46000 | start=2016\nNoah_088 | dept=Design | city=Bristol | salary=68500 | start=2022\nRavi_089 | dept=Sales | city=Glasgow | salary=66500 | start=2016\nNoah_090 | dept=Legal | city=Ely | salary=71000 | start=2024\nOla_091 | dept=Design | city=Cardiff | salary=90500 | start=2015\nCara_092 | dept=Data | city=Derby | salary=72500 | start=2012\nHugo_093 | dept=Data | city=Cardiff | salary=55000 | start=2014\nAva_094 | dept=Sales | city=Cardiff | salary=90500 | start=2012\nOla_095 | dept=Design | city=Ely | salary=54500 | start=2022\nPia_096 | dept=Design | city=Cardiff | salary=48500 | start=2010\nDan_097 | dept=Design | city=Cardiff | salary=52500 | start=2024\nBen_098 | dept=Legal | city=Cardiff | salary=45500 | start=2024\nEve_099 | dept=Design | city=Derby | salary=70500 | start=2024\nTom_100 | dept=Legal | city=York | salary=87000 | start=2015\nPia_101 | dept=Design | city=Glasgow | salary=61500 | start=2018\nQuin_102 | dept=Design | city=Cardiff | salary=65000 | start=2024\nCara_103 | dept=Data | city=Cardiff | salary=64500 | start=2020\nKira_104 | dept=Legal | city=Leeds | salary=47500 | start=2014\nHugo_105 | dept=Design | city=Bristol | salary=57000 | start=2012\nNoah_106 | dept=Design | city=Bath | salary=89500 | start=2023\nBen_107 | dept=Ops | city=York | salary=79500 | start=2010\nSara_108 | dept=Design | city=Hull | salary=30500 | start=2021\nJon_109 | dept=Design | city=York | salary=58000 | start=2025\nHugo_110 | dept=Data | city=York | salary=92000 | start=2010\nMia_111 | dept=Data | city=York | salary=51000 | start=2024\nEve_112 | dept=Legal | city=Derby | salary=33000 | start=2022\nSara_113 | dept=Legal | city=London | salary=40500 | start=2023\nEve_114 | dept=Design | city=Bristol | salary=36000 | start=2018\nMia_115 | dept=Data | city=Cardiff | salary=88000 | start=2020\nKira_116 | dept=Design | city=Glasgow | salary=83500 | start=2018\nCara_117 | dept=Design | city=London | salary=36500 | start=2021\nHugo_118 | dept=Sales | city=London | salary=33500 | start=2017\nGia_119 | dept=Sales | city=Ely | salary=49500 | start=2017\n\nReply with a line formatted exactly: ANSWER: N",
+    "grader": {
+      "type": "numeric",
+      "expected": 14,
+      "tol": 0.5
+    }
+  },
+  {
+    "id": "v2-lc-03",
+    "category": "long_context_multihop",
+    "prompt": "Using the same table below, what is the exact total combined salary of everyone in the Legal department?\n\nDan_000 | dept=Sales | city=Glasgow | salary=61000 | start=2017\nEve_001 | dept=Sales | city=Derby | salary=41000 | start=2023\nBen_002 | dept=Sales | city=Leeds | salary=57500 | start=2017\nQuin_003 | dept=Legal | city=London | salary=55000 | start=2023\nHugo_004 | dept=Design | city=Ely | salary=65500 | start=2010\nFinn_005 | dept=Design | city=Bath | salary=65500 | start=2014\nGia_006 | dept=Data | city=Leeds | salary=41500 | start=2022\nDan_007 | dept=Data | city=Bath | salary=63500 | start=2011\nOla_008 | dept=Legal | city=Leeds | salary=78000 | start=2012\nRavi_009 | dept=Data | city=Ely | salary=76000 | start=2016\nCara_010 | dept=Sales | city=Cardiff | salary=67000 | start=2012\nHugo_011 | dept=Sales | city=York | salary=65500 | start=2024\nLeo_012 | dept=Ops | city=Bath | salary=75000 | start=2016\nIvy_013 | dept=Sales | city=Ely | salary=51500 | start=2017\nFinn_014 | dept=Design | city=York | salary=64500 | start=2017\nKira_015 | dept=Sales | city=Cardiff | salary=34000 | start=2020\nMia_016 | dept=Data | city=Leeds | salary=57000 | start=2020\nGia_017 | dept=Design | city=York | salary=88500 | start=2014\nIvy_018 | dept=Ops | city=Cardiff | salary=63500 | start=2023\nSara_019 | dept=Design | city=Bath | salary=58000 | start=2014\nQuin_020 | dept=Design | city=Leeds | salary=36000 | start=2013\nEve_021 | dept=Ops | city=York | salary=38000 | start=2022\nMia_022 | dept=Legal | city=Hull | salary=62000 | start=2010\nDan_023 | dept=Legal | city=Glasgow | salary=73500 | start=2013\nJon_024 | dept=Design | city=Bristol | salary=88000 | start=2010\nIvy_025 | dept=Legal | city=Bristol | salary=94500 | start=2013\nJon_026 | dept=Legal | city=Ely | salary=55000 | start=2014\nLeo_027 | dept=Ops | city=Derby | salary=30000 | start=2020\nPia_028 | dept=Sales | city=Leeds | salary=76000 | start=2019\nHugo_029 | dept=Sales | city=Cardiff | salary=40000 | start=2012\nPia_030 | dept=Sales | city=Derby | salary=46000 | start=2014\nPia_031 | dept=Legal | city=Bristol | salary=63500 | start=2023\nGia_032 | dept=Legal | city=Cardiff | salary=69500 | start=2022\nLeo_033 | dept=Design | city=Derby | salary=87500 | start=2013\nHugo_034 | dept=Ops | city=Leeds | salary=73000 | start=2010\nSara_035 | dept=Legal | city=Cardiff | salary=58000 | start=2010\nCara_036 | dept=Sales | city=Cardiff | salary=38500 | start=2011\nKira_037 | dept=Sales | city=Derby | salary=60000 | start=2018\nPia_038 | dept=Ops | city=Derby | salary=46500 | start=2025\nHugo_039 | dept=Design | city=York | salary=54000 | start=2013\nDan_040 | dept=Design | city=Bath | salary=84000 | start=2023\nOla_041 | dept=Sales | city=Leeds | salary=37500 | start=2022\nKira_042 | dept=Sales | city=Cardiff | salary=54500 | start=2016\nRavi_043 | dept=Design | city=Bristol | salary=84000 | start=2015\nIvy_044 | dept=Design | city=Cardiff | salary=39500 | start=2024\nRavi_045 | dept=Sales | city=London | salary=31500 | start=2012\nHugo_046 | dept=Ops | city=York | salary=92000 | start=2025\nGia_047 | dept=Design | city=London | salary=51000 | start=2022\nAva_048 | dept=Design | city=Glasgow | salary=88000 | start=2019\nNoah_049 | dept=Legal | city=Hull | salary=49500 | start=2016\nJon_050 | dept=Ops | city=London | salary=37500 | start=2020\nBen_051 | dept=Sales | city=Ely | salary=91000 | start=2015\nBen_052 | dept=Legal | city=Leeds | salary=53500 | start=2012\nTom_053 | dept=Sales | city=Cardiff | salary=81500 | start=2013\nSara_054 | dept=Ops | city=Ely | salary=35000 | start=2012\nNoah_055 | dept=Legal | city=Ely | salary=70000 | start=2018\nGia_056 | dept=Data | city=Cardiff | salary=63500 | start=2022\nEve_057 | dept=Data | city=Hull | salary=70000 | start=2012\nAva_058 | dept=Design | city=Ely | salary=42500 | start=2012\nRavi_059 | dept=Ops | city=Derby | salary=63500 | start=2014\nLeo_060 | dept=Sales | city=Cardiff | salary=77000 | start=2019\nFinn_061 | dept=Design | city=Derby | salary=68500 | start=2010\nRavi_062 | dept=Data | city=Leeds | salary=47000 | start=2018\nDan_063 | dept=Sales | city=Derby | salary=49500 | start=2018\nJon_064 | dept=Legal | city=Cardiff | salary=73500 | start=2016\nIvy_065 | dept=Legal | city=Hull | salary=62000 | start=2011\nCara_066 | dept=Design | city=Glasgow | salary=35500 | start=2010\nKira_067 | dept=Ops | city=Glasgow | salary=50500 | start=2024\nRavi_068 | dept=Design | city=Derby | salary=31000 | start=2013\nCara_069 | dept=Ops | city=Derby | salary=34500 | start=2021\nSara_070 | dept=Legal | city=Bristol | salary=85000 | start=2014\nBen_071 | dept=Data | city=Bath | salary=35000 | start=2021\nGia_072 | dept=Ops | city=Leeds | salary=75000 | start=2023\nTom_073 | dept=Ops | city=Cardiff | salary=50500 | start=2015\nNoah_074 | dept=Sales | city=Bristol | salary=72500 | start=2023\nHugo_075 | dept=Data | city=Bristol | salary=43500 | start=2022\nBen_076 | dept=Design | city=Cardiff | salary=55500 | start=2024\nLeo_077 | dept=Data | city=Cardiff | salary=58500 | start=2010\nGia_078 | dept=Design | city=Bath | salary=65500 | start=2012\nIvy_079 | dept=Data | city=Derby | salary=81000 | start=2020\nAva_080 | dept=Sales | city=Glasgow | salary=52500 | start=2018\nBen_081 | dept=Sales | city=Ely | salary=85500 | start=2021\nKira_082 | dept=Design | city=Ely | salary=44500 | start=2022\nSara_083 | dept=Ops | city=Glasgow | salary=35500 | start=2023\nAva_084 | dept=Legal | city=Derby | salary=55000 | start=2021\nNoah_085 | dept=Sales | city=Bath | salary=70000 | start=2013\nJon_086 | dept=Legal | city=Glasgow | salary=82000 | start=2020\nMia_087 | dept=Data | city=Derby | salary=46000 | start=2016\nNoah_088 | dept=Design | city=Bristol | salary=68500 | start=2022\nRavi_089 | dept=Sales | city=Glasgow | salary=66500 | start=2016\nNoah_090 | dept=Legal | city=Ely | salary=71000 | start=2024\nOla_091 | dept=Design | city=Cardiff | salary=90500 | start=2015\nCara_092 | dept=Data | city=Derby | salary=72500 | start=2012\nHugo_093 | dept=Data | city=Cardiff | salary=55000 | start=2014\nAva_094 | dept=Sales | city=Cardiff | salary=90500 | start=2012\nOla_095 | dept=Design | city=Ely | salary=54500 | start=2022\nPia_096 | dept=Design | city=Cardiff | salary=48500 | start=2010\nDan_097 | dept=Design | city=Cardiff | salary=52500 | start=2024\nBen_098 | dept=Legal | city=Cardiff | salary=45500 | start=2024\nEve_099 | dept=Design | city=Derby | salary=70500 | start=2024\nTom_100 | dept=Legal | city=York | salary=87000 | start=2015\nPia_101 | dept=Design | city=Glasgow | salary=61500 | start=2018\nQuin_102 | dept=Design | city=Cardiff | salary=65000 | start=2024\nCara_103 | dept=Data | city=Cardiff | salary=64500 | start=2020\nKira_104 | dept=Legal | city=Leeds | salary=47500 | start=2014\nHugo_105 | dept=Design | city=Bristol | salary=57000 | start=2012\nNoah_106 | dept=Design | city=Bath | salary=89500 | start=2023\nBen_107 | dept=Ops | city=York | salary=79500 | start=2010\nSara_108 | dept=Design | city=Hull | salary=30500 | start=2021\nJon_109 | dept=Design | city=York | salary=58000 | start=2025\nHugo_110 | dept=Data | city=York | salary=92000 | start=2010\nMia_111 | dept=Data | city=York | salary=51000 | start=2024\nEve_112 | dept=Legal | city=Derby | salary=33000 | start=2022\nSara_113 | dept=Legal | city=London | salary=40500 | start=2023\nEve_114 | dept=Design | city=Bristol | salary=36000 | start=2018\nMia_115 | dept=Data | city=Cardiff | salary=88000 | start=2020\nKira_116 | dept=Design | city=Glasgow | salary=83500 | start=2018\nCara_117 | dept=Design | city=London | salary=36500 | start=2021\nHugo_118 | dept=Sales | city=London | salary=33500 | start=2017\nGia_119 | dept=Sales | city=Ely | salary=49500 | start=2017\n\nReply with a line formatted exactly: ANSWER: N",
+    "grader": {
+      "type": "numeric",
+      "expected": 1464000,
+      "tol": 0.5
+    }
+  }
+]

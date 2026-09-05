@@ -1,0 +1,46 @@
+{
+  "astra": {
+    "label": "astra",
+    "model": "openai/gpt-6-astra",
+    "n_tasks": 10,
+    "passed": 10,
+    "pass_rate": 1.0,
+    "total_cost_usd": 0.03374,
+    "total_output_tokens": 511,
+    "avg_latency_s": 2.4,
+    "cost_per_solved_task_usd": 0.003374
+  },
+  "opus48": {
+    "label": "opus48",
+    "model": "claude-opus-4-8",
+    "n_tasks": 10,
+    "passed": 10,
+    "pass_rate": 1.0,
+    "total_cost_usd": 0.025845,
+    "total_output_tokens": 810,
+    "avg_latency_s": 1.89,
+    "cost_per_solved_task_usd": 0.002584
+  },
+  "astra_v2": {
+    "label": "astra_v2",
+    "model": "openai/gpt-6-astra",
+    "n_tasks": 12,
+    "passed": 12,
+    "pass_rate": 1.0,
+    "total_cost_usd": 0.234093,
+    "total_output_tokens": 2472,
+    "avg_latency_s": 5.05,
+    "cost_per_solved_task_usd": 0.019508
+  },
+  "opus48_v2": {
+    "label": "opus48_v2",
+    "model": "claude-opus-4-8",
+    "n_tasks": 12,
+    "passed": 11,
+    "pass_rate": 0.917,
+    "total_cost_usd": 0.20241,
+    "total_output_tokens": 5634,
+    "avg_latency_s": 6.17,
+    "cost_per_solved_task_usd": 0.018401
+  }
+}
