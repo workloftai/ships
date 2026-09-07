@@ -1,0 +1,5 @@
+# the OfficeCLI binary is 34MB — fetch it from releases, don't commit it
+officecli
+officecli-*
+# OfficeCLI's HTML render is regenerated on every run; keep the .docx/.xlsx/.png as examples
+out/pack-preview.html
