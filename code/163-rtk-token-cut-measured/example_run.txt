@@ -1,0 +1,17 @@
+
+command               native B     rtk B  native tok   rtk tok   cut %
+----------------------------------------------------------------------
+git status                3039      2804         760       701    7.8%
+git diff                 13733     13458        3434      3365    2.0%
+git log -50               6286      5221        1572      1306   16.9%
+grep export src          14627     14379        3657      3595    1.7%
+find *.tsx                1085       791         272       198   27.2%
+ls node_modules          20009       805        5003       202   96.0%
+read 655-line tsx        28056     28056        7014      7014    0.0%
+tree src                  1840       178         460        45   90.2%
+----------------------------------------------------------------------
+TOTAL                    88675     65692       22172     16426   25.9%
+
+One agent orient+search+read pass:
+  native: 22,172 est. tokens of command output
+  rtk:    16,426 est. tokens  ->  25.9% less context to ingest

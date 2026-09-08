@@ -1,0 +1,75 @@
+{
+  "rows": [
+    {
+      "cmd": "git status",
+      "native_bytes": 3039,
+      "rtk_bytes": 2804,
+      "native_tok": 760,
+      "rtk_tok": 701,
+      "cut_pct": 7.8
+    },
+    {
+      "cmd": "git diff",
+      "native_bytes": 13733,
+      "rtk_bytes": 13458,
+      "native_tok": 3434,
+      "rtk_tok": 3365,
+      "cut_pct": 2.0
+    },
+    {
+      "cmd": "git log -50",
+      "native_bytes": 6286,
+      "rtk_bytes": 5221,
+      "native_tok": 1572,
+      "rtk_tok": 1306,
+      "cut_pct": 16.9
+    },
+    {
+      "cmd": "grep export src",
+      "native_bytes": 14627,
+      "rtk_bytes": 14379,
+      "native_tok": 3657,
+      "rtk_tok": 3595,
+      "cut_pct": 1.7
+    },
+    {
+      "cmd": "find *.tsx",
+      "native_bytes": 1085,
+      "rtk_bytes": 791,
+      "native_tok": 272,
+      "rtk_tok": 198,
+      "cut_pct": 27.2
+    },
+    {
+      "cmd": "ls node_modules",
+      "native_bytes": 20009,
+      "rtk_bytes": 805,
+      "native_tok": 5003,
+      "rtk_tok": 202,
+      "cut_pct": 96.0
+    },
+    {
+      "cmd": "read 655-line tsx",
+      "native_bytes": 28056,
+      "rtk_bytes": 28056,
+      "native_tok": 7014,
+      "rtk_tok": 7014,
+      "cut_pct": 0.0
+    },
+    {
+      "cmd": "tree src",
+      "native_bytes": 1840,
+      "rtk_bytes": 178,
+      "native_tok": 460,
+      "rtk_tok": 45,
+      "cut_pct": 90.2
+    }
+  ],
+  "total": {
+    "native_bytes": 88675,
+    "rtk_bytes": 65692,
+    "native_tok": 22172,
+    "rtk_tok": 16426,
+    "cut_pct": 25.9
+  }
+}
