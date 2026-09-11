@@ -1,0 +1,9 @@
+# Extra protected guardrail paths, one fragment per line. Anything containing one
+# of these fragments cannot be mutated by a tool call. The defaults below are always
+# on even if this file is empty:
+#   /.claude/settings.json
+#   /.claude/settings.local.json
+#   /.claude/hooks/
+# and this guard's own directory. Add your own, for example:
+# /.claude/skills/telegram/access.json
+# /etc/nftables.conf

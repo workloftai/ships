@@ -1,0 +1,6 @@
+# Egress allowlist, used only when SELF_TAMPER_EGRESS=enforce. Suffix-matched, so
+# "supabase.co" also allows "xyz.supabase.co". One host per line. The built-in
+# defaults (Anthropic, OpenAI, Telegram, Supabase, Vercel, GitHub, GitLab, PyPI,
+# npm, Google APIs, Together, Perplexity) are always included. Add yours here:
+# arxiv.org
+# api.stripe.com
