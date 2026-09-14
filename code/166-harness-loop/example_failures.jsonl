@@ -1,0 +1,15 @@
+{"instruction": "extract-postcode", "input": "Please post it to 10 Downing Street, London sw1a 2aa", "expected": "SW1A 2AA", "got": "The postcode in the text is **SW1A 2AA**.", "passed": false}
+{"instruction": "extract-postcode", "input": "Our registered office is at EC1A1BB.", "expected": "EC1A 1BB", "got": "The postcode in the text is **EC1A1BB**. (Note: This appears to be a London postcode, though it's formatted without the standard space. The proper format would", "passed": false}
+{"instruction": "extract-postcode", "input": "Deliveries to M1 1AE only after 9am", "expected": "M1 1AE", "got": "The postcode in the text is **M1 1AE**.", "passed": false}
+{"instruction": "extract-postcode", "input": "She lives at 221b Baker Street, nw1 6xe", "expected": "NW1 6XE", "got": "The postcode in the text is **NW1 6XE**.", "passed": false}
+{"instruction": "extract-postcode", "input": "Invoice address: 1 St Aldates, Oxford OX11DP", "expected": "OX1 1DP", "got": "# Postcode The postcode in the text is: **OX11DP** (This should be formatted as OX1 1DP with a space in the middle", "passed": false}
+{"instruction": "extract-postcode", "input": "The site is near CF10 1EP, right by the castle", "expected": "CF10 1EP", "got": "The postcode in the text is **CF10 1EP**.", "passed": false}
+{"instruction": "extract-postcode", "input": "Return to sender: LS2 7HY, Leeds", "expected": "LS2 7HY", "got": "The postcode in the text is **LS2 7HY**.", "passed": false}
+{"instruction": "extract-postcode", "input": "Head office b33 8th, Birmingham", "expected": "B33 8TH", "got": "The postcode in the text is **B33 8TH** (Birmingham). Note: It appears there may be a typo in the original text where \"8th\" should read", "passed": false}
+{"instruction": "extract-postcode", "input": "Meet me at the depot, g1 1xw", "expected": "G1 1XW", "got": "The postcode in the text is **G1 1XW**.", "passed": false}
+{"instruction": "extract-postcode", "input": "Postal code is E20 2ST for the stadium", "expected": "E20 2ST", "got": "The postcode in the text is **E20 2ST**.", "passed": false}
+{"instruction": "extract-postcode", "input": "Try the branch at TR26 1RT in St Ives", "expected": "TR26 1RT", "got": "The postcode in the text is **TR26 1RT**.", "passed": false}
+{"instruction": "extract-postcode", "input": "Files go to DL1 5TT, Darlington", "expected": "DL1 5TT", "got": "The postcode in the text is **DL1 5TT**.", "passed": false}
+{"instruction": "extract-postcode", "input": "Warehouse: pe12 6ab near the coast", "expected": "PE12 6AB", "got": "The postcode in the text is **PE12 6AB**.", "passed": false}
+{"instruction": "extract-postcode", "input": "The flat is at sw1w0ny, Belgravia", "expected": "SW1W 0NY", "got": "The postcode in the text is **SW1W 0NY** (also written as sw1w0ny in the text). This is a London postcode located in the Bel", "passed": false}
+{"instruction": "extract-postcode", "input": "Contact address BN1 1AA, Brighton seafront", "expected": "BN1 1AA", "got": "The postcode in the text is **BN1 1AA**.", "passed": false}
