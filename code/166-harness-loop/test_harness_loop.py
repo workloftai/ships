@@ -70,6 +70,47 @@ class TestGate(unittest.TestCase):
                     {"revised_instruction": "n", "rationale": "r", "source": "t"}, [])
 
 
+class TestRegressionGuard(unittest.TestCase):
+    def rows(self):
+        return [
+            {"instruction": "x", "input": "a", "expected": "A", "passed": True},
+            {"instruction": "x", "input": "b", "expected": "B", "passed": True},
+            {"instruction": "x", "input": "c", "expected": "C", "got": "wrong", "passed": False},
+            {"instruction": "y", "input": "d", "expected": "D", "passed": True},
+        ]
+
+    def test_passing_cases_only_that_instruction(self):
+        p = hl.passing_cases(self.rows(), "x")
+        self.assertEqual({c["input"] for c in p}, {"a", "b"})
+
+    def test_verify_flags_regressions(self):
+        passing = [{"input": "a", "expected": "A"}, {"input": "b", "expected": "B"}]
+        # executor that breaks case "b"
+        def exec_bad(instruction, inp):
+            return "A" if inp == "a" else "BROKEN"
+        reg = hl.verify_rewrite("rewrite", passing, exec_bad)
+        self.assertEqual(len(reg), 1)
+        self.assertEqual(reg[0]["input"], "b")
+        self.assertEqual(reg[0]["got"], "BROKEN")
+
+    def test_verify_safe_when_none_break(self):
+        passing = [{"input": "a", "expected": "A"}]
+        reg = hl.verify_rewrite("rewrite", passing, lambda i, x: "A")
+        self.assertEqual(reg, [])
+
+    def test_proposal_verdict_reflects_regressions(self):
+        import tempfile
+        prop = {"revised_instruction": "n", "rationale": "r", "source": "t"}
+        with tempfile.TemporaryDirectory() as d:
+            safe = hl.write_proposal(d, "x", "old", prop, [], regressions=[])
+            with open(safe) as fh:
+                self.assertIn("SAFE", fh.read())
+            broke = hl.write_proposal(d, "y", "old", prop, [],
+                                      regressions=[{"input": "b", "expected": "B", "got": "X"}])
+            with open(broke) as fh:
+                self.assertIn("NEEDS REVISION", fh.read())
+
+
 class TestReadLog(unittest.TestCase):
     def test_skips_malformed_lines(self):
         with tempfile.NamedTemporaryFile("w", suffix=".jsonl", delete=False) as f:

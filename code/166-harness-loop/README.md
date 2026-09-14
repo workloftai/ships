@@ -30,6 +30,33 @@ in the text is **SW1A 2AA**.") so an exact-match check threw it away. That is th
 ordinary shape of a harness failure: the model knows, the wrapper loses it. Feed
 those traces back and the fix writes itself.
 
+## The regression guard (v2)
+
+The first cut had an honest gap: it proposed a rewrite but never checked the
+rewrite left the already-passing cases alone. A fix that stops today's failures
+by breaking something that worked yesterday is not a fix.
+
+So after the loop proposes, the guard re-runs the proposed instruction against
+every case that already passed and refuses to bless it if any of them break. The
+proposal comes out stamped `SAFE`, or `NEEDS REVISION` with the exact regressions
+listed. It runs the real executor, the same thing that produced the log, so it is
+verifying the actual system, not a simulation of it.
+
+`demo_regression.py` shows it earning its place. A vague starting instruction
+half-fails (7 of 11 pass), the loop proposes a fix from the failures, and the
+guard confirms it breaks nothing:
+
+```
+the loop's own proposal: SAFE (0 regressions).
+the naive over-fit:      REFUSED (3 regressions caught).
+```
+
+The contrast is the point. Alongside the loop's real proposal we run a plausible
+but naive candidate, "put the space after the fourth character", which fixes the
+failures it was shown (all four-character outward codes) and quietly breaks the
+short ones it never saw fail. The guard catches exactly those three, the
+collateral damage on cases the loop never knew were at risk.
+
 ## The design decision that matters
 
 The loop can read your instructions. It can only write to `proposals/`. It
@@ -61,6 +88,12 @@ after:
 
 ```bash
 python3 demo.py
+```
+
+The regression guard, catching an over-correction (needs `ANTHROPIC_API_KEY`):
+
+```bash
+python3 demo_regression.py
 ```
 
 Tests (stdlib, no API):

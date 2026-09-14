@@ -158,9 +158,38 @@ def propose(current_text, traces):
     }
 
 
+# ------------------------------------------------------ regression guard (v2)
+
+def passing_cases(rows, instruction):
+    """The cases this instruction already got right. These are what a rewrite
+    must not break."""
+    out = []
+    for r in rows:
+        if r.get("instruction") == instruction and r.get("passed", False):
+            out.append({"input": r.get("input", ""), "expected": r.get("expected", "")})
+    return out
+
+
+def verify_rewrite(proposed_instruction, passing, executor):
+    """Re-run the proposed instruction against every case that already passed.
+    Return the list of regressions: cases the rewrite would now get wrong.
+
+    `executor(instruction, input) -> output` is yours to supply. It is the same
+    thing that produced the log in the first place, so verification runs the real
+    system, not a simulation of it. An empty list means the rewrite is safe.
+    """
+    regressions = []
+    for c in passing:
+        got = " ".join(executor(proposed_instruction, c["input"]).split())
+        if got != c["expected"]:
+            regressions.append({**c, "got": got})
+    return regressions
+
+
 # ------------------------------------------------------------------- the gate
 
-def write_proposal(out_dir, instruction, current_text, proposal, evidence):
+def write_proposal(out_dir, instruction, current_text, proposal, evidence,
+                   regressions=None):
     """Write a gated proposal. The ONLY place this tool writes. It refuses any
     path outside out_dir, so the loop cannot reach a live instruction file.
     """
@@ -169,12 +198,19 @@ def write_proposal(out_dir, instruction, current_text, proposal, evidence):
     path = os.path.join(out_dir, f"{instruction}.proposal.md")
     if os.path.commonpath([out_dir_real, os.path.realpath(path)]) != out_dir_real:
         raise ValueError(f"refusing to write outside {out_dir}: {path}")
+    if regressions is None:
+        verdict = "PROPOSAL ONLY (regression check not run: no executor supplied)"
+    elif regressions:
+        verdict = f"NEEDS REVISION: breaks {len(regressions)} case(s) that already passed"
+    else:
+        verdict = "SAFE: no case that already passed regressed"
     lines = [
         f"# Proposed rewrite: {instruction}",
         "",
         "PROPOSAL ONLY. Not applied. A human must accept this before it reaches "
         "the live instruction.",
         "",
+        f"Verdict: {verdict}",
         f"Source: {proposal['source']}",
         "",
         "## Rationale",
@@ -194,6 +230,17 @@ def write_proposal(out_dir, instruction, current_text, proposal, evidence):
     ]
     for t in evidence:
         lines.append(f"- input {t['input']!r} → expected {t['expected']!r}, got {t['got']!r}")
+    if regressions is not None:
+        lines += ["", "## Regression check (cases that already passed)"]
+        if regressions:
+            lines.append(f"REFUSED to bless. {len(regressions)} previously-passing "
+                         "case(s) would break under this rewrite:")
+            for r in regressions:
+                lines.append(f"- input {r['input']!r} → still expected {r['expected']!r}, "
+                             f"but rewrite gives {r['got']!r}")
+        else:
+            lines.append("Passed. Every case that already worked still works "
+                         "under this rewrite.")
     with open(path, "w") as f:
         f.write("\n".join(lines) + "\n")
     return path
