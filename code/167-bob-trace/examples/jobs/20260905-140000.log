@@ -1,0 +1,8 @@
+enriching batch
+got HTTP 429, backoff 4s
+retrying request (attempt 2)
+got HTTP 503
+Traceback (most recent call last):
+  File enrich.py, line 88
+RuntimeError: upstream gave up
+calling gpt-4o for fallback

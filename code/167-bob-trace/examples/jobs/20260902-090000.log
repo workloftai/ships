@@ -1,0 +1,10 @@
+loading qwen2.5
+calling qwen2.5
+[FAIL] rle 0+0 tok 904.2s
+[FAIL] is_balanced 0+0 tok 904.2s
+[FAIL] merge_intervals 0+0 tok 904.3s
+ValueError: empty completion
+prompt 12,900 tokens
+cost: $0.0000
+wrote result_local.json
+exit 0

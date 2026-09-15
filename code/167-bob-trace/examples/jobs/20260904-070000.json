@@ -1,0 +1,15 @@
+{
+  "id": "20260904-070000",
+  "report": false,
+  "pid": 1234,
+  "log": "20260904-070000.log",
+  "label": "slow crawl",
+  "cmd": "python3 crawl.py --all",
+  "status": "failed",
+  "rc": -15,
+  "timeout": 600,
+  "created": "2026-09-04T07:00:00+01:00",
+  "started": "2026-09-04T07:00:00+01:00",
+  "ended": "2026-09-04T07:10:01+01:00",
+  "last_heartbeat": "2026-09-04T07:09:55+01:00"
+}

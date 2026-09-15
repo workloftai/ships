@@ -1,0 +1,15 @@
+{
+  "id": "20260901-070000",
+  "report": false,
+  "pid": 1234,
+  "log": "20260901-070000.log",
+  "label": "nightly digest",
+  "cmd": "python3 digest.py --send",
+  "status": "done",
+  "rc": 0,
+  "timeout": 3600,
+  "created": "2026-09-01T07:00:00+01:00",
+  "started": "2026-09-01T07:00:00+01:00",
+  "ended": "2026-09-01T07:01:30+01:00",
+  "last_heartbeat": "2026-09-01T07:01:30+01:00"
+}

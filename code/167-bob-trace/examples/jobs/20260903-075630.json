@@ -1,0 +1,15 @@
+{
+  "id": "20260903-075630",
+  "report": false,
+  "pid": 1234,
+  "log": "20260903-075630.log",
+  "label": "opus A/B eval",
+  "cmd": "while pgrep -f eval.py; do sleep 10; done",
+  "status": "failed",
+  "rc": -15,
+  "timeout": 21600,
+  "created": "2026-09-03T07:56:30+01:00",
+  "started": "2026-09-03T07:56:30+01:00",
+  "ended": "2026-09-03T10:10:04+01:00",
+  "last_heartbeat": "2026-09-03T10:09:31+01:00"
+}
