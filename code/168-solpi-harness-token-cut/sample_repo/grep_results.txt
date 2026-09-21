@@ -1,0 +1,78 @@
+/home/workloft/workloft-site/scripts/indexnow.py:27:def submit(urls: list[str]) -> int:
+/home/workloft/workloft-site/scripts/indexnow.py:52:def todays_labs_urls() -> list[str]:
+/home/workloft/workloft-site/scripts/indexnow.py:64:def main(argv: list[str]) -> int:
+/home/workloft/workloft-site/scripts/build-ship-schema.py:28:def _meta(txt: str, *patterns: str) -> str:
+/home/workloft/workloft-site/scripts/build-ship-schema.py:36:def build_block(f: Path, txt: str) -> str | None:
+/home/workloft/workloft-site/scripts/build-ship-schema.py:86:def main() -> int:
+/home/workloft/workloft-site/scripts/build-llms.py:30:def _collect(d: Path, seg: str, label: str) -> list[dict]:
+/home/workloft/workloft-site/scripts/build-llms.py:55:def _collect_ships() -> list[dict]:
+/home/workloft/workloft-site/scripts/build-llms.py:80:def _render(items: list[dict]) -> str:
+/home/workloft/workloft-site/scripts/build-llms.py:88:def _render_ships(items: list[dict]) -> str:
+/home/workloft/workloft-site/scripts/build-llms.py:96:def _splice(text: str, start: str, end: str, body: str) -> str:
+/home/workloft/workloft-site/scripts/build-llms.py:101:def main() -> int:
+/home/workloft/workloft-site/scripts/build-sitemap.py:33:def entry(loc: str, lastmod: str | None, priority: str) -> str:
+/home/workloft/workloft-site/scripts/build-sitemap.py:40:def main() -> int:
+/home/workloft/workloft-site/scripts/build-sitemap.py:44:    def consider(loc: str, lastmod: str | None, priority: str):
+/home/workloft/workloft-site/scripts/build-md.py:30:def text_of(node: Tag | NavigableString) -> str:
+/home/workloft/workloft-site/scripts/build-md.py:64:def collapse_ws(s: str) -> str:
+/home/workloft/workloft-site/scripts/build-md.py:68:def render_block(node: Tag, lines: list[str]) -> None:
+/home/workloft/workloft-site/scripts/build-md.py:155:def first_text(soup: BeautifulSoup, selector: str) -> str:
+/home/workloft/workloft-site/scripts/build-md.py:160:def meta_content(soup: BeautifulSoup, name_or_prop: str, attr: str = "name") -> str:
+/home/workloft/workloft-site/scripts/build-md.py:165:def convert(html_path: Path) -> str:
+/home/workloft/workloft-site/scripts/build-md.py:242:def iter_html(d: Path) -> Iterable[Path]:
+/home/workloft/workloft-site/scripts/build-md.py:251:def main() -> int:
+/home/workloft/workloft-site/scripts/build-rss.py:38:def _meta(soup: BeautifulSoup, key: str, attr: str = "name") -> str:
+/home/workloft/workloft-site/scripts/build-rss.py:43:def _title(soup: BeautifulSoup) -> str:
+/home/workloft/workloft-site/scripts/build-rss.py:51:def collect() -> list[dict]:
+/home/workloft/workloft-site/scripts/build-rss.py:83:def rfc822(dt: datetime) -> str:
+/home/workloft/workloft-site/scripts/build-rss.py:87:def esc(s: str) -> str:
+/home/workloft/workloft-site/scripts/build-rss.py:91:def build(items: list[dict]) -> str:
+/home/workloft/workloft-site/scripts/build-rss.py:129:def main() -> int:
+/home/workloft/workloft-site/labs.html:907:    (function () {
+/home/workloft/workloft-site/labs.html:908:      const STATS_URL = "https://chat-api.workloft.ai/labs-api/v1/stats";
+/home/workloft/workloft-site/labs.html:909:      const RECENT_URL = "https://chat-api.workloft.ai/labs-api/v1/recent";
+/home/workloft/workloft-site/labs.html:910:      const setNum = (id, v) => {
+/home/workloft/workloft-site/labs.html:911:        const el = document.getElementById(id);
+/home/workloft/workloft-site/labs.html:919:          const today = recent.days[0];
+/home/workloft/workloft-site/labs.html:928:  <script type="application/json" id="bench-initial-data">{"days":[{"date":"2026-05-20","screened":null,"picks":[{"arxiv_id":"2605.20173","title":"A Methodology for Selecting and Composing Runtime Architecture Patterns for Production LLM Agents","url":"https://arxiv.org/abs/2605.20173","axis":"agent infrastructure / multi-agent / agent OS","score":10,"reg_fit":2,"hf_upvotes":0},{"arxiv_id":"2605.20104","title":"Draft Less, Retrieve More: Hybrid Tree Construction for Speculative Decoding","url":"https://arxiv.org/abs/2605.20104","axis":"cost / latency / efficiency / small-model","score":10,"reg_fit":1,"hf_upvotes":1},{"arxiv_id":"2605.20075","title":"CopT: Contrastive On-Policy Thinking with Continuous Spaces for General and Agentic Reasoning","url":"https://arxiv.org/abs/2605.20075","axis":"cost / latency / efficiency / small-model","score":10,"reg_fit":1,"hf_upvotes":0},{"arxiv_id":"2605.20025","title":"AutoResearchClaw: Self-Reinforcing Autonomous Research with Human-AI Collaboration","url":"https://arxiv.org/abs/2605.20025","axis":"agent infrastructure / multi-agent / agent OS","score":10,"reg_fit":2,"hf_upvotes":35},{"arxiv_id":"2605.19932","title":"PEEK: Context Map as an Orientation Cache for Long-Context LLM Agents","url":"https://arxiv.org/abs/2605.19932","axis":"RAG, retrieval, long-context, memory architectures","score":10,"reg_fit":2,"hf_upvotes":1}]},{"date":"2026-05-19","screened":null,"picks":[{"arxiv_id":"2605.18747","title":"Code as Agent Harness","url":"https://arxiv.org/abs/2605.18747","axis":"agent infrastructure / multi-agent / agent OS","score":10,"reg_fit":2,"hf_upvotes":1},{"arxiv_id":"2605.18643","title":"Post-Trained MoE Can Skip Half Experts via Self-Distillation","url":"https://arxiv.org/abs/2605.18643","axis":"cost / latency / efficiency / small-model","score":10,"reg_fit":1,"hf_upvotes":22},{"arxiv_id":"2605.18401","title":"SkillsVote is a governance framework for long-horizon LLM agents that manages reusable skills through structured collection, recommendation, and evolution processes.","url":"https://arxiv.org/abs/2605.18401","axis":"tool use, MCP, agent skills, function calling","score":10,"reg_fit":2,"hf_upvotes":5},{"arxiv_id":"2605.16819","title":"AgentKernelArena is introduced as an open-source benchmark for evaluating AI coding agents on GPU kernel optimization, assessing full agent workflows and unseen-configuration generalization across mul","url":"https://arxiv.org/abs/2605.16819","axis":"tool use, MCP, agent skills, function calling","score":10,"reg_fit":2,"hf_upvotes":0},{"arxiv_id":"2605.16839","title":"CompactAttention improves chunked prefill attention efficiency by using Block-Union KV Selection to minimize KV block tables and enable in-place access without explicit compaction.","url":"https://arxiv.org/abs/2605.16839","axis":"cost / latency / efficiency / small-model","score":10,"reg_fit":1,"hf_upvotes":8}]},{"date":"2026-05-18","screened":null,"picks":[{"arxiv_id":"2605.13527","title":"Multimodal procedural knowledge frameworks enable visual agents to leverage external reusable skills through structured representations combining text, state cards, and visual keyframes, improving dec","url":"https://arxiv.org/abs/2605.13527","axis":"tool use, MCP, agent skills, function calling","score":10,"reg_fit":2,"hf_upvotes":66},{"arxiv_id":"2605.15963","title":"Advanced vision-language models for GUI agents face challenges in precision-sensitive tasks requiring point-level accuracy and geometric awareness, addressed by a topology-aware agent that improves ta","url":"https://arxiv.org/abs/2605.15963","axis":"tool use, MCP, agent skills, function calling","score":10,"reg_fit":2,"hf_upvotes":7},{"arxiv_id":"2605.15301","title":"Solvita is an agentic evolution framework that enables continuous learning in code generation through reinforcement learning updates to graph-structured knowledge networks, achieving state-of-the-art ","url":"https://arxiv.org/abs/2605.15301","axis":"agent infrastructure / multi-agent / agent OS","score":10,"reg_fit":2,"hf_upvotes":12},{"arxiv_id":"2605.15871","title":"AI agents autonomously design foundation models exceeding standard Transformers through dual frameworks that optimize both architectural search and mechanistic implementation, achieving superior perfo","url":"https://arxiv.org/abs/2605.15871","axis":"agent infrastructure / multi-agent / agent OS","score":10,"reg_fit":2,"hf_upvotes":1},{"arxiv_id":"2605.14454","title":"LiSA enables adaptive safety guardrails for AI agents by converting occasional failures into reusable policy abstractions and using evidence-aware confidence gating to improve performance under sparse","url":"https://arxiv.org/abs/2605.14454","axis":"agent infrastructure / multi-agent / agent OS","score":10,"reg_fit":2,"hf_upvotes":1}]}]}</script>
+/home/workloft/workloft-site/labs.html:930:    (function () {
+/home/workloft/workloft-site/labs.html:931:      const ENDPOINT = "https://chat-api.workloft.ai/labs-api/v1/recent";
+/home/workloft/workloft-site/labs.html:932:      const benchEl = document.getElementById("bench");
+/home/workloft/workloft-site/labs.html:933:      const tabsEl = document.getElementById("bench-day-tabs");
+/home/workloft/workloft-site/labs.html:934:      const dayLabel = document.getElementById("bench-day-label");
+/home/workloft/workloft-site/labs.html:935:      const datePretty = document.getElementById("bench-date-pretty");
+/home/workloft/workloft-site/labs.html:938:      function findStarIdx(picks) {
+/home/workloft/workloft-site/labs.html:941:          const rf = p.reg_fit || 0;
+/home/workloft/workloft-site/labs.html:942:          const up = p.hf_upvotes || 0;
+/home/workloft/workloft-site/labs.html:949:      function dotsFor(rf) {
+/home/workloft/workloft-site/labs.html:954:      function shortAxis(axis) {
+/home/workloft/workloft-site/labs.html:955:        const a = (axis || "").toLowerCase();
+/home/workloft/workloft-site/labs.html:966:      function liquidHeight(score) {
+/home/workloft/workloft-site/labs.html:967:        const s = Math.max(7, Math.min(10, score || 8));
+/home/workloft/workloft-site/labs.html:970:      function renderTube(p, isStar) {
+/home/workloft/workloft-site/labs.html:971:        const tubeStyle = isStar
+/home/workloft/workloft-site/labs.html:974:        const liquidStyle = isStar
+/home/workloft/workloft-site/labs.html:977:        const upvotes = p.hf_upvotes || 0;
+/home/workloft/workloft-site/labs.html:978:        const upBold = upvotes >= 50 ? `<b>${upvotes}↑</b>` : `${upvotes}↑`;
+/home/workloft/workloft-site/labs.html:979:        const axisShort = shortAxis(p.axis) + (isStar ? ' ⭐' : '');
+/home/workloft/workloft-site/labs.html:980:        const seed = (p.arxiv_id || "").split("").reduce((a, c) => a + c.charCodeAt(0), 0);
+/home/workloft/workloft-site/labs.html:981:        const bubbles = [];
+/home/workloft/workloft-site/labs.html:982:        const nBubbles = isStar ? 4 : 3;
+/home/workloft/workloft-site/labs.html:984:          const left = ((seed + i * 17) % 70) + 15;
+/home/workloft/workloft-site/labs.html:985:          const top = ((seed + i * 23) % 25) + 65;
+/home/workloft/workloft-site/labs.html:986:          const drift = (((seed + i * 11) % 12) - 6);
+/home/workloft/workloft-site/labs.html:987:          const delay = (((seed + i * 7) % 25) / 10);
+/home/workloft/workloft-site/labs.html:992:        const regFitTitle = p.reg_fit === 3
+/home/workloft/workloft-site/labs.html:996:        const safeTitle = (p.title || "").replace(/</g, "&lt;");
+/home/workloft/workloft-site/labs.html:1012:      function renderBench(day) {
+/home/workloft/workloft-site/labs.html:1013:        const picks = day.picks || [];
+/home/workloft/workloft-site/labs.html:1018:        const starIdx = findStarIdx(picks);
+/home/workloft/workloft-site/labs.html:1021:      function renderTabs(days, activeIdx, onSelect) {
+/home/workloft/workloft-site/labs.html:1023:          const label = i === 0 ? "TODAY · " + d.date
+/home/workloft/workloft-site/labs.html:1032:      function setHeaderForDay(day, idx) {
+/home/workloft/workloft-site/labs.html:1033:        const labelText = idx === 0 ? "TODAY'S" : idx === 1 ? "YESTERDAY'S" : day.date + "'S";
+/home/workloft/workloft-site/labs.html:1037:      function bootstrap(data) {
+/home/workloft/workloft-site/labs.html:1038:        const days = data.days || [];
+/home/workloft/workloft-site/labs.html:1041:        const select = (i) => {
+/home/workloft/workloft-site/labs.html:1057:        const initialEl = document.getElementById("bench-initial-data");
+/home/workloft/workloft-site/labs.html:1069:          const days = data.days || [];

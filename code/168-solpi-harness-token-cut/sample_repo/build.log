@@ -1,0 +1,386 @@
+$ python3 -m unittest -v test_widget
+test_discount_applies (test_widget.TestDiscount.test_discount_applies) ... FAIL
+test_line_total (test_widget.TestDiscount.test_line_total) ... FAIL
+test_no_discount (test_widget.TestDiscount.test_no_discount) ... ok
+
+======================================================================
+FAIL: test_discount_applies (test_widget.TestDiscount.test_discount_applies)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/workloft/ships-oss/code/168-solpi-harness-token-cut/sample_repo/test_widget.py", line 8, in test_discount_applies
+    self.assertEqual(apply_discount(100, 10), 90)
+AssertionError: -900 != 90
+
+======================================================================
+FAIL: test_line_total (test_widget.TestDiscount.test_line_total)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/workloft/ships-oss/code/168-solpi-harness-token-cut/sample_repo/test_widget.py", line 10, in test_line_total
+    self.assertEqual(line_total(2, 100, 10), 180)
+AssertionError: -1800 != 180
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+FAILED (failures=2)
+
+$ pip list -v   # resolved build environment
+Package                                  Version         Location                                           Installer
+---------------------------------------- --------------- -------------------------------------------------- ---------
+accelerate                               1.13.0          /home/workloft/.local/lib/python3.12/site-packages pip
+aiofiles                                 25.1.0          /home/workloft/.local/lib/python3.12/site-packages pip
+aiohappyeyeballs                         2.6.1           /home/workloft/.local/lib/python3.12/site-packages pip
+aiohttp                                  3.13.5          /home/workloft/.local/lib/python3.12/site-packages pip
+aiosignal                                1.4.0           /home/workloft/.local/lib/python3.12/site-packages pip
+aiosqlite                                0.22.1          /home/workloft/.local/lib/python3.12/site-packages pip
+alembic                                  1.18.4          /home/workloft/.local/lib/python3.12/site-packages pip
+alphashape                               1.3.1           /home/workloft/.local/lib/python3.12/site-packages pip
+annotated-doc                            0.0.4           /home/workloft/.local/lib/python3.12/site-packages pip
+annotated-types                          0.7.0           /home/workloft/.local/lib/python3.12/site-packages pip
+anthropic                                0.96.0          /home/workloft/.local/lib/python3.12/site-packages pip
+antlr4-python3-runtime                   4.9.3           /home/workloft/.local/lib/python3.12/site-packages pip
+anyio                                    4.13.0          /home/workloft/.local/lib/python3.12/site-packages pip
+attrs                                    23.2.0          /usr/lib/python3/dist-packages                     debian
+Authlib                                  1.7.0           /home/workloft/.local/lib/python3.12/site-packages pip
+Automat                                  22.10.0         /usr/lib/python3/dist-packages
+Babel                                    2.10.3          /usr/lib/python3/dist-packages
+backoff                                  2.2.1           /home/workloft/.local/lib/python3.12/site-packages pip
+bcrypt                                   3.2.2           /usr/lib/python3/dist-packages
+beautifulsoup4                           4.14.3          /home/workloft/.local/lib/python3.12/site-packages pip
+blinker                                  1.9.0           /home/workloft/.local/lib/python3.12/site-packages pip
+boto3                                    1.34.46         /usr/lib/python3/dist-packages
+botocore                                 1.34.46         /usr/lib/python3/dist-packages
+brotli                                   1.2.0           /home/workloft/.local/lib/python3.12/site-packages pip
+cairocffi                                1.7.1           /home/workloft/.local/lib/python3.12/site-packages pip
+CairoSVG                                 2.9.0           /home/workloft/.local/lib/python3.12/site-packages pip
+certifi                                  2026.2.25       /home/workloft/.local/lib/python3.12/site-packages pip
+cffi                                     2.0.0           /home/workloft/.local/lib/python3.12/site-packages pip
+chardet                                  5.2.0           /usr/lib/python3/dist-packages                     debian
+charset-normalizer                       3.4.7           /home/workloft/.local/lib/python3.12/site-packages pip
+click                                    8.3.2           /home/workloft/.local/lib/python3.12/site-packages pip
+click-log                                0.4.0           /home/workloft/.local/lib/python3.12/site-packages pip
+cloud-init                               25.3            /usr/lib/python3/dist-packages
+cloudpickle                              3.1.2           /home/workloft/.local/lib/python3.12/site-packages pip
+cmake                                    4.3.4           /home/workloft/.local/lib/python3.12/site-packages pip
+colorama                                 0.4.6           /usr/lib/python3/dist-packages                     debian
+colorlog                                 6.10.1          /home/workloft/.local/lib/python3.12/site-packages pip
+command-not-found                        0.3             /usr/lib/python3/dist-packages
+composio_core                            0.7.21          /home/workloft/.local/lib/python3.12/site-packages pip
+configobj                                5.0.8           /usr/lib/python3/dist-packages                     debian
+constantly                               23.10.4         /usr/lib/python3/dist-packages
+contourpy                                1.3.3           /home/workloft/.local/lib/python3.12/site-packages pip
+Crawl4AI                                 0.8.6           /home/workloft/.local/lib/python3.12/site-packages pip
+cryptography                             46.0.7          /home/workloft/.local/lib/python3.12/site-packages pip
+cssselect                                1.4.0           /home/workloft/.local/lib/python3.12/site-packages pip
+cssselect2                               0.9.0           /home/workloft/.local/lib/python3.12/site-packages pip
+cuda-bindings                            13.2.0          /home/workloft/.local/lib/python3.12/site-packages pip
+cuda-pathfinder                          1.5.3           /home/workloft/.local/lib/python3.12/site-packages pip
+cuda-toolkit                             13.0.2          /home/workloft/.local/lib/python3.12/site-packages pip
+cycler                                   0.12.1          /home/workloft/.local/lib/python3.12/site-packages pip
+cyclopts                                 4.18.0          /home/workloft/.local/lib/python3.12/site-packages pip
+dbus-python                              1.3.2           /usr/lib/python3/dist-packages
+defusedxml                               0.7.1           /home/workloft/.local/lib/python3.12/site-packages pip
+detect_agent                             0.3.0           /home/workloft/.local/lib/python3.12/site-packages pip
+dill                                     0.4.1           /home/workloft/.local/lib/python3.12/site-packages pip
+distro                                   1.9.0           /usr/lib/python3/dist-packages                     debian
+distro-info                              1.7+build1      /usr/lib/python3/dist-packages
+docling                                  2.90.0          /home/workloft/.local/lib/python3.12/site-packages pip
+docling-core                             2.74.0          /home/workloft/.local/lib/python3.12/site-packages pip
+docling-ibm-models                       3.13.0          /home/workloft/.local/lib/python3.12/site-packages pip
+docling-parse                            5.9.0           /home/workloft/.local/lib/python3.12/site-packages pip
+docstring_parser                         0.18.0          /home/workloft/.local/lib/python3.12/site-packages pip
+et_xmlfile                               2.0.0           /home/workloft/.local/lib/python3.12/site-packages pip
+fail2ban                                 1.0.2           /usr/lib/python3/dist-packages
+faiss-cpu                                1.13.2          /home/workloft/.local/lib/python3.12/site-packages pip
+fake-useragent                           2.2.0           /home/workloft/.local/lib/python3.12/site-packages pip
+Faker                                    40.15.0         /home/workloft/.local/lib/python3.12/site-packages pip
+fastapi                                  0.136.0         /home/workloft/.local/lib/python3.12/site-packages pip
+fastuuid                                 0.14.0          /home/workloft/.local/lib/python3.12/site-packages pip
+filelock                                 3.29.0          /home/workloft/.local/lib/python3.12/site-packages pip
+filetype                                 1.2.0           /home/workloft/.local/lib/python3.12/site-packages pip
+Flask                                    3.1.3           /home/workloft/.local/lib/python3.12/site-packages pip
+flask-cors                               6.0.2           /home/workloft/.local/lib/python3.12/site-packages pip
+flask-sock                               0.7.0           /home/workloft/.local/lib/python3.12/site-packages pip
+fonttools                                4.62.1          /home/workloft/.local/lib/python3.12/site-packages pip
+frozenlist                               1.8.0           /home/workloft/.local/lib/python3.12/site-packages pip
+fsspec                                   2026.3.0        /home/workloft/.local/lib/python3.12/site-packages pip
+google-adk                               1.31.0          /home/workloft/.local/lib/python3.12/site-packages pip
+google-ai-generativelanguage             0.6.15          /home/workloft/.local/lib/python3.12/site-packages pip
+google-api-core                          2.30.3          /home/workloft/.local/lib/python3.12/site-packages pip
+google-api-python-client                 2.194.0         /home/workloft/.local/lib/python3.12/site-packages pip
+google-auth                              2.49.2          /home/workloft/.local/lib/python3.12/site-packages pip
+google-auth-httplib2                     0.3.1           /home/workloft/.local/lib/python3.12/site-packages pip
+google-cloud-aiplatform                  1.148.1         /home/workloft/.local/lib/python3.12/site-packages pip
+google-cloud-appengine-logging           1.9.0           /home/workloft/.local/lib/python3.12/site-packages pip
+google-cloud-audit-log                   0.5.0           /home/workloft/.local/lib/python3.12/site-packages pip
+google-cloud-bigquery                    3.41.0          /home/workloft/.local/lib/python3.12/site-packages pip
+google-cloud-bigquery-storage            2.37.0          /home/workloft/.local/lib/python3.12/site-packages pip
+google-cloud-bigtable                    2.36.0          /home/workloft/.local/lib/python3.12/site-packages pip
+google-cloud-core                        2.5.1           /home/workloft/.local/lib/python3.12/site-packages pip
+google-cloud-dataplex                    2.18.0          /home/workloft/.local/lib/python3.12/site-packages pip
+google-cloud-discoveryengine             0.13.12         /home/workloft/.local/lib/python3.12/site-packages pip
+google-cloud-iam                         2.22.0          /home/workloft/.local/lib/python3.12/site-packages pip
+google-cloud-logging                     3.15.0          /home/workloft/.local/lib/python3.12/site-packages pip
+google-cloud-monitoring                  2.30.0          /home/workloft/.local/lib/python3.12/site-packages pip
+google-cloud-pubsub                      2.37.0          /home/workloft/.local/lib/python3.12/site-packages pip
+google-cloud-resource-manager            1.17.0          /home/workloft/.local/lib/python3.12/site-packages pip
+google-cloud-secret-manager              2.27.0          /home/workloft/.local/lib/python3.12/site-packages pip
+google-cloud-spanner                     3.65.0          /home/workloft/.local/lib/python3.12/site-packages pip
+google-cloud-speech                      2.38.0          /home/workloft/.local/lib/python3.12/site-packages pip
+google-cloud-storage                     3.10.1          /home/workloft/.local/lib/python3.12/site-packages pip
+google-cloud-trace                       1.19.0          /home/workloft/.local/lib/python3.12/site-packages pip
+google-crc32c                            1.8.0           /home/workloft/.local/lib/python3.12/site-packages pip
+google-genai                             1.73.1          /home/workloft/.local/lib/python3.12/site-packages pip
+google-generativeai                      0.8.6           /home/workloft/.local/lib/python3.12/site-packages pip
+google-resumable-media                   2.8.2           /home/workloft/.local/lib/python3.12/site-packages pip
+googleapis-common-protos                 1.74.0          /home/workloft/.local/lib/python3.12/site-packages pip
+graphviz                                 0.21            /home/workloft/.local/lib/python3.12/site-packages pip
+greenlet                                 3.4.0           /home/workloft/.local/lib/python3.12/site-packages pip
+grpc-google-iam-v1                       0.14.4          /home/workloft/.local/lib/python3.12/site-packages pip
+grpc-interceptor                         0.15.4          /home/workloft/.local/lib/python3.12/site-packages pip
+grpcio                                   1.80.0          /home/workloft/.local/lib/python3.12/site-packages pip
+grpcio-status                            1.71.2          /home/workloft/.local/lib/python3.12/site-packages pip
+h11                                      0.16.0          /home/workloft/.local/lib/python3.12/site-packages pip
+h2                                       4.3.0           /home/workloft/.local/lib/python3.12/site-packages pip
+hf-xet                                   1.4.3           /home/workloft/.local/lib/python3.12/site-packages pip
+hpack                                    4.1.0           /home/workloft/.local/lib/python3.12/site-packages pip
+httpcore                                 1.0.9           /home/workloft/.local/lib/python3.12/site-packages pip
+httplib2                                 0.20.4          /usr/lib/python3/dist-packages                     debian
+httptools                                0.7.1           /home/workloft/.local/lib/python3.12/site-packages pip
+httpx                                    0.28.1          /home/workloft/.local/lib/python3.12/site-packages pip
+httpx-sse                                0.4.3           /home/workloft/.local/lib/python3.12/site-packages pip
+huggingface_hub                          0.36.2          /home/workloft/.local/lib/python3.12/site-packages pip
+humanize                                 4.15.0          /home/workloft/.local/lib/python3.12/site-packages pip
+hyperframe                               6.1.0           /home/workloft/.local/lib/python3.12/site-packages pip
+hyperlink                                21.0.0          /usr/lib/python3/dist-packages
+idna                                     3.6             /usr/lib/python3/dist-packages                     debian
+importlib_metadata                       8.7.1           /home/workloft/.local/lib/python3.12/site-packages pip
+incremental                              22.10.0         /usr/lib/python3/dist-packages                     debian
+inflection                               0.5.1           /home/workloft/.local/lib/python3.12/site-packages pip
+instructor                               1.15.1          /home/workloft/.local/lib/python3.12/site-packages pip
+invoke                                   3.0.3           /home/workloft/.local/lib/python3.12/site-packages pip
+itsdangerous                             2.2.0           /home/workloft/.local/lib/python3.12/site-packages pip
+jcs                                      0.2.1           /home/workloft/.local/lib/python3.12/site-packages pip
+Jinja2                                   3.1.6           /home/workloft/.local/lib/python3.12/site-packages pip
+jiter                                    0.13.0          /home/workloft/.local/lib/python3.12/site-packages pip
+jmespath                                 1.0.1           /usr/lib/python3/dist-packages
+joblib                                   1.5.3           /home/workloft/.local/lib/python3.12/site-packages pip
+joserfc                                  1.6.4           /home/workloft/.local/lib/python3.12/site-packages pip
+jsonlines                                4.0.0           /home/workloft/.local/lib/python3.12/site-packages pip
+jsonpatch                                1.32            /usr/lib/python3/dist-packages
+jsonpointer                              2.0             /usr/lib/python3/dist-packages
+jsonref                                  1.1.0           /home/workloft/.local/lib/python3.12/site-packages pip
+jsonschema                               4.26.0          /home/workloft/.local/lib/python3.12/site-packages pip
+jsonschema-specifications                2025.9.1        /home/workloft/.local/lib/python3.12/site-packages pip
+kiwisolver                               1.5.0           /home/workloft/.local/lib/python3.12/site-packages pip
+langfuse                                 4.5.1           /home/workloft/.local/lib/python3.12/site-packages pip
+lark                                     1.3.1           /home/workloft/.local/lib/python3.12/site-packages pip
+latex2mathml                             3.81.0          /home/workloft/.local/lib/python3.12/site-packages pip
+launchpadlib                             1.11.0          /usr/lib/python3/dist-packages
+lazr.restfulclient                       0.14.6          /usr/lib/python3/dist-packages
+lazr.uri                                 1.0.6           /usr/lib/python3/dist-packages
+lxml                                     5.4.0           /home/workloft/.local/lib/python3.12/site-packages pip
+Mako                                     1.3.11          /home/workloft/.local/lib/python3.12/site-packages pip
+Markdown                                 3.10.2          /home/workloft/.local/lib/python3.12/site-packages pip
+markdown-it-py                           3.0.0           /usr/lib/python3/dist-packages                     debian
+marko                                    2.2.2           /home/workloft/.local/lib/python3.12/site-packages pip
+MarkupSafe                               2.1.5           /usr/lib/python3/dist-packages
+matplotlib                               3.11.0          /home/workloft/.local/lib/python3.12/site-packages pip
+mcp                                      1.27.0          /home/workloft/.local/lib/python3.12/site-packages pip
+mdurl                                    0.1.2           /usr/lib/python3/dist-packages
+mem0ai                                   2.0.0           /home/workloft/.local/lib/python3.12/site-packages pip
+mirascope                                2.4.0           /home/workloft/.local/lib/python3.12/site-packages pip
+mmh3                                     5.2.1           /home/workloft/.local/lib/python3.12/site-packages pip
+mpire                                    2.10.2          /home/workloft/.local/lib/python3.12/site-packages pip
+mpmath                                   1.3.0           /home/workloft/.local/lib/python3.12/site-packages pip
+msgpack                                  1.1.2           /home/workloft/.local/lib/python3.12/site-packages pip
+multidict                                6.7.1           /home/workloft/.local/lib/python3.12/site-packages pip
+multiprocess                             0.70.19         /home/workloft/.local/lib/python3.12/site-packages pip
+narwhals                                 2.22.0          /home/workloft/.local/lib/python3.12/site-packages pip
+netifaces                                0.11.0          /usr/lib/python3/dist-packages
+networkx                                 3.6.1           /home/workloft/.local/lib/python3.12/site-packages pip
+nltk                                     3.9.4           /home/workloft/.local/lib/python3.12/site-packages pip
+numpy                                    2.4.4           /home/workloft/.local/lib/python3.12/site-packages pip
+nvidia-cublas                            13.1.0.3        /home/workloft/.local/lib/python3.12/site-packages pip
+nvidia-cuda-cupti                        13.0.85         /home/workloft/.local/lib/python3.12/site-packages pip
+nvidia-cuda-nvrtc                        13.0.88         /home/workloft/.local/lib/python3.12/site-packages pip
+nvidia-cuda-runtime                      13.0.96         /home/workloft/.local/lib/python3.12/site-packages pip
+nvidia-cudnn-cu13                        9.19.0.56       /home/workloft/.local/lib/python3.12/site-packages pip
+nvidia-cufft                             12.0.0.61       /home/workloft/.local/lib/python3.12/site-packages pip
+nvidia-cufile                            1.15.1.6        /home/workloft/.local/lib/python3.12/site-packages pip
+nvidia-curand                            10.4.0.35       /home/workloft/.local/lib/python3.12/site-packages pip
+nvidia-cusolver                          12.0.4.66       /home/workloft/.local/lib/python3.12/site-packages pip
+nvidia-cusparse                          12.6.3.3        /home/workloft/.local/lib/python3.12/site-packages pip
+nvidia-cusparselt-cu13                   0.8.0           /home/workloft/.local/lib/python3.12/site-packages pip
+nvidia-nccl-cu13                         2.28.9          /home/workloft/.local/lib/python3.12/site-packages pip
+nvidia-nvjitlink                         13.0.88         /home/workloft/.local/lib/python3.12/site-packages pip
+nvidia-nvshmem-cu13                      3.4.5           /home/workloft/.local/lib/python3.12/site-packages pip
+nvidia-nvtx                              13.0.85         /home/workloft/.local/lib/python3.12/site-packages pip
+oauthlib                                 3.2.2           /usr/lib/python3/dist-packages
+omegaconf                                2.3.0           /home/workloft/.local/lib/python3.12/site-packages pip
+openai                                   2.32.0          /home/workloft/.local/lib/python3.12/site-packages pip
+opencv-python                            4.13.0.92       /home/workloft/.local/lib/python3.12/site-packages pip
+openpyxl                                 3.1.5           /home/workloft/.local/lib/python3.12/site-packages pip
+opentelemetry-api                        1.38.0          /home/workloft/.local/lib/python3.12/site-packages pip
+opentelemetry-exporter-gcp-logging       1.11.0a0        /home/workloft/.local/lib/python3.12/site-packages pip
+opentelemetry-exporter-gcp-monitoring    1.11.0a0        /home/workloft/.local/lib/python3.12/site-packages pip
+opentelemetry-exporter-gcp-trace         1.11.0          /home/workloft/.local/lib/python3.12/site-packages pip
+opentelemetry-exporter-otlp-proto-common 1.38.0          /home/workloft/.local/lib/python3.12/site-packages pip
+opentelemetry-exporter-otlp-proto-http   1.38.0          /home/workloft/.local/lib/python3.12/site-packages pip
+opentelemetry-proto                      1.38.0          /home/workloft/.local/lib/python3.12/site-packages pip
+opentelemetry-resourcedetector-gcp       1.11.0a0        /home/workloft/.local/lib/python3.12/site-packages pip
+opentelemetry-sdk                        1.38.0          /home/workloft/.local/lib/python3.12/site-packages pip
+opentelemetry-semantic-conventions       0.59b0          /home/workloft/.local/lib/python3.12/site-packages pip
+packaging                                26.1            /home/workloft/.local/lib/python3.12/site-packages pip
+pandas                                   3.0.2           /home/workloft/.local/lib/python3.12/site-packages pip
+paramiko                                 4.0.0           /home/workloft/.local/lib/python3.12/site-packages pip
+patchright                               1.58.2          /home/workloft/.local/lib/python3.12/site-packages pip
+pexpect                                  4.9.0           /usr/lib/python3/dist-packages
+pillow                                   10.4.0          /home/workloft/.local/lib/python3.12/site-packages pip
+pip                                      24.0            /usr/lib/python3/dist-packages                     debian
+playwright                               1.58.0          /home/workloft/.local/lib/python3.12/site-packages pip
+playwright-stealth                       2.0.3           /home/workloft/.local/lib/python3.12/site-packages pip
+pluggy                                   1.6.0           /home/workloft/.local/lib/python3.12/site-packages pip
+polyfactory                              3.3.0           /home/workloft/.local/lib/python3.12/site-packages pip
+portalocker                              3.2.0           /home/workloft/.local/lib/python3.12/site-packages pip
+posthog                                  7.12.0          /home/workloft/.local/lib/python3.12/site-packages pip
+propcache                                0.4.1           /home/workloft/.local/lib/python3.12/site-packages pip
+proto-plus                               1.27.2          /home/workloft/.local/lib/python3.12/site-packages pip
+protobuf                                 5.29.6          /home/workloft/.local/lib/python3.12/site-packages pip
+psutil                                   7.2.2           /home/workloft/.local/lib/python3.12/site-packages pip
+ptyprocess                               0.7.0           /usr/lib/python3/dist-packages
+pyarrow                                  23.0.1          /home/workloft/.local/lib/python3.12/site-packages pip
+pyasn1                                   0.4.8           /usr/lib/python3/dist-packages
+pyasn1-modules                           0.2.8           /usr/lib/python3/dist-packages
+pyasyncore                               1.0.2           /usr/lib/python3/dist-packages
+pyclipper                                1.4.0           /home/workloft/.local/lib/python3.12/site-packages pip
+pycparser                                3.0             /home/workloft/.local/lib/python3.12/site-packages pip
+pydantic                                 2.13.2          /home/workloft/.local/lib/python3.12/site-packages pip
+pydantic_core                            2.46.2          /home/workloft/.local/lib/python3.12/site-packages pip
+pydantic-settings                        2.13.1          /home/workloft/.local/lib/python3.12/site-packages pip
+pydyf                                    0.12.1          /home/workloft/.local/lib/python3.12/site-packages pip
+pyee                                     13.0.1          /home/workloft/.local/lib/python3.12/site-packages pip
+Pygments                                 2.17.2          /usr/lib/python3/dist-packages                     debian
+PyGObject                                3.48.2          /usr/lib/python3/dist-packages
+PyHamcrest                               2.1.0           /usr/lib/python3/dist-packages                     debian
+pyinotify                                0.9.6           /usr/lib/python3/dist-packages
+PyJWT                                    2.12.1          /home/workloft/.local/lib/python3.12/site-packages pip
+pylatexenc                               2.10            /home/workloft/.local/lib/python3.12/site-packages pip
+PyMuPDF                                  1.27.2.3        /home/workloft/.local/lib/python3.12/site-packages pip
+PyNaCl                                   1.6.2           /home/workloft/.local/lib/python3.12/site-packages pip
+pyOpenSSL                                26.0.0          /home/workloft/.local/lib/python3.12/site-packages pip
+pyparsing                                3.1.1           /usr/lib/python3/dist-packages                     debian
+pypdf                                    6.10.2          /home/workloft/.local/lib/python3.12/site-packages pip
+pypdfium2                                5.7.0           /home/workloft/.local/lib/python3.12/site-packages pip
+pyperclip                                1.11.0          /home/workloft/.local/lib/python3.12/site-packages pip
+pyphen                                   0.17.2          /home/workloft/.local/lib/python3.12/site-packages pip
+pyrsistent                               0.20.0          /usr/lib/python3/dist-packages
+pyserial                                 3.5             /usr/lib/python3/dist-packages
+Pysher                                   1.0.8           /home/workloft/.local/lib/python3.12/site-packages pip
+python-apt                               2.7.7+ubuntu5.2 /usr/lib/python3/dist-packages
+python-dateutil                          2.9.0.post0     /home/workloft/.local/lib/python3.12/site-packages pip
+python-debian                            0.1.49+ubuntu2  /usr/lib/python3/dist-packages
+python-docx                              1.2.0           /home/workloft/.local/lib/python3.12/site-packages pip
+python-dotenv                            1.2.2           /home/workloft/.local/lib/python3.12/site-packages pip
+python-frontmatter                       1.3.0           /home/workloft/.local/lib/python3.12/site-packages pip
+python-magic                             0.4.27          /usr/lib/python3/dist-packages
+python-multipart                         0.0.26          /home/workloft/.local/lib/python3.12/site-packages pip
+python-pptx                              1.0.2           /home/workloft/.local/lib/python3.12/site-packages pip
+pytz                                     2024.1          /usr/lib/python3/dist-packages
+PyYAML                                   6.0.3           /home/workloft/.local/lib/python3.12/site-packages pip
+qdrant-client                            1.17.1          /home/workloft/.local/lib/python3.12/site-packages pip
+qrcode                                   8.2             /home/workloft/.local/lib/python3.12/site-packages pip
+rank-bm25                                0.2.2           /home/workloft/.local/lib/python3.12/site-packages pip
+rapidocr                                 3.8.1           /home/workloft/.local/lib/python3.12/site-packages pip
+referencing                              0.37.0          /home/workloft/.local/lib/python3.12/site-packages pip
+regex                                    2026.4.4        /home/workloft/.local/lib/python3.12/site-packages pip
+reportlab                                4.4.10          /home/workloft/.local/lib/python3.12/site-packages pip
+requests                                 2.33.1          /home/workloft/.local/lib/python3.12/site-packages pip
+rich                                     13.9.4          /home/workloft/.local/lib/python3.12/site-packages pip
+rich-rst                                 2.0.1           /home/workloft/.local/lib/python3.12/site-packages pip
+rpds-py                                  0.30.0          /home/workloft/.local/lib/python3.12/site-packages pip
+rtree                                    1.4.1           /home/workloft/.local/lib/python3.12/site-packages pip
+s3transfer                               0.10.1          /usr/lib/python3/dist-packages
+safetensors                              0.7.0           /home/workloft/.local/lib/python3.12/site-packages pip
+scikit-learn                             1.9.0           /home/workloft/.local/lib/python3.12/site-packages pip
+scipy                                    1.17.1          /home/workloft/.local/lib/python3.12/site-packages pip
+semchunk                                 3.2.5           /home/workloft/.local/lib/python3.12/site-packages pip
+semver                                   3.0.4           /home/workloft/.local/lib/python3.12/site-packages pip
+sentence-transformers                    5.5.1           /home/workloft/.local/lib/python3.12/site-packages pip
+sentry-sdk                               2.58.0          /home/workloft/.local/lib/python3.12/site-packages pip
+service-identity                         24.1.0          /usr/lib/python3/dist-packages                     debian
+setuptools                               68.1.2          /usr/lib/python3/dist-packages
+shapely                                  2.1.2           /home/workloft/.local/lib/python3.12/site-packages pip
+shellingham                              1.5.4           /home/workloft/.local/lib/python3.12/site-packages pip
+simple-websocket                         1.1.0           /home/workloft/.local/lib/python3.12/site-packages pip
+six                                      1.16.0          /usr/lib/python3/dist-packages
+smolagents                               1.24.0          /home/workloft/.local/lib/python3.12/site-packages pip
+sniffio                                  1.3.1           /home/workloft/.local/lib/python3.12/site-packages pip
+snowballstemmer                          2.2.0           /home/workloft/.local/lib/python3.12/site-packages pip
+sos                                      4.10.2          /usr/lib/python3/dist-packages
+soupsieve                                2.8.3           /home/workloft/.local/lib/python3.12/site-packages pip
+SQLAlchemy                               2.0.49          /home/workloft/.local/lib/python3.12/site-packages pip
+sqlalchemy-spanner                       1.17.3          /home/workloft/.local/lib/python3.12/site-packages pip
+sqlparse                                 0.5.5           /home/workloft/.local/lib/python3.12/site-packages pip
+sse-starlette                            3.3.4           /home/workloft/.local/lib/python3.12/site-packages pip
+ssh-import-id                            5.11            /usr/lib/python3/dist-packages
+starlette                                0.52.1          /home/workloft/.local/lib/python3.12/site-packages pip
+sympy                                    1.14.0          /home/workloft/.local/lib/python3.12/site-packages pip
+systemd-python                           235             /usr/lib/python3/dist-packages
+tabulate                                 0.10.0          /home/workloft/.local/lib/python3.12/site-packages pip
+tenacity                                 9.1.4           /home/workloft/.local/lib/python3.12/site-packages pip
+threadpoolctl                            3.6.0           /home/workloft/.local/lib/python3.12/site-packages pip
+tiktoken                                 0.12.0          /home/workloft/.local/lib/python3.12/site-packages pip
+tinycss2                                 1.5.1           /home/workloft/.local/lib/python3.12/site-packages pip
+tinyhtml5                                2.1.0           /home/workloft/.local/lib/python3.12/site-packages pip
+together                                 2.16.0          /home/workloft/.local/lib/python3.12/site-packages pip
+tokenizers                               0.22.2          /home/workloft/.local/lib/python3.12/site-packages pip
+torch                                    2.11.0          /home/workloft/.local/lib/python3.12/site-packages pip
+torchvision                              0.26.0          /home/workloft/.local/lib/python3.12/site-packages pip
+tqdm                                     4.67.3          /home/workloft/.local/lib/python3.12/site-packages pip
+transformers                             4.57.6          /home/workloft/.local/lib/python3.12/site-packages pip
+tree-sitter                              0.25.2          /home/workloft/.local/lib/python3.12/site-packages pip
+tree-sitter-c                            0.24.1          /home/workloft/.local/lib/python3.12/site-packages pip
+tree-sitter-javascript                   0.25.0          /home/workloft/.local/lib/python3.12/site-packages pip
+tree-sitter-python                       0.25.0          /home/workloft/.local/lib/python3.12/site-packages pip
+tree-sitter-typescript                   0.23.2          /home/workloft/.local/lib/python3.12/site-packages pip
+trimesh                                  4.11.5          /home/workloft/.local/lib/python3.12/site-packages pip
+triton                                   3.6.0           /home/workloft/.local/lib/python3.12/site-packages pip
+Twisted                                  24.3.0          /usr/lib/python3/dist-packages                     debian
+txtai                                    9.7.0           /home/workloft/.local/lib/python3.12/site-packages pip
+typer                                    0.21.2          /home/workloft/.local/lib/python3.12/site-packages pip
+types-PyYAML                             6.0.12.20260518 /home/workloft/.local/lib/python3.12/site-packages pip
+types-requests                           2.33.0.20260518 /home/workloft/.local/lib/python3.12/site-packages pip
+types-tabulate                           0.10.0.20260508 /home/workloft/.local/lib/python3.12/site-packages pip
+types-tqdm                               4.68.0.20260608 /home/workloft/.local/lib/python3.12/site-packages pip
+typing_extensions                        4.15.0          /home/workloft/.local/lib/python3.12/site-packages pip
+typing-inspection                        0.4.2           /home/workloft/.local/lib/python3.12/site-packages pip
+tzlocal                                  5.3.1           /home/workloft/.local/lib/python3.12/site-packages pip
+ubuntu-drivers-common                    0.0.0           /usr/lib/python3/dist-packages
+ubuntu-pro-client                        8001            /usr/lib/python3/dist-packages
+unattended-upgrades                      0.1             /usr/lib/python3/dist-packages
+unclecode-litellm                        1.81.13         /home/workloft/.local/lib/python3.12/site-packages pip
+uritemplate                              4.2.0           /home/workloft/.local/lib/python3.12/site-packages pip
+urllib3                                  2.0.7           /usr/lib/python3/dist-packages                     debian
+uvicorn                                  0.44.0          /home/workloft/.local/lib/python3.12/site-packages pip
+uvloop                                   0.22.1          /home/workloft/.local/lib/python3.12/site-packages pip
+wadllib                                  1.3.6           /usr/lib/python3/dist-packages
+watchdog                                 6.0.0           /home/workloft/.local/lib/python3.12/site-packages pip
+watchfiles                               1.1.1           /home/workloft/.local/lib/python3.12/site-packages pip
+weasyprint                               68.1            /home/workloft/.local/lib/python3.12/site-packages pip
+webencodings                             0.5.1           /home/workloft/.local/lib/python3.12/site-packages pip
+websocket-client                         1.9.0           /home/workloft/.local/lib/python3.12/site-packages pip
+websockets                               15.0.1          /home/workloft/.local/lib/python3.12/site-packages pip
+Werkzeug                                 3.1.8           /home/workloft/.local/lib/python3.12/site-packages pip
+wheel                                    0.42.0          /usr/lib/python3/dist-packages                     debian
+wrapt                                    1.17.3          /home/workloft/.local/lib/python3.12/site-packages pip
+wsproto                                  1.3.2           /home/workloft/.local/lib/python3.12/site-packages pip
+xkit                                     0.0.0           /usr/lib/python3/dist-packages
+xlsxwriter                               3.2.9           /home/workloft/.local/lib/python3.12/site-packages pip
+xxhash                                   3.6.0           /home/workloft/.local/lib/python3.12/site-packages pip
+yarl                                     1.23.0          /home/workloft/.local/lib/python3.12/site-packages pip
+youtube-transcript-api                   1.2.4           /home/workloft/.local/lib/python3.12/site-packages pip
+yt-dlp                                   2026.3.17       /home/workloft/.local/lib/python3.12/site-packages pip
+zipp                                     3.23.1          /home/workloft/.local/lib/python3.12/site-packages pip
+zope.interface                           6.1             /usr/lib/python3/dist-packages
+zopfli                                   0.4.1           /home/workloft/.local/lib/python3.12/site-packages pip
