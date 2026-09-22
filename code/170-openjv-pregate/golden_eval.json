@@ -1,0 +1,151 @@
+{
+  "n": 8,
+  "n_kill": 4,
+  "n_pass": 4,
+  "model": "gemma3:4b-it-q4_K_M",
+  "latency_ms": {
+    "min": 45282,
+    "max": 127190,
+    "mean": 66972
+  },
+  "sweep": [
+    {
+      "threshold": 0.5,
+      "fired": 6,
+      "true_kill": 4,
+      "false_kill": 2,
+      "false_kill_rate": 0.5,
+      "kill_recall": 1.0
+    },
+    {
+      "threshold": 0.6,
+      "fired": 6,
+      "true_kill": 4,
+      "false_kill": 2,
+      "false_kill_rate": 0.5,
+      "kill_recall": 1.0
+    },
+    {
+      "threshold": 0.7,
+      "fired": 6,
+      "true_kill": 4,
+      "false_kill": 2,
+      "false_kill_rate": 0.5,
+      "kill_recall": 1.0
+    },
+    {
+      "threshold": 0.75,
+      "fired": 6,
+      "true_kill": 4,
+      "false_kill": 2,
+      "false_kill_rate": 0.5,
+      "kill_recall": 1.0
+    },
+    {
+      "threshold": 0.8,
+      "fired": 6,
+      "true_kill": 4,
+      "false_kill": 2,
+      "false_kill_rate": 0.5,
+      "kill_recall": 1.0
+    },
+    {
+      "threshold": 0.85,
+      "fired": 6,
+      "true_kill": 4,
+      "false_kill": 2,
+      "false_kill_rate": 0.5,
+      "kill_recall": 1.0
+    },
+    {
+      "threshold": 0.9,
+      "fired": 6,
+      "true_kill": 4,
+      "false_kill": 2,
+      "false_kill_rate": 0.5,
+      "kill_recall": 1.0
+    },
+    {
+      "threshold": 0.95,
+      "fired": 6,
+      "true_kill": 4,
+      "false_kill": 2,
+      "false_kill_rate": 0.5,
+      "kill_recall": 1.0
+    }
+  ],
+  "rows": [
+    {
+      "agent": "ruby",
+      "criteria": "The response should complete the requested action and return a usable result.",
+      "candidate": "{\"success\": false, \"result\": null}",
+      "human": "KILL",
+      "p_kill": 1.0,
+      "latency_ms": 54509,
+      "note": "local one-pass read, P(KILL)=1.000"
+    },
+    {
+      "agent": "ruby",
+      "criteria": "The response should complete the requested action; an empty result is acceptable when the account is new.",
+      "candidate": "{\"success\": false, \"result\": null, \"note\": \"lookup returned no rows, which is the expected empty case for a new account\"}",
+      "human": "PASS",
+      "p_kill": 0.9516,
+      "latency_ms": 127190,
+      "note": "local one-pass read, P(KILL)=0.952"
+    },
+    {
+      "agent": "bob",
+      "criteria": "Draft a two-sentence summary of the meeting.",
+      "candidate": "",
+      "human": "KILL",
+      "p_kill": 0.9995,
+      "latency_ms": 57983,
+      "note": "local one-pass read, P(KILL)=0.999"
+    },
+    {
+      "agent": "bob",
+      "criteria": "Draft a two-sentence summary of the meeting.",
+      "candidate": "The team agreed to ship on Friday and to cut the analytics tab from v1. Owners were assigned for both.",
+      "human": "PASS",
+      "p_kill": 1.0,
+      "latency_ms": 79117,
+      "note": "local one-pass read, P(KILL)=1.000"
+    },
+    {
+      "agent": "gary",
+      "criteria": "Route the item to the correct channel and confirm.",
+      "candidate": "Traceback (most recent call last):\n  File \"route.py\", line 40, in <module>\n    raise KeyError('channel')\nKeyError: 'channel'",
+      "human": "KILL",
+      "p_kill": 1.0,
+      "latency_ms": 50903,
+      "note": "local one-pass read, P(KILL)=1.000"
+    },
+    {
+      "agent": "gary",
+      "criteria": "Route the item to the correct channel and confirm.",
+      "candidate": "Routed to #research and confirmed the card was created (id 7f21).",
+      "human": "PASS",
+      "p_kill": 0.0001,
+      "latency_ms": 58106,
+      "note": "local one-pass read, P(KILL)=0.000"
+    },
+    {
+      "agent": "otto",
+      "criteria": "Return the extracted fields as strict JSON.",
+      "candidate": "here are the fields you asked for: name Jane, amount 42",
+      "human": "KILL",
+      "p_kill": 1.0,
+      "latency_ms": 45282,
+      "note": "local one-pass read, P(KILL)=1.000"
+    },
+    {
+      "agent": "otto",
+      "criteria": "Return the extracted fields as strict JSON.",
+      "candidate": "{\"name\": \"Jane\", \"amount\": 42}",
+      "human": "PASS",
+      "p_kill": 0.0,
+      "latency_ms": 62686,
+      "note": "local one-pass read, P(KILL)=0.000"
+    }
+  ]
+}
