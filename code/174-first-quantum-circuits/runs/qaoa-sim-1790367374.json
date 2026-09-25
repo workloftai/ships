@@ -1,0 +1,83 @@
+{
+ "graph": {
+  "nodes": 5,
+  "edges": [
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    4,
+    0
+   ],
+   [
+    0,
+    2
+   ]
+  ],
+  "max_cut": 5,
+  "optimal": [
+   "00101",
+   "01101",
+   "10010",
+   "11010"
+  ]
+ },
+ "random": {
+  "expected_cut": 3.0,
+  "approx_ratio": 0.6,
+  "p_optimal": 0.125
+ },
+ "tuned": {
+  "gamma": 2.8194,
+  "beta": 0.3625,
+  "ideal_expected_cut": 4.109,
+  "ideal_ratio": 0.822
+ },
+ "fake-garnet (local noisy simulator)": {
+  "expected_cut": 3.954,
+  "approx_ratio": 0.791,
+  "p_optimal": 0.368,
+  "wall_secs": 0.8,
+  "job_id": "feefc846-f7bb-41de-af33-05b0d808d7b8",
+  "top5": [
+   [
+    "01001",
+    191,
+    5
+   ],
+   [
+    "10100",
+    189,
+    5
+   ],
+   [
+    "01011",
+    182,
+    5
+   ],
+   [
+    "10110",
+    175,
+    5
+   ],
+   [
+    "11010",
+    115,
+    4
+   ]
+  ]
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "backend": "garnet (real QPU)",
+ "shots": 1000,
+ "counts": {
+  "00": 513,
+  "01": 5,
+  "10": 10,
+  "11": 472
+ },
+ "agree_pct": 98.5,
+ "noise_pct": 1.5,
+ "wall_secs": 2.4,
+ "job_id": "01a0da34-28be-7475-87c2-6c998d61e63d"
+}

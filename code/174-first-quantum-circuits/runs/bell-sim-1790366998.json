@@ -1,0 +1,14 @@
+{
+ "backend": "fake-garnet (local noisy simulator)",
+ "shots": 1000,
+ "counts": {
+  "00": 514,
+  "01": 35,
+  "10": 19,
+  "11": 432
+ },
+ "agree_pct": 94.6,
+ "noise_pct": 5.4,
+ "wall_secs": 0.3,
+ "job_id": "9503e6b1-6bf4-4f0c-bffb-d9e004983b29"
+}

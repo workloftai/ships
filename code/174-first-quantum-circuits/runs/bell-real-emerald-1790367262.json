@@ -1,0 +1,14 @@
+{
+ "backend": "emerald (real QPU)",
+ "shots": 1000,
+ "counts": {
+  "00": 470,
+  "01": 8,
+  "10": 12,
+  "11": 510
+ },
+ "agree_pct": 98.0,
+ "noise_pct": 2.0,
+ "wall_secs": 2.9,
+ "job_id": "01a0da34-5c36-7326-b28a-43c96f795705"
+}
