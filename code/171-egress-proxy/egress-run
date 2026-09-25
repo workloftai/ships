@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# egress-run <loop-name> -- <command...>
+# Run one command with its outbound traffic routed through egress_proxy, tagged
+# with the loop name and a fresh run id (the audit correlation id). The proxy
+# must already be running (egress_proxy.py serve). Loopback bypasses the proxy.
+set -euo pipefail
+loop="$1"; shift; [ "${1:-}" = "--" ] && shift
+run="${loop}-$(date -u +%Y%m%dT%H%M%SZ)-$$"
+proxy="http://${loop}:${run}@127.0.0.1:${EGRESS_PROXY_PORT:-8899}"
+export HTTPS_PROXY="$proxy" HTTP_PROXY="$proxy" https_proxy="$proxy" http_proxy="$proxy"
+export NO_PROXY="localhost,127.0.0.1,::1" no_proxy="localhost,127.0.0.1,::1"
+echo "egress-run: loop=$loop run=$run" >&2
+exec "$@"
