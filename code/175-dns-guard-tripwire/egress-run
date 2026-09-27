@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# egress-run <loop-name> [--trip N] [--grace S] -- <command...>
+# Run one command with its outbound traffic routed through egress_proxy, tagged
+# with the loop name and a fresh run id (the audit correlation id), under the
+# tripwire kill switch: refuses to start if the proxy is down, and kills the
+# whole process group once the proxy has blocked N of this run's connections
+# (enforce mode only; monitor mode never kills). Loopback bypasses the proxy.
+exec python3 "$(dirname "$(readlink -f "$0")")/tripwire.py" "$@"

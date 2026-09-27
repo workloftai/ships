@@ -1,0 +1,5 @@
+{
+  "_why": "Nightly research digest: reads papers and HN, asks a model, posts to Telegram. Nothing else.",
+  "categories": ["model_apis", "research_read", "messaging"],
+  "domains": []
+}
