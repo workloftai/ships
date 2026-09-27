@@ -33,7 +33,7 @@ ordering). It is the one opinionated part: edit it for your own hooks.
 
 Our result for the 30 days to 27 Sep 2026 is in `example-output-2026-09-27.txt`:
 100% pass a hook, 64.3% pass one that judges them, 36.6% get a safety screen,
-1 in 53 blocked (60% of those for em-dashes), 0 of 37,595 other fleet actions
+1 in 53 blocked (60% of those for em-dashes), 0 of 37,596 other fleet actions
 checked before running.
 
 ## Honest limits
