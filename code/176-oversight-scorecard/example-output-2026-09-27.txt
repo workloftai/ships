@@ -1,0 +1,30 @@
+OVERSIGHT SCORECARD · last 30 days · since 2026-08-28T15:21:43Z
+
+1. COVERAGE: what is checked before it runs?
+   Bob + subagents: 6,686 tool calls in 61 sessions
+   passed at least one pre-run hook     6,686  100.0%
+   inspected by a hook that judges it   4,300  64.3%
+   screened for safety (shell only)     2,450  36.6%
+   biggest unjudged tools: Read 797, mcp__plugin_telegram_telegram__react 396, ToolSearch 256, WebFetch 180, Skill 168, WebSearch 159
+   unjudged tools that reach outside: mcp__plugin_telegram_telegram__react 396, WebFetch 180, WebSearch 159, mcp__plugin_telegram_telegram__download_attachment 71, mcp__exa__web_search_exa 10, mcp__exa__web_fetch_exa 6
+   everything else in the fleet: 37,596 logged actions, screened before running: 0
+      ruby/chat: 13,395
+      bob/composio.googlesheets_batch_update: 8,625
+      bob/composio.googlesheets_clear_values: 8,623
+      ruby/chat_failover: 4,085
+
+2. ESCALATION: how often does a check say no?
+   blocked before running: 124 of 6,686 = 1.9% (1 in 53)
+      emdash_outbound_gate [content]: 75
+      telegram_ack_gate [ordering]: 29
+      bash_longrun_gate [process]: 16
+      emdash_gate [content]: 2
+      artefact_gate [process]: 1
+      bash_security_screen [safety]: 1
+   overrides typed to get past a gate: {'# bob-bg-ok': 21}
+   per week: 29 blocks, each seen by the agent that tripped it, not by a human
+
+3. SPEND ON CHECKING
+   recorded model spend in the audit log: $23.37 (bob $21.66, ruby $1.59, external $0.12)
+   checking share: NOT MEASURABLE. Our checkers (hooks, judges, the audit gate) do not
+   record spend, and most of Bob's model use is on a subscription the log does not price.
