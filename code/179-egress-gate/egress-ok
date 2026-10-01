@@ -1,0 +1,20 @@
+#!/usr/bin/env python3
+"""egress-ok <host> [minutes=60]: time-boxed allow for one host. Logged, and
+counted in the weekly line to Alfred, so overrides are seen by a human."""
+import json, os, sys, time
+sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)))
+import egress_gate as g
+
+if len(sys.argv) < 2:
+    sys.exit("usage: egress-ok <host> [minutes]")
+host = sys.argv[1].lower()
+mins = int(sys.argv[2]) if len(sys.argv) > 2 else 60
+os.makedirs(g.STATE, exist_ok=True)
+try:
+    data = json.load(open(g.OVERRIDES))
+except (OSError, ValueError):
+    data = {}
+data[host] = time.time() + mins * 60
+json.dump(data, open(g.OVERRIDES, "w"))
+g.log({"event": "override", "host": host, "minutes": mins, "by": os.environ.get("USER", "?")})
+print(f"egress-ok: {host} allowed for {mins} min (logged)")
