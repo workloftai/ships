@@ -1,0 +1,315 @@
+# Generated from egress-gate/policy.toml by compare.py. Do not edit.
+[policy]
+version = 2
+
+[[policy.tool]]
+name = "host/claude-code/Read(file_path:*/.aws/*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Read(file_path:*/.env*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Read(file_path:*/.env.*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Read(file_path:*/.ssh/*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Read(file_path:*/call-transcripts/*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Read(file_path:*/clients/*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Read(file_path:*/notes/private/*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Read(file_path:*/todo.md*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Read(file_path:*API_KEY*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Read(file_path:*SERVICE_ROLE_KEY*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Read(file_path:*_TOKEN*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Read"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/Grep(path:*/.aws/*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Grep(path:*/.env*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Grep(path:*/.env.*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Grep(path:*/.ssh/*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Grep(path:*/call-transcripts/*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Grep(path:*/clients/*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Grep(path:*/notes/private/*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Grep(path:*/todo.md*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Grep(path:*API_KEY*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Grep(path:*SERVICE_ROLE_KEY*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Grep(path:*_TOKEN*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Grep"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/Glob(pattern:*/.aws/*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Glob(pattern:*/.env*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Glob(pattern:*/.env.*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Glob(pattern:*/.ssh/*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Glob(pattern:*/call-transcripts/*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Glob(pattern:*/clients/*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Glob(pattern:*/notes/private/*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Glob(pattern:*/todo.md*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Glob(pattern:*API_KEY*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Glob(pattern:*SERVICE_ROLE_KEY*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Glob(pattern:*_TOKEN*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Glob"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/Bash(command:*/.aws/*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Bash(command:*/.env*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Bash(command:*/.env.*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Bash(command:*/.ssh/*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Bash(command:*/call-transcripts/*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Bash(command:*/clients/*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Bash(command:*/notes/private/*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Bash(command:*/todo.md*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Bash(command:*API_KEY*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Bash(command:*SERVICE_ROLE_KEY*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Bash(command:*_TOKEN*)"
+delta = { audience = ["alfred"] }
+
+[[policy.tool]]
+name = "host/claude-code/Bash"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/WebFetch(url:https://arxiv.org/*)"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/WebFetch(url:https://*.arxiv.org/*)"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/WebFetch(url:http://arxiv.org/*)"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/WebFetch(url:https://huggingface.co/*)"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/WebFetch(url:https://*.huggingface.co/*)"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/WebFetch(url:http://huggingface.co/*)"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/WebFetch(url:https://github.com/*)"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/WebFetch(url:https://*.github.com/*)"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/WebFetch(url:http://github.com/*)"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/WebFetch(url:https://raw.githubusercontent.com/*)"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/WebFetch(url:https://*.raw.githubusercontent.com/*)"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/WebFetch(url:http://raw.githubusercontent.com/*)"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/WebFetch(url:https://api.github.com/*)"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/WebFetch(url:https://*.api.github.com/*)"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/WebFetch(url:http://api.github.com/*)"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/WebFetch(url:https://anthropic.com/*)"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/WebFetch(url:https://*.anthropic.com/*)"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/WebFetch(url:http://anthropic.com/*)"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/WebFetch(url:https://docs.anthropic.com/*)"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/WebFetch(url:https://*.docs.anthropic.com/*)"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/WebFetch(url:http://docs.anthropic.com/*)"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/WebFetch(url:https://claude.com/*)"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/WebFetch(url:https://*.claude.com/*)"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/WebFetch(url:http://claude.com/*)"
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/WebFetch"
+requires = { audience = { contains = ["public"] } }
+delta = {}
+
+[[policy.tool]]
+name = "host/claude-code/WebSearch"
+requires = { audience = { contains = ["public"] } }
+delta = {}
+
+[[policy.tool]]
+name = "mcp/exa/web_search_exa"
+requires = { audience = { contains = ["public"] } }
+delta = {}
+
+[[policy.tool]]
+name = "mcp/exa/web_fetch_exa"
+requires = { audience = { contains = ["public"] } }
+delta = {}
+
+[externals]
+timeout_ms = 2000
+max_body_bytes = 65536
