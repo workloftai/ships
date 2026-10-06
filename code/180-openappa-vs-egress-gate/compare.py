@@ -89,6 +89,27 @@ for p in glob.glob(os.path.expanduser("~/.claude/projects/**/*.jsonl"), recursiv
 events.sort(key=lambda e: e[0])
 cutoff = time.strftime("%Y-%m-%dT%H:%M:%S", time.gmtime(since))
 
+# --assume-envq: what if every secret read that only needed key names, a yes/no,
+# or the keys loaded to call an API had gone through envq (ship 181) instead?
+ASSUME_ENVQ = "--assume-envq" in sys.argv
+USES_ENV = re.compile(r"(?:source|^\.|[;&\n]\s*\.)\s+\S*\.env|set -a")
+NAMES_ONLY = re.compile(r"grep\s+-\w*[lLcq]\w*\b|cut\s+-d\s*'?=|sed\s+-E?\s*'s/=\(?\.?|=\.\*/=")
+
+def envq_could_answer(tool, inp, found):
+    if tool != "Bash" or "secrets" not in found:
+        return False
+    cmd = inp.get("command", "")
+    prints_env = re.search(r"\b(cat|head|tail|less)\b[^|;&\n]*\.env", cmd)
+    return bool(USES_ENV.search(cmd) or NAMES_ONLY.search(cmd)) and not prints_env
+
+
+def still_tainting(tool, inp):
+    found = g.labels_for(tool, inp, policy)
+    if ASSUME_ENVQ and envq_could_answer(tool, inp, found):
+        found = {k: v for k, v in found.items() if k != "secrets"}
+    return found
+
+
 def step(tool, inp, keys):
     body = []
     for k in keys:
@@ -110,6 +131,8 @@ for ts, sess, tool, inp, uid in events:
         continue
     if tool in TAINT_ARG:
         found = g.labels_for(tool, inp, policy)
+        if ASSUME_ENVQ and envq_could_answer(tool, inp, found):
+            found = {k: v for k, v in found.items() if k != "secrets"}
         if found:
             g.record_taint(sess, found, tool)
             g.record_content(sess, g.response_text(results.get(uid, "")))
@@ -157,6 +180,7 @@ def appa_decisions(path):
             out[(os.path.basename(m.group(1)), int(m.group(2)))] = m.group(3)
     return out, r
 
+denied_by_label = collections.Counter()
 grid = collections.Counter(); examples = collections.defaultdict(list); unparsed = 0
 for s, t in keep.items():
     fn = f"{re.sub(r'[^A-Za-z0-9-]', '_', s)[-60:]}.appa"
@@ -172,6 +196,8 @@ for s, t in keep.items():
                 gate = "deny" if d["decision"] != "allow" else "allow"
                 k = f"gate:{gate} appa:{a}"
                 grid[k] += 1
+                if a == "deny":
+                    denied_by_label[",".join(d["labels"])] += 1
                 if gate != a and len(examples[k]) < 8:
                     examples[k].append({"tool": tool, "host": d["host"], "labels": d["labels"], "rule": d["rule"]})
         line += n_lines
@@ -183,7 +209,7 @@ tainted = [s for s, t in keep.items() if any(d is None for _, _, d in t)]
 cdir = os.path.join(OUT, "canaries"); os.makedirs(cdir, exist_ok=True)
 for s in tainted:
     texts = [g.response_text(results.get(uid, "")) for ts, ss, tool, inp, uid in events
-             if ss == s and tool in TAINT_ARG and g.labels_for(tool, inp, policy)]
+             if ss == s and tool in TAINT_ARG and still_tainting(tool, inp)]
     words = re.findall(r"[a-z0-9']+", g.URL_RX.sub(" ", " ".join(texts)).lower())
     if len(words) < 50:
         continue
@@ -198,7 +224,7 @@ for s in tainted:
     c_appa += "deny" in [v for (f, ln), v in dec.items() if ln > 3]
 
 res = {"days": DAYS, "sessions_compared": len(keep), "sessions_tainted": len(tainted),
-       "outbound_calls": sum(grid.values()), "grid": dict(grid), "unparsed": unparsed,
+       "outbound_calls": sum(grid.values()), "grid": dict(grid), "appa_denied_by_session_labels": dict(denied_by_label.most_common()), "unparsed": unparsed,
        "canaries": {"planted": c_tried, "egress_gate_caught": c_gate, "openappa_caught": c_appa},
        "disagreement_examples": examples}
 print(json.dumps(res, indent=1))

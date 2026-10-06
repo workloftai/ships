@@ -1,25 +1,25 @@
 {
  "days": 3650,
  "sessions_compared": 31,
- "sessions_tainted": 29,
+ "sessions_tainted": 25,
  "outbound_calls": 147,
  "grid": {
-  "gate:allow appa:deny": 59,
-  "gate:allow appa:allow": 88
+  "gate:allow appa:deny": 51,
+  "gate:allow appa:allow": 96
  },
  "appa_denied_by_session_labels": {
-  "secrets": 24,
-  "personal,secrets": 13,
-  "personal": 12,
+  "personal": 20,
+  "secrets": 16,
   "client-confidential,personal": 5,
+  "personal,secrets": 5,
   "client-confidential,personal,secrets": 4,
   "client-confidential,secrets": 1
  },
  "unparsed": 0,
  "canaries": {
-  "planted": 29,
-  "egress_gate_caught": 29,
-  "openappa_caught": 28
+  "planted": 25,
+  "egress_gate_caught": 24,
+  "openappa_caught": 25
  },
  "disagreement_examples": {
   "gate:allow appa:deny": [

@@ -51,6 +51,10 @@ file or a personal note earlier on. The one canary OpenAPPA missed was our
 translation: a shell command naming `.env` without a leading slash did not match
 the selector we generated. `result.example.json` is the raw output.
 
+`--assume-envq` reruns the comparison as if every secret read that only needed a
+key name, a yes/no, or the key loaded to call an API had gone through
+[envq](../181-envq) instead (ship 181).
+
 ## Read this before quoting the 40%
 
 A replay cannot choose a remedy. Live, OpenAPPA would offer the agent ways

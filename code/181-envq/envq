@@ -1,0 +1,124 @@
+#!/usr/bin/env python3
+"""envq: ask about secrets without reading them into the session.
+
+The confined-read pattern from OpenAPPA, minus the engine: the secret file is
+read by this process, not by the agent, and the agent only ever gets a
+fixed-shape answer back (key names, file paths, yes/no, a length). Secret
+values never reach stdout, so egress-gate does not taint the session for it.
+
+  envq keys  [FILE...]          key NAMES defined in each env file
+  envq where KEY                which env files define KEY
+  envq has   KEY                "yes <file>" (exit 0) or "no" (exit 1)
+  envq len   KEY                length of KEY's value, and its first 4 chars if it
+                                looks like a public prefix (sk-, ghp_, glpat-)
+  envq run [-f FILE]... -- CMD  run CMD with the env files loaded; every secret
+                                value in its output is replaced by [KEY]
+
+FILE defaults to policy.toml's secret_env_files plus any -f/--file given.
+"""
+import glob
+import os
+import re
+import subprocess
+import sys
+import tomllib
+
+HOME = os.path.expanduser("~")
+BASE = os.path.dirname(os.path.realpath(__file__))
+POLICY = os.environ.get("EGRESS_POLICY", os.path.join(BASE, "policy.toml"))
+LINE = re.compile(r"^\s*(?:export\s+)?([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*?)\s*$")
+PUBLIC_PREFIX = re.compile(r"^(sk-ant-|sk-proj-|sk-|ghp_|gho_|glpat-|xox[bp]-|AKIA)")
+
+
+def default_files():
+    try:
+        with open(POLICY, "rb") as f:
+            pats = tomllib.load(f).get("secret_env_files", [])
+    except (OSError, tomllib.TOMLDecodeError):
+        pats = []
+    out = []
+    for p in pats:
+        out += sorted(glob.glob(os.path.expanduser(p)))
+    return out
+
+
+def parse(path):
+    vals = {}
+    try:
+        with open(path, errors="replace") as f:
+            for ln in f:
+                m = LINE.match(ln)
+                if m and not ln.lstrip().startswith("#"):
+                    v = m.group(2)
+                    if len(v) >= 2 and v[0] == v[-1] and v[0] in "'\"":
+                        v = v[1:-1]
+                    vals[m.group(1)] = v
+    except OSError:
+        pass
+    return vals
+
+
+def short(path):
+    return "~" + path[len(HOME):] if path.startswith(HOME) else path
+
+
+def main(argv):
+    extra, rest = [], []
+    i = 0
+    while i < len(argv):
+        if argv[i] in ("-f", "--file") and i + 1 < len(argv):
+            extra.append(os.path.abspath(os.path.expanduser(argv[i + 1])))
+            i += 2
+        elif argv[i] == "--":
+            rest += argv[i:]
+            break
+        else:
+            rest.append(argv[i])
+            i += 1
+    if not rest:
+        print(__doc__.strip())
+        return 2
+    cmd, args = rest[0], rest[1:]
+    files = list(dict.fromkeys(extra + default_files()))
+    envs = {f: parse(f) for f in files}
+
+    if cmd == "keys":
+        targets = [os.path.abspath(os.path.expanduser(a)) for a in args] or files
+        for f in targets:
+            print(f"{short(f)}: {' '.join(sorted(envs.get(f) or parse(f))) or '(none)'}")
+        return 0
+    if cmd in ("where", "has", "len") and args:
+        key = args[0]
+        hits = [f for f in files if key in envs[f]]
+        if cmd == "where":
+            print("\n".join(short(f) for f in hits) or "not defined")
+            return 0 if hits else 1
+        if cmd == "has":
+            print(f"yes {short(hits[0])}" if hits else "no")
+            return 0 if hits else 1
+        if not hits:
+            print("no")
+            return 1
+        v = envs[hits[0]][key]
+        m = PUBLIC_PREFIX.match(v)
+        print(f"{len(v)} chars" + (f", starts {m.group(1)}" if m else "") + f" ({short(hits[0])})")
+        return 0
+    if cmd == "run" and args[:1] == ["--"] and len(args) > 1:
+        env = dict(os.environ)
+        secrets = {}
+        for f in files:
+            env.update(envs[f])
+            secrets.update({k: v for k, v in envs[f].items() if len(v) >= 8})
+        p = subprocess.run(args[1:] if len(args) > 2 else ["bash", "-c", args[1]],
+                           env=env, capture_output=True, text=True, errors="replace")
+        out = p.stdout + p.stderr
+        for k, v in sorted(secrets.items(), key=lambda kv: -len(kv[1])):
+            out = out.replace(v, f"[{k}]")
+        sys.stdout.write(out)
+        return p.returncode
+    print(__doc__.strip())
+    return 2
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))
