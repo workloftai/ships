@@ -1,0 +1,117 @@
+{
+  "date": "2026-10-17",
+  "walt": {
+    "gemini-2.5-flash (incumbent)": {
+      "n": 141,
+      "json_valid": 141,
+      "mae_vs_ref": 1.34,
+      "shortlist_size": 7,
+      "ref_shortlist_size": 7,
+      "shortlist_precision": 0.57,
+      "shortlist_recall": 0.57,
+      "shortlist_f1": 0.57,
+      "cost_usd": 0.0377,
+      "in_tokens": 68819,
+      "out_tokens": 6837,
+      "median_secs": 0.58,
+      "errors": 0,
+      "note": "direct Google API, thinkingBudget=0 (production config); OpenRouter slug 404s"
+    },
+    "haiku-5.5 low": {
+      "n": 141,
+      "json_valid": 137,
+      "mae_vs_ref": 0.49,
+      "shortlist_size": 5,
+      "ref_shortlist_size": 7,
+      "shortlist_precision": 0.6,
+      "shortlist_recall": 0.43,
+      "shortlist_f1": 0.5,
+      "cost_usd": 0.0212,
+      "in_tokens": 104425,
+      "out_tokens": 21607,
+      "median_secs": 1.07,
+      "errors": 0
+    },
+    "haiku-5.5 high": {
+      "n": 141,
+      "json_valid": 141,
+      "mae_vs_ref": 0.49,
+      "shortlist_size": 8,
+      "ref_shortlist_size": 7,
+      "shortlist_precision": 0.62,
+      "shortlist_recall": 0.71,
+      "shortlist_f1": 0.67,
+      "cost_usd": 0.0323,
+      "in_tokens": 104425,
+      "out_tokens": 43620,
+      "median_secs": 1.92,
+      "errors": 0
+    },
+    "REF opus-5 high": {
+      "n": 141,
+      "json_valid": 140,
+      "mae_vs_ref": 0.0,
+      "shortlist_size": 7,
+      "ref_shortlist_size": 7,
+      "shortlist_precision": 1.0,
+      "shortlist_recall": 1.0,
+      "shortlist_f1": 1.0,
+      "cost_usd": 1.1548,
+      "in_tokens": 104143,
+      "out_tokens": 25362,
+      "median_secs": 2.48,
+      "errors": 0
+    }
+  },
+  "vera": {
+    "deepseek-v4-pro (incumbent)": {
+      "overall": 6.3,
+      "grounding": 5.7,
+      "picks": 8.3,
+      "angles": 7.3,
+      "format": 9.0,
+      "json_valid": 3,
+      "cost_usd_3_runs": 0.0189,
+      "out_tokens": 3804,
+      "median_secs": 32.8,
+      "judge_notes": [
+        "The most vivid and writer-usable angles, correctly attributed to outlets, but it asserts mechanisms and absences the sources never state \u2014 most flagrantly the closing claim that the named controls were 'absent in every case'.",
+        "Strong, well-deduplicated picks and mostly hedged claims, but the angles are formulaic boilerplate and it asserts a 'real murder' without noting that another candidate calls it non-existent.",
+        "Picks and prose are the liveliest of the three, but it fabricates mechanisms wholesale \u2014 TV4's agent 'given write access' with no verifier, Pindrop's bots 'in a tightly bounded sandbox' with 'no send() capability' and tight enums \u2014 none of which appears in the candidate text."
+      ]
+    },
+    "haiku-5.5 low": {
+      "overall": 7.7,
+      "grounding": 9.0,
+      "picks": 7.0,
+      "angles": 7.0,
+      "format": 9.0,
+      "json_valid": 3,
+      "cost_usd_3_runs": 0.0056,
+      "out_tokens": 8086,
+      "median_secs": 13.9,
+      "judge_notes": [
+        "Scrupulously hedged throughout, with every speculative control framed as a check to run rather than a finding, though the angles blur together and lean on vague jargon like 'replay divergence detection' that gives a writer little to chase.",
+        "Carefully grounded and honest about unknowns, but it demotes the clear lead story (the Claude police tip) for a thinner Slack item, promotes a non-agentic lawsuit allegation, and leaves most duplicates unkilled.",
+        "Consistently flags what the source does and does not state, kills the duplicate murder-tip item cleanly, and frames controls as open questions rather than asserted causes \u2014 only the thin Wyoming pick weakens it."
+      ]
+    },
+    "haiku-5.5 high": {
+      "overall": 8.7,
+      "grounding": 9.7,
+      "picks": 8.0,
+      "angles": 8.3,
+      "format": 9.0,
+      "json_valid": 3,
+      "cost_usd_3_runs": 0.0118,
+      "out_tokens": 20571,
+      "median_secs": 28.9,
+      "judge_notes": [
+        "Strongest overall: picks the triple-sourced homicide-tip story as headline and folds the duplicates' extra details into it, with consistently hedged, question-driven angles, marred only by attributing the 'Philadelphia police furious' line to candidate 0's title when it belongs to candidate 5.",
+        "Picks the strongest incident, explicitly flags the contradiction between outlets instead of smoothing it over, and every angle stays tied to what the titles actually say while still giving a writer concrete questions.",
+        "Scrupulously grounded and even admits the vocabulary fits the Character.AI case poorly, but it spends two of three mentions on what it concedes may be the same murder-tip episode while killing the strongest-scoring candidate."
+      ]
+    }
+  },
+  "wall_secs": 644
+}
