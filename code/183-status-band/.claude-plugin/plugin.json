@@ -1,0 +1,24 @@
+{
+  "name": "status-band",
+  "version": "0.1.0",
+  "description": "Draws a one-line status band above the prompt from any command that prints JSON, plus a live count of this session's subagents. /band prints the detail.",
+  "author": { "name": "Workloft", "url": "https://workloft.ai" },
+  "license": "MIT",
+  "userConfig": {
+    "command": {
+      "type": "string",
+      "title": "Feed command",
+      "description": "The command to run, one argument per entry, no shell. It must print JSON: {\"title\", \"segments\": [{\"label\", \"value\", \"alert\"}], \"detail\"}.",
+      "multiple": true,
+      "default": []
+    },
+    "interval_seconds": {
+      "type": "number",
+      "title": "Refresh interval (seconds)",
+      "description": "How often to rerun the feed command",
+      "default": 60,
+      "min": 10,
+      "max": 3600
+    }
+  }
+}

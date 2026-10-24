@@ -1,0 +1,4 @@
+{
+  "description": "status-band hooks module",
+  "modules": ["./register.js"]
+}
