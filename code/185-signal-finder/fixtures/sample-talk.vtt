@@ -1,0 +1,21 @@
+WEBVTT
+NOTE title: Sample talk (synthetic fixture, not a real person)
+NOTE date: 2026-03-02
+
+00:00:01.000 --> 00:00:06.000
+Thanks for having me. I'm Sam Example, I run the platform team at Example Labs.
+
+00:00:06.500 --> 00:00:14.000
+The first lesson we learned the hard way is that you should ship the boring version first and measure it.
+
+00:00:14.500 --> 00:00:22.000
+Don't build the dashboard before anyone has asked a question the dashboard would answer.
+
+00:01:05.000 --> 00:01:12.000
+My rule now is one owner per metric, because a number with three owners has none.
+
+00:02:10.000 --> 00:02:18.000
+I think most teams over-invest in tooling and under-invest in writing down what they decided.
+
+00:03:00.000 --> 00:03:08.000
+Never let a migration run longer than a quarter without a date you are willing to say out loud.
